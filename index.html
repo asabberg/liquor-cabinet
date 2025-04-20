@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquor Cabinet</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Liquor Cabinet</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Categories</h2>
+            <div id="categories">
+                <button onclick="showSubcategories('whiskey')">Whiskey</button>
+                <button onclick="showSubcategories('vodka')">Vodka</button>
+                <button onclick="showSubcategories('rum')">Rum</button>
+            </div>
+        </section>
+        <section>
+            <h2>Subcategories</h2>
+            <div id="subcategories">
+                <!-- Subcategory buttons will be dynamically added here -->
+            </div>
+            <div id="subcategories2">
+                <!-- Subcategory buttons will be dynamically added here -->
+            </div>
+        </section>
+        <section>
+            <h2>Available Drinks</h2>
+            <ul id="drinks-list">
+                <!-- Drinks will be displayed here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Liquor Cabinet</p>
+    </footer>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
