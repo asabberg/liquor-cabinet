@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    text-align: center;
 }
 
 header {
@@ -33,6 +34,21 @@ nav a:hover {
     width: 80%;
     margin: auto;
     overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li:not(:first-of-type) {
+    margin-top: 1.5em;
+    }
+ul li:not(:last-of-type) {
+    margin-bottom: 1.5em;
+}
+
+section{
+    padding: 5px;
 }
 
 footer {
