@@ -18,11 +18,9 @@ const drinksData = {
         }
     },
     vodka: {
-        flavored: [
+        all: [
             { distillery: 'Absolut', bottle: 'Citron', region: 'Sweden', notes: 'Lemon-flavored' },
-            { distillery: 'Smirnoff', bottle: 'Vanilla', region: 'Russia', notes: 'Vanilla-flavored' }
-        ],
-        plain: [
+            { distillery: 'Smirnoff', bottle: 'Vanilla', region: 'Russia', notes: 'Vanilla-flavored' },
             { distillery: 'Grey Goose', bottle: 'Original', region: 'France', notes: 'Soft and smooth' },
             { distillery: 'Belvedere', bottle: 'Original', region: 'Poland', notes: 'Clean and crisp' }
         ]
@@ -51,7 +49,11 @@ function showSubcategories(category) {
 
     if (drinksData[category]) {
         const subcategories = Object.keys(drinksData[category]);
-        subcategories.forEach(subcategory => {
+        
+        if (subcategories.length === 1) {
+            // If there's only one subcategory, directly show the drinks
+            showDrinks(category, subcategories[0]);
+        }else subcategories.forEach(subcategory => {
             const button = document.createElement('button');
             button.textContent = subcategory.charAt(0).toUpperCase() + subcategory.slice(1); // Capitalize
             button.onclick = () => {
@@ -89,6 +91,7 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
     drinksList.innerHTML = ''; // Clear the current list
 
     let drinks = [];
+    
     if (nestedSubcategory) {
         drinks = drinksData[category][subcategory][nestedSubcategory] || [];
     } else {
