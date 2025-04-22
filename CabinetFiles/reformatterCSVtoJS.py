@@ -14,6 +14,7 @@ def reformat_csv_to_js(csv_file_path, output_file_path):
                 f"bottle: '{html.escape(row.get('Bottle', '').strip())}', "
                 f"region: '{html.escape(row.get('Region', '').strip())}', "
                 f"ABV: '{html.escape(row.get('ABV', '').strip())}', "
+                f"Age: '{html.escape(row.get('Age', '').strip())}', "
                 f"notes: '{html.escape(row.get('Notes', '').strip())}', "
                 f"occasion: '{html.escape(row.get('Occasion', '').strip())}' }},"
             )

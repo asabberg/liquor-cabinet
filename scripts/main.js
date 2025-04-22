@@ -5,7 +5,7 @@ const drinksData = {
 //
             ],
             rye: [
-                { distillery: 'WhistlePig', bottle: '12 Old World Rye', region: 'Vermont, USA', ABV: '43%', notes: 'Rich fruit and spice notes, including rye spice, apricots, plums, raisins, dates, honey, dark chocolate, winter fruit, caramel, and vanilla', occasion: '' },
+                { distillery: 'WhistlePig', bottle: 'Old World Rye', region: 'Vermont, USA', ABV: '43%', Age: '12 Years', notes: 'Rich fruit and spice notes, including rye spice, apricots, plums, raisins, dates, honey, dark chocolate, winter fruit, caramel, and vanilla', occasion: '' },
 //
             ],
             americansinglemalt: [
@@ -24,9 +24,9 @@ const drinksData = {
         },
         japanese: {
             all: [
-                { distillery: 'Nikka', bottle: 'Yoichi - Peaty &amp; Salty', region: 'Hokkaido, Japan', ABV: '55%', notes: 'Bold peat smoke, briny maritime salinity, toasted oak, subtle sweetness', occasion: 'Aquired in Yokohama 2024' },
-                { distillery: 'Nikka', bottle: 'Yoichi - Woody &amp; Vanillic', region: 'Hokkaido, Japan', ABV: '55%', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: 'Aquired in Yokohama 2024' },
-                { distillery: 'Nikka', bottle: 'Yoichi - Sherry &amp; Sweet', region: 'Hokkaido, Japan', ABV: '55%', notes: 'Rich dried fruit, dark chocolate, nutty sweetness, hints of spice', occasion: 'Aquired in Yokohama 2024' },
+                { distillery: 'Nikka', bottle: 'Yoichi - Peaty &amp; Salty', region: 'Hokkaido, Japan', ABV: '55%', Age: 'NAS', notes: 'Bold peat smoke, briny maritime salinity, toasted oak, subtle sweetness', occasion: 'Aquired in Yokohama 2024' },
+                { distillery: 'Nikka', bottle: 'Yoichi - Woody &amp; Vanillic', region: 'Hokkaido, Japan', ABV: '55%', Age: 'NAS', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: 'Aquired in Yokohama 2024' },
+                { distillery: 'Nikka', bottle: 'Yoichi - Sherry &amp; Sweet', region: 'Hokkaido, Japan', ABV: '55%', Age: 'NAS', notes: 'Rich dried fruit, dark chocolate, nutty sweetness, hints of spice', occasion: 'Aquired in Yokohama 2024' },
                 //
             ]
         },
@@ -140,18 +140,35 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
         drinks.forEach(drink => {
             const listItem = document.createElement('li');
             
-            if (drink.occasion) {    
+            if (drink.occasion && drink.Age !== 'NAS' && drink.Age) {    
                 listItem.innerHTML = `
                     <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
                     <em>Region:</em> ${drink.region} <br>
+                    <em>ABV:</em> ${drink.ABV} <em> | Age:</em> ${drink.Age} <br>
                     <em>Notes:</em> ${drink.notes} <br>
                     <em>Occasion:</em> ${drink.occasion}
                 `;
             }
-            else {
+            else if (drink.occasion) {
                 listItem.innerHTML = `
                     <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
                     <em>Region:</em> ${drink.region} <br>
+                    <em>ABV:</em> ${drink.ABV} <br>
+                    <em>Notes:</em> ${drink.notes} <br>
+                    <em>Occasion:</em> ${drink.occasion}
+                `;
+            } else if (drink.Age !== 'NAS' && drink.Age) {
+                listItem.innerHTML = `
+                    <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
+                    <em>Region:</em> ${drink.region} <br>
+                    <em>ABV:</em> ${drink.ABV} <em> | Age:</em> ${drink.Age} <br>
+                    <em>Notes:</em> ${drink.notes} <br>
+                    `;
+            } else {
+                listItem.innerHTML = `
+                    <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
+                    <em>Region:</em> ${drink.region} <br>
+                    <em>ABV:</em> ${drink.ABV}<br>
                     <em>Notes:</em> ${drink.notes}
                 `;
             }
@@ -159,6 +176,6 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
             drinksList.appendChild(listItem);
         });
     } else {
-        drinksList.innerHTML = '<li>No drinks found for this subcategory.</li>';
+        drinksList.innerHTML = '<li>No drinks found for this category.</li>';
     }
 }
