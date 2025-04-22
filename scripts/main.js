@@ -2,26 +2,24 @@ const drinksData = {
     whiskey: {
         american: {
             bourbon: [
-                { distillery: 'Maker\'s Mark', bottle: 'Original', region: '', notes: 'Smooth and sweet', occasion: '' },
-                { distillery: 'Woodford Reserve', bottle: 'Double Oaked', region: 'Kentucky', notes: 'Rich and smoky', occasion: 'Party' },
+//
             ],
             rye: [
                 { distillery: 'WhistlePig', bottle: '12 Old World Rye', region: 'Vermont, USA', ABV: '43%', notes: 'Rich fruit and spice notes, including rye spice, apricots, plums, raisins, dates, honey, dark chocolate, winter fruit, caramel, and vanilla', occasion: '' },
 //
             ],
             americansinglemalt: [
-               { distillery: 'Balcones', bottle: 'Texas Single Malt', region: 'Texas', notes: 'Bold and unique' },
-               { distillery: 'Westland', bottle: 'American Single Malt', region: 'Washington', notes: 'Rich and complex' } 
+               { distillery: 'Westland', bottle: 'American Single Malt', region: 'Washington', notes: 'Rich and complex' }, 
+//
             ],
             other: [
                 { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Retirement Gift ‘23' },                //                
-
+//
             ]
         },
         scotch: {
-            highland: [
-                { distillery: 'Glenfiddich', bottle: '12 Year Old', region: 'Scotland', notes: 'Fruity and fresh' },
-                { distillery: 'Macallan', bottle: '18 Year Old', region: 'Scotland', notes: 'Rich and complex' }
+            islay: [
+//
             ]
         },
         japanese: {
@@ -34,8 +32,7 @@ const drinksData = {
         },
         restofworld: {
             all: [
-                { distillery: 'Redbreast', bottle: '12 Year Old', region: 'Ireland', notes: 'Rich and full-bodied' },
-                { distillery: 'Jameson', bottle: 'Original', region: 'Ireland', notes: 'Smooth and versatile' }
+
             ]
         }
 
@@ -43,21 +40,22 @@ const drinksData = {
 
     gin: {
         all: [
-            { distillery: 'Absolut', bottle: 'Citron', region: 'Sweden', notes: 'Lemon-flavored' },
-            { distillery: 'Smirnoff', bottle: 'Vanilla', region: 'Russia', notes: 'Vanilla-flavored' },
-            { distillery: 'Grey Goose', bottle: 'Original', region: 'France', notes: 'Soft and smooth' },
-            { distillery: 'Belvedere', bottle: 'Original', region: 'Poland', notes: 'Clean and crisp' }
+            { distillery: 'Plymouth', bottle: 'Navy Strenght', region: 'Plymouth, UK', ABV: '57%', notes: 'Brassy', occasion: '' },
+            { distillery: 'Rabbit Hole', bottle: 'Bespoke Gin', region: 'Kentucky, USA', ABV: '44.5%', notes: '', occasion: 'Yosi&#x27;s Bachelor Party' },
         ]
     },
-    rum: {
-        dark: [
-            { distillery: 'Kraken', bottle: 'Black Spiced Rum', region: 'Caribbean', notes: 'Rich and spicy' },
-            { distillery: 'Myers\'s', bottle: 'Original Dark', region: 'Jamaica', notes: 'Bold and robust' }
-        ],
-        light: [
-            { distillery: 'Bacardi', bottle: 'Superior', region: 'Puerto Rico', notes: 'Light and dry' },
-            { distillery: 'Havana Club', bottle: '3 Year Old', region: 'Cuba', notes: 'Smooth and versatile' }
+    amaro: {
+        all: [
+            { distillery: 'Benedictine', bottle: 'Benedictine', region: 'France', ABV: '40%', notes: '', occasion: '' },
         ]
+    },
+    agave: {
+            mezcal: [
+
+            ],
+            tequila: [
+
+            ]
     }
 };
 
