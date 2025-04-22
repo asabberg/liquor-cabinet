@@ -1,40 +1,31 @@
-const drinksData = {
-    whiskey: {
-        bourbon: {
-            kentucky: [
-                { distillery: 'Maker\'s Mark', bottle: 'Original', region: 'Kentucky', notes: 'Smooth and sweet' },
-                { distillery: 'Woodford Reserve', bottle: 'Double Oaked', region: 'Kentucky', notes: 'Rich and smoky' }
-            ],
-            tennesse: [
-                { distillery: 'Jack Daniels', bottle: 'No 7', region: 'Kentucky', notes: 'Smooth and sweet' },
-                { distillery: 'Woodford Reserve', bottle: 'Double Oaked', region: 'Kentucky', notes: 'Rich and smoky' }
-            ]
-        },
-        scotch: {
-            highland: [
-                { distillery: 'Glenfiddich', bottle: '12 Year Old', region: 'Scotland', notes: 'Fruity and fresh' },
-                { distillery: 'Macallan', bottle: '18 Year Old', region: 'Scotland', notes: 'Rich and complex' }
-            ]
-        }
+const whiskies = [
+    { distillery: "WhistlePig Whiskey", bottle: "12 Old World Rye", region: "Vermont, USA", notes: "Rich fruit and spice notes, including rye spice, apricots, plums, raisins, dates, honey, dark chocolate, winter fruit, caramel, and vanilla", occasion: "",},
+    {
+        distillery: "Nikka Whisky (Yoichi)",
+        bottle: "Peaty & Salty",
+        region: "Hokkaido, Japan",
+        notes: "Bold peat smoke, briny maritime salinity, toasted oak, subtle sweetness",
+        occasion: "Yokohama Trip ‘24",
     },
-    vodka: {
-        flavored: [
-            { distillery: 'Absolut', bottle: 'Citron', region: 'Sweden', notes: 'Lemon-flavored' },
-            { distillery: 'Smirnoff', bottle: 'Vanilla', region: 'Russia', notes: 'Vanilla-flavored' }
-        ],
-        plain: [
-            { distillery: 'Grey Goose', bottle: 'Original', region: 'France', notes: 'Soft and smooth' },
-            { distillery: 'Belvedere', bottle: 'Original', region: 'Poland', notes: 'Clean and crisp' }
-        ]
+    {
+        distillery: "Nikka Whisky (Yoichi)",
+        bottle: "Woody & Vanillic",
+        region: "Hokkaido, Japan",
+        notes: "Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt",
+        occasion: "Yokohama Trip ‘24",
     },
-    rum: {
-        dark: [
-            { distillery: 'Kraken', bottle: 'Black Spiced Rum', region: 'Caribbean', notes: 'Rich and spicy' },
-            { distillery: 'Myers\'s', bottle: 'Original Dark', region: 'Jamaica', notes: 'Bold and robust' }
-        ],
-        light: [
-            { distillery: 'Bacardi', bottle: 'Superior', region: 'Puerto Rico', notes: 'Light and dry' },
-            { distillery: 'Havana Club', bottle: '3 Year Old', region: 'Cuba', notes: 'Smooth and versatile' }
-        ]
-    }
-};
+    {
+        distillery: "Nikka Whisky (Yoichi)",
+        bottle: "Sherry & Sweet",
+        region: "Hokkaido, Japan",
+        notes: "Rich dried fruit, dark chocolate, nutty sweetness, hints of spice",
+        occasion: "Yokohama Trip ‘24",
+    },
+    {
+        distillery: "Bainbridge Organic Distillers",
+        bottle: "Yama | Mizunara Cask Single Grain Whiskey",
+        region: "Bainbridge Island, WA",
+        notes: "Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak",
+        occasion: "Retirement Gift ‘23",
+    },
+];

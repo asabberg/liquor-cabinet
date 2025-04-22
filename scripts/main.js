@@ -1,13 +1,21 @@
 const drinksData = {
     whiskey: {
-        bourbon: {
-            kentucky: [
-                { distillery: 'Maker\'s Mark', bottle: 'Original', region: 'Kentucky', notes: 'Smooth and sweet' },
-                { distillery: 'Woodford Reserve', bottle: 'Double Oaked', region: 'Kentucky', notes: 'Rich and smoky' }
+        american: {
+            bourbon: [
+                { distillery: 'Maker\'s Mark', bottle: 'Original', region: '', notes: 'Smooth and sweet', occasion: '' },
+                { distillery: 'Woodford Reserve', bottle: 'Double Oaked', region: 'Kentucky', notes: 'Rich and smoky', occasion: 'Party' },
             ],
-            tennesse: [
-                { distillery: 'Jack Daniels', bottle: 'No 7', region: 'Kentucky', notes: 'Smooth and sweet' },
-                { distillery: 'Woodford Reserve', bottle: 'Double Oaked', region: 'Kentucky', notes: 'Rich and smoky' }
+            rye: [
+                { distillery: 'WhistlePig', bottle: '12 Old World Rye', region: 'Vermont, USA', ABV: '43%', notes: 'Rich fruit and spice notes, including rye spice, apricots, plums, raisins, dates, honey, dark chocolate, winter fruit, caramel, and vanilla', occasion: '' },
+//
+            ],
+            americansinglemalt: [
+               { distillery: 'Balcones', bottle: 'Texas Single Malt', region: 'Texas', notes: 'Bold and unique' },
+               { distillery: 'Westland', bottle: 'American Single Malt', region: 'Washington', notes: 'Rich and complex' } 
+            ],
+            other: [
+                { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Retirement Gift ‘23' },                //                
+
             ]
         },
         scotch: {
@@ -15,9 +23,25 @@ const drinksData = {
                 { distillery: 'Glenfiddich', bottle: '12 Year Old', region: 'Scotland', notes: 'Fruity and fresh' },
                 { distillery: 'Macallan', bottle: '18 Year Old', region: 'Scotland', notes: 'Rich and complex' }
             ]
+        },
+        japanese: {
+            all: [
+                { distillery: 'Nikka', bottle: 'Yoichi - Peaty &amp; Salty', region: 'Hokkaido, Japan', ABV: '55%', notes: 'Bold peat smoke, briny maritime salinity, toasted oak, subtle sweetness', occasion: 'Aquired in Yokohama 2024' },
+                { distillery: 'Nikka', bottle: 'Yoichi - Woody &amp; Vanillic', region: 'Hokkaido, Japan', ABV: '55%', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: 'Aquired in Yokohama 2024' },
+                { distillery: 'Nikka', bottle: 'Yoichi - Sherry &amp; Sweet', region: 'Hokkaido, Japan', ABV: '55%', notes: 'Rich dried fruit, dark chocolate, nutty sweetness, hints of spice', occasion: 'Aquired in Yokohama 2024' },
+                //
+            ]
+        },
+        restofworld: {
+            all: [
+                { distillery: 'Redbreast', bottle: '12 Year Old', region: 'Ireland', notes: 'Rich and full-bodied' },
+                { distillery: 'Jameson', bottle: 'Original', region: 'Ireland', notes: 'Smooth and versatile' }
+            ]
         }
+
     },
-    vodka: {
+
+    gin: {
         all: [
             { distillery: 'Absolut', bottle: 'Citron', region: 'Sweden', notes: 'Lemon-flavored' },
             { distillery: 'Smirnoff', bottle: 'Vanilla', region: 'Russia', notes: 'Vanilla-flavored' },
@@ -55,7 +79,11 @@ function showSubcategories(category) {
             showDrinks(category, subcategories[0]);
         }else subcategories.forEach(subcategory => {
             const button = document.createElement('button');
+            if (subcategory === 'restofworld') {
+                button.textContent = 'Rest of World'; // Special case for restofworld
+            } else{
             button.textContent = subcategory.charAt(0).toUpperCase() + subcategory.slice(1); // Capitalize
+            }
             button.onclick = () => {
                 if (category === 'whiskey') {
                     showNestedSubcategories(category, subcategory);
@@ -77,12 +105,24 @@ function showNestedSubcategories(category, subcategory) {
 
     if (drinksData[category] && drinksData[category][subcategory]) {
         const nestedSubcategories = Object.keys(drinksData[category][subcategory]);
-        nestedSubcategories.forEach(nestedSubcategory => {
-            const button = document.createElement('button');
-            button.textContent = nestedSubcategory.charAt(0).toUpperCase() + nestedSubcategory.slice(1); // Capitalize
-            button.onclick = () => showDrinks(category, subcategory, nestedSubcategory);
-            subcategoriesDiv2.appendChild(button);
-        });
+
+        if (nestedSubcategories.length === 1) {
+            // If there's only one nested subcategory, directly show the drinks
+            showDrinks(category, subcategory, nestedSubcategories[0]);
+        } else {
+            nestedSubcategories.forEach(nestedSubcategory => {
+                const button = document.createElement('button');
+                if (nestedSubcategory === 'americansinglemalt') {
+                    button.textContent = 'American Single Malt'; // Special case for americansinglemalt
+                }
+                else{
+                button.textContent = nestedSubcategory.charAt(0).toUpperCase() + nestedSubcategory.slice(1); // Capitalize
+                }
+                button.onclick = () => showDrinks(category, subcategory, nestedSubcategory);
+                subcategoriesDiv2.appendChild(button);
+                
+            });
+        }
     }
 }
 
@@ -101,11 +141,23 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
     if (drinks.length > 0) {
         drinks.forEach(drink => {
             const listItem = document.createElement('li');
-            listItem.innerHTML = `
-                <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
-                <em>Region:</em> ${drink.region} <br>
-                <em>Notes:</em> ${drink.notes}
-            `;
+            
+            if (drink.occasion) {    
+                listItem.innerHTML = `
+                    <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
+                    <em>Region:</em> ${drink.region} <br>
+                    <em>Notes:</em> ${drink.notes} <br>
+                    <em>Occasion:</em> ${drink.occasion}
+                `;
+            }
+            else {
+                listItem.innerHTML = `
+                    <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
+                    <em>Region:</em> ${drink.region} <br>
+                    <em>Notes:</em> ${drink.notes}
+                `;
+            }
+
             drinksList.appendChild(listItem);
         });
     } else {
