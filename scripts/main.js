@@ -56,6 +56,11 @@ const drinksData = {
             tequila: [
 
             ]
+    },
+    retired: {
+            all: [
+            { distillery: 'Benedictine', bottle: 'Benedictine', region: 'France', ABV: '40%', notes: '', occasion: '', retired: '2024-10-01' },
+            ]
     }
 };
 
@@ -140,6 +145,12 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
         drinks.forEach(drink => {
             const listItem = document.createElement('li');
             
+            if (drink.retired){
+                listItem.innerHTML = `
+                    <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
+                    Retired on: ${drink.retired} <br>
+                `;
+            } else{
             if (drink.occasion && drink.Age !== 'NAS' && drink.Age) {    
                 listItem.innerHTML = `
                     <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
@@ -164,7 +175,8 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
                     <em>ABV:</em> ${drink.ABV} <em> | Age:</em> ${drink.Age} <br>
                     <em>Notes:</em> ${drink.notes} <br>
                     `;
-            } else {
+            }            
+            else {
                 listItem.innerHTML = `
                     <strong>${drink.bottle}</strong> by ${drink.distillery} <br>
                     <em>Region:</em> ${drink.region} <br>
@@ -172,6 +184,9 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
                     <em>Notes:</em> ${drink.notes}
                 `;
             }
+            }
+
+
 
             drinksList.appendChild(listItem);
         });
