@@ -7,7 +7,6 @@ const drinksData = {
                 { distillery: 'FEW', bottle: 'Cold Cut', region: 'Illinois, USA', ABV: '46.50%', Age: '', notes: 'Cold Brew Coffew', occasion: '', retired: ''  },
                 { distillery: 'High Wire Distilling Co', bottle: 'Lost Lantern Single Cask - Jimmy Red', region: '', ABV: '58.70%', Age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Iron Smoke', bottle: 'Casket Strenght', region: 'New York, USA', ABV: '60.00%', Age: '', notes: '', occasion: 'Iron Anniversary', retired: ''  },
-                { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.70%', Age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Old Boudreau&#x27;s Insanely Small Batch', bottle: '2019', region: '', ABV: '50.00%', Age: '', notes: 'Sherry &amp; Agnostoura Bitters Barrell Finished', occasion: '', retired: ''  },
                 { distillery: 'Old Boudreau&#x27;s Insanely Small Batch', bottle: '2020', region: '', ABV: '47.50%', Age: '', notes: 'Sherry &amp; Agnostoura Bitters Barrell Finished', occasion: '', retired: ''  },
                 { distillery: 'Rabbit Hole', bottle: 'Heigold', region: 'Kentucky, USA', ABV: '47.50%', Age: '', notes: '', occasion: '', retired: ''  },
@@ -55,7 +54,6 @@ const drinksData = {
                 //
             ],
             other: [
-                { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43.00%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Retirement Gift ‘23', retired: ''  },
                 { distillery: 'Bainbridge Organic Distillers', bottle: 'Battle Point, Two Islands Hokkadio Mizunara Cask', region: 'Washington, USA', ABV: '63.90%', Age: '', notes: 'Full Barrel Proof', occasion: '', retired: ''  },
                 { distillery: 'Deschutes x Bend Distillery', bottle: 'Black Butte Whiskey', region: 'Oregon, USA', ABV: '47.00%', Age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'FEW', bottle: 'Chicago Smokeworks', region: 'Arizona, USA', ABV: '46.50%', Age: '', notes: 'Cherrywood Smoked Malt', occasion: '', retired: ''  },
@@ -86,7 +84,6 @@ const drinksData = {
                 { distillery: 'Nikka', bottle: 'Yoichi - Woody &amp; Vanillic', region: 'Hokkaido, Japan', ABV: '55.00%', Age: '', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: 'Aquired in Yokohama 2024', retired: ''  },
                 { distillery: 'Nikka', bottle: 'Yoichi - Sherry &amp; Sweet', region: 'Hokkaido, Japan', ABV: '55.00%', Age: '', notes: 'Rich dried fruit, dark chocolate, nutty sweetness, hints of spice', occasion: 'Aquired in Yokohama 2024', retired: ''  },
                 { distillery: 'Suntory', bottle: 'Hibiki Japanese Harmony', region: 'Japan', ABV: '43.00%', Age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43.00%', Age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Suntory', bottle: 'Hakushu', region: 'Yamanashi, Japan', ABV: '43.00%', Age: '', notes: '', occasion: '', retired: ''  },
                //
             ]
@@ -153,7 +150,15 @@ const drinksData = {
             all: [
                 { distillery: 'Kavalan', bottle: 'Classic Single Malt', region: 'Taiwan', ABV: '40.0%', Age: '', notes: '', occasion: '', retired: 'Jul-25'  },
                 { distillery: 'Kavalan', bottle: 'Concertmaster - Sherry Cask', region: 'Taiwan', ABV: '40.0%', Age: '', notes: '', occasion: '', retired: 'Jul-25'  },            ]
-    }
+    },
+    hardcore: {
+        all: [
+            { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43.00%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Retirement Gift ‘23', retired: ''  },
+            { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43.00%', Age: '', notes: '', occasion: '', retired: ''  },
+            { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.70%', Age: '', notes: '', occasion: '', retired: ''  },
+        ]
+    },
+
 };
 
 function showSubcategories(category) {
