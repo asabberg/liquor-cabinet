@@ -63,7 +63,12 @@ button {
 }
 
 section{
-    padding: 5px;
+    padding-top: 5px;
+}
+
+section2{
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 footer {
