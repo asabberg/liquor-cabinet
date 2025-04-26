@@ -135,14 +135,19 @@ const drinksData = {
         ]
     },
     others: {
-            all: [
-                { distillery: 'Orcas Island Distillery', bottle: 'Archipelago de Haro', region: 'Washington, USA', ABV: '40.00%', Age: '', notes: '', occasion: '', retired: ''  },
+            agave: [
                 { distillery: 'Bozal', bottle: 'Ensamble', region: 'Oaxaca, Mexico', ABV: '47.00%', Age: '', notes: '', occasion: 'Ceramic Anniversary', retired: ''  },
                 { distillery: 'Vago', bottle: 'Elote', region: 'Oaxaca, Mexico', ABV: '50.00%', Age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Ritual Sister', bottle: 'Smoked Pineapple', region: 'New York, USA', ABV: '40.00%', Age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Koloa', bottle: '12 Barrel Select', region: '', ABV: '46.00%', Age: '', notes: '', occasion: '', retired: ''  },
 
+            ],
+            rum: [
+                { distillery: 'Koloa', bottle: '12 Barrel Select', region: '', ABV: '46.00%', Age: '', notes: '', occasion: '', retired: ''  },
+            ],
+            brandy: [
+                { distillery: 'Orcas Island Distillery', bottle: 'Archipelago de Haro', region: 'Washington, USA', ABV: '40.00%', Age: '', notes: '', occasion: '', retired: ''  },
+                { distillery: 'Ritual Sister', bottle: 'Smoked Pineapple', region: 'New York, USA', ABV: '40.00%', Age: '', notes: '', occasion: '', retired: ''  },
             ]
+
     },
     retired: {
             all: [
