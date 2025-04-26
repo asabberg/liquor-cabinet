@@ -35,6 +35,10 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    padding-bottom: 2px;
+}
+
 nav {
     margin: 20px;
 }
@@ -56,17 +60,18 @@ nav a:hover {
 }
 
 button {
-    margin-top: 5px;
+    margin-top: 0px;
     margin-right: 2px;
     margin-bottom: 0px;
     margin-left: 2px;
 }
 
 section{
-    padding-top: 5px;
+    padding-top: 3px;
+    padding-bottom: 0px;
 }
 
-section2{
+s2{
     padding-top: 0px;
     padding-bottom: 0px;
 }
