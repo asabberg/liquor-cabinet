@@ -273,8 +273,8 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
             `;
 
             // Add Age if present
-            if (drink.Age && drink.Age !== 'NAS') {
-                drinkDetails += `<em>Age:</em> ${drink.Age} <br>`;
+            if (drink.age && drink.age !== 'NAS') {
+                drinkDetails += `<em>Age:</em> ${drink.age} <br>`;
             }
 
             // Add Notes if present
