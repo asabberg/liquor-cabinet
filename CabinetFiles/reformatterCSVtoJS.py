@@ -19,7 +19,7 @@ def reformat_csv_to_js(csv_file_path, output_file_path):
                 f"bottle: '{html.escape(row.get('bottle', '').strip())}', "
                 f"region: '{html.escape(row.get('region', '').strip())}', "
                 f"ABV: '{html.escape(row.get('ABV', '').strip())}', "
-                f"Age: '{html.escape(row.get('Age', '').strip())}', "
+                f"age: '{html.escape(row.get('age', '').strip())}', "
                 f"notes: '{html.escape(row.get('notes', '').strip())}', "
                 f"occasion: '{html.escape(row.get('occasion', '').strip())}', "
                 f"retired: '{html.escape(row.get('retired', '').strip())}'  }},"
