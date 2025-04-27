@@ -13,15 +13,11 @@ ul {
     padding: 0;
 }
 
-li {
-    margin: 10px 0;
-}
-
 ul li:not(:first-of-type) {
-    margin-top: 1.5em;
+    margin-top: .75em;
     }
 ul li:not(:last-of-type) {
-    margin-bottom: 1.5em;
+    margin-bottom: .75em;
 }
 
 header {
@@ -36,7 +32,15 @@ h1 {
 }
 
 h2 {
-    padding-bottom: 2px;
+    margin-bottom: 8px;
+    margin-top: 10px;
+    font-size: 26px;
+}
+
+h3 {
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-size: 26px;
 }
 
 nav {
@@ -60,18 +64,18 @@ nav a:hover {
 }
 
 button {
-    margin-top: 0px;
-    margin-right: 2px;
-    margin-bottom: 0px;
-    margin-left: 2px;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    margin-left: 3px;
+    border: 3px solid #0e3144;
+    border-radius: 8px;
+    text-decoration: none;
 }
 
 section{
-    padding-top: 3px;
-    padding-bottom: 0px;
-}
-
-s2{
     padding-top: 0px;
     padding-bottom: 0px;
 }
