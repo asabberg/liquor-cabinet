@@ -196,6 +196,13 @@ const drinksData = {
                     ]
     },
 
+    beer: {
+        all: [
+        { distillery: 'Goose Island', bottle: 'Bourbon County Mon Cheri 2019', region: 'Chicago, Illinois', ABV: '14.1%', Age: '', notes: '', occasion: '', retired: ''  },
+        { distillery: 'Goose Island', bottle: 'Bourbon County Vanillia 2018', region: 'Chicago, Illinois', ABV: '14.9%', Age: '', notes: '', occasion: '', retired: ''  },
+        ]
+    },
+
 };
 
 function showSubcategories(category) {
