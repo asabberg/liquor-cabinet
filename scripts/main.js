@@ -193,13 +193,12 @@ const drinksData = {
             { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Retirement Gift ‘23', retired: ''  },
             { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: '', retired: ''  },
-                    ]
+        ]
     },
 
     beer: {
         all: [
-        { distillery: 'Goose Island', bottle: 'Bourbon County Mon Cheri 2019', region: 'Chicago, Illinois', ABV: '14.1%', Age: '', notes: '', occasion: '', retired: ''  },
-        { distillery: 'Goose Island', bottle: 'Bourbon County Vanillia 2018', region: 'Chicago, Illinois', ABV: '14.9%', Age: '', notes: '', occasion: '', retired: ''  },
+            { distillery: 'Goose Island', bottle: 'Bourbon County Mon Cheri 2019', region: 'Chicago, Illinois', ABV: '14.1%', Age: '', notes: '', occasion: '', retired: ''  },
         ]
     },
 
