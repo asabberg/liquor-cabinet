@@ -157,7 +157,8 @@ const drinksData = {
             { distillery: 'Townshend&#x27;s', bottle: 'Smoke Tea Liqueur', region: 'Oregon, USA', ABV: '35%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Townshend&#x27;s', bottle: 'Sweet Tea Liqueur', region: 'Oregon, USA', ABV: '35%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Wildwood Spirits Co', bottle: 'Solgud', region: 'Washington, USA', ABV: '40%', age: '', notes: 'Orange and Herbal Liqueur', occasion: '', retired: ''  },
-                                    
+            { distillery: 'Martini and Rossi', bottle: 'Bianco Vermouth', region: 'Italy', ABV: '15%', age: '', notes: '', occasion: '', retired: ''  },
+            { distillery: 'Carpano', bottle: 'Antica Formula', region: 'Italy', ABV: '16.5%', age: '', notes: '', occasion: '', retired: ''  },
         ]
     },
     others: {
