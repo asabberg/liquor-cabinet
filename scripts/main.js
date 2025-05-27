@@ -107,10 +107,6 @@ const drinksData = {
         restofworld: {
             all: [
                 { distillery: 'Jameson', bottle: 'Stout Edition', region: 'Ireland', ABV: '40%', age: '', notes: 'Stout Cask Finish', occasion: '', retired: ''  },
-                { distillery: 'Kavalan', bottle: 'Concertmaster - Port Cask', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Kavalan', bottle: 'King Car Conductor', region: 'Taiwan', ABV: '46%', age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Kavalan', bottle: 'Oloroso Sherry Oak', region: 'Taiwan', ABV: '54%', age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Kavalan', bottle: 'Port Oak', region: 'Taiwan', ABV: '54%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Odd Society', bottle: 'Bomber Brewing Community Collaboration', region: 'Vancouver, Canada', ABV: '50%', age: '', notes: 'Double IPA Whiskey', occasion: '', retired: ''  },
                 { distillery: 'Odd Society', bottle: 'Burns Bog', region: 'Vancouver, Canada', ABV: '46%', age: '', notes: 'Canadian Smoked Malt Whiskey', occasion: '', retired: ''  },              ]
         }
@@ -184,9 +180,13 @@ const drinksData = {
     },
     retired: {
             all: [
-                { distillery: 'Kavalan', bottle: 'Classic Single Malt', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: 'Jul-25'  },
-                { distillery: 'Kavalan', bottle: 'Concertmaster - Sherry Cask', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: 'Jul-25'  },
-                                    
+                { distillery: 'Kavalan', bottle: 'Classic Single Malt', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: 'Jul-24'  },
+                { distillery: 'Kavalan', bottle: 'Concertmaster - Sherry Cask', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: 'Jul-24'  },
+                { distillery: 'Kavalan', bottle: 'Concertmaster - Port Cask', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: 'May-25'  },
+                { distillery: 'Kavalan', bottle: 'King Car Conductor', region: 'Taiwan', ABV: '46%', age: '', notes: '', occasion: '', retired: 'May-25'  },
+                { distillery: 'Kavalan', bottle: 'Oloroso Sherry Oak', region: 'Taiwan', ABV: '54%', age: '', notes: '', occasion: '', retired: 'May-25'  },
+                { distillery: 'Kavalan', bottle: 'Port Oak', region: 'Taiwan', ABV: '54%', age: '', notes: '', occasion: '', retired: 'May-25'  },
+                    
             ]
         },
 
