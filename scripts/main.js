@@ -221,14 +221,14 @@ function showSubcategories(category) {
         const subcategories = Object.keys(drinksData[category]);
         
         if (subcategories.length === 1) {
-            // If there's only one subcategory, directly show the drinks
             showDrinks(category, subcategories[0]);
-        }else subcategories.forEach(subcategory => {
+        } else subcategories.forEach(subcategory => {
             const button = document.createElement('button');
+            button.classList.add('category-btn'); // <-- Add this line
             if (subcategory === 'restofworld') {
-                button.textContent = 'Rest of World'; // Special case for restofworld
+                button.textContent = 'Rest of World';
             } else{
-            button.textContent = subcategory.charAt(0).toUpperCase() + subcategory.slice(1); // Capitalize
+                button.textContent = subcategory.charAt(0).toUpperCase() + subcategory.slice(1);
             }
             button.onclick = () => {
                 if (category === 'whiskey') {
@@ -238,7 +238,7 @@ function showSubcategories(category) {
                 }
             };
             subcategoriesDiv.appendChild(button);
-        });
+    });
     }
 }
 
@@ -253,20 +253,19 @@ function showNestedSubcategories(category, subcategory) {
         const nestedSubcategories = Object.keys(drinksData[category][subcategory]);
 
         if (nestedSubcategories.length === 1) {
-            // If there's only one nested subcategory, directly show the drinks
             showDrinks(category, subcategory, nestedSubcategories[0]);
         } else {
             nestedSubcategories.forEach(nestedSubcategory => {
                 const button = document.createElement('button');
+                button.classList.add('subcategory-btn'); // <-- Add this line
                 if (nestedSubcategory === 'americansinglemalt') {
-                    button.textContent = 'American Single Malt'; // Special case for americansinglemalt
+                    button.textContent = 'American Single Malt';
                 }
                 else{
-                button.textContent = nestedSubcategory.charAt(0).toUpperCase() + nestedSubcategory.slice(1); // Capitalize
+                    button.textContent = nestedSubcategory.charAt(0).toUpperCase() + nestedSubcategory.slice(1);
                 }
                 button.onclick = () => showDrinks(category, subcategory, nestedSubcategory);
                 subcategoriesDiv2.appendChild(button);
-                
             });
         }
     }

@@ -73,8 +73,25 @@ button {
     border: 2px solid #0e3144;
     border-radius: 8px;
     text-decoration: none;
-    background-color: white;
-    color: black;
+    background-color: #fff;
+    color: #0e3144;
+}
+
+button:hover {
+    background-color: #f6dea8;
+    color: #0e3144;
+}
+
+.category-btn {
+    background-color: #bfdcd0;
+    color: #0e3144;
+    border: 2px solid #0e3144;
+}
+
+.subcategory-btn {
+    background-color: #0e3144;
+    color: #fff;
+    border: 2px solid #0e3144;
 }
 
 section{
