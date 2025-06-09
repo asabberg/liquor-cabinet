@@ -3,7 +3,7 @@ const drinksData = {
         american: {
             bourbon: [
 //
-                { distillery: 'Bardstown', bottle: 'Goose Island Bourbon County Finished', region: 'Kentucky, USA', ABV: '50%', age: '', notes: 'Wet barrels', occasion: '', retired: ''  },
+                { distillery: 'Bardstown', bottle: 'Goose Island Bourbon County Finished', region: 'Kentucky, USA', ABV: '50%', age: '', notes: 'Barrels were still "wet" when filled with bourbon', occasion: '', retired: ''  },
                 { distillery: 'FEW', bottle: 'Cold Cut', region: 'Illinois, USA', ABV: '46.5%', age: '', notes: 'Cut from barrel strenght with cold brew coffee', occasion: '', retired: ''  },
                 { distillery: 'FEW', bottle: 'Lost Lantern Single Cask No. 3', region: 'Illinois, USA', ABV: '62.3%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'High Wire Distilling Co', bottle: 'Lost Lantern Single Cask - Jimmy Red', region: 'South Carolina', ABV: '58.7%', age: '', notes: '', occasion: '', retired: ''  },
@@ -41,7 +41,7 @@ const drinksData = {
                 { distillery: 'Westland', bottle: 'Colere 4th Edition', region: 'Washington, USA', ABV: '50%', age: '5.9 Years', notes: 'Made with Fritz Barley, also known as NZ-151', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: '7th Annual Peat Week - Escaped', region: 'Washington, USA', ABV: '60.8%', age: '7.4 Years', notes: 'Ex-Rum Cask #6732', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: '8th Annual Peat Week - Grand Finale', region: 'Washington, USA', ABV: '54.5%', age: '7.1 Years', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Westland', bottle: 'Cask Exchange - Black Raven Brewing', region: 'Washington, USA', ABV: '50%', age: '9 Years', notes: 'Finished in "Pour Les Oiseaux" Farmhouse Saison Casks, The  beer was brewed with Cherry Lambic Wild Yeast', occasion: '', retired: ''  },
+                { distillery: 'Westland', bottle: 'Cask Exchange - Black Raven Brewing', region: 'Washington, USA', ABV: '50%', age: '9 Years', notes: 'Finished in "Pour Les Oiseaux" Farmhouse Saison Casks. The  beer was brewed with Cherry Lambic wild yeast', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask Exchange - Cloudburst Brewing', region: 'Washington, USA', ABV: '48.5%', age: '', notes: 'Old Tubthumper Barleywine Cask', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask Exchange - Fast Penny Spirits', region: 'Washington, USA', ABV: '52.6%', age: '9 Years', notes: '', occasion: '', retired: ''  },           
                 { distillery: 'Westland', bottle: 'Cask Exchange - Greenwood Cider', region: 'Washington, USA', ABV: '50.1%', age: '', notes: '', occasion: '', retired: ''  },
@@ -55,7 +55,7 @@ const drinksData = {
                 { distillery: 'Westward Whiskey', bottle: 'Lost Lantern Single Cask  - ASM Finished in Stout Casks', region: 'Oregon, USA', ABV: '68.5%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'St. George Spirits', bottle: 'Baller', region: 'California, USA', ABV: '47%', age: '', notes: 'Umeshu Finished', occasion: '', retired: ''  },
                 { distillery: 'Virginia Distillery Co.', bottle: 'The Brewer&#x27;s Coalition Goose Island Bourbon County Brand Stout Cask Finished', region: 'Virginia, USA', ABV: '50%', age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Virginia Distillery Co.', bottle: 'The Brewer&#x27;s Coalition Hardywood Gingerbread Stout Cask Finished', region: 'Virginia, USA', ABV: '50%', age: '', notes: '', occasion: '', retired: ''  },
+                { distillery: 'Virginia Distillery Co.', bottle: 'The Brewer&#x27;s Coalition Hardywood Gingerbread Stout Cask Finished', region: 'Virginia, USA', ABV: '50%', age: '', notes: 'One of Whiskey Advocates 2024 Most Interesting Whiskeys', occasion: '', retired: ''  },
                                
                 //
             ],
@@ -64,7 +64,7 @@ const drinksData = {
                 { distillery: 'Bainbridge Organic Distillers', bottle: 'Battle Point Whiskey', region: 'Washington, USA', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Bainbridge Organic Distillers', bottle: 'Battle Point, Two Islands Hokkadio Mizunara Cask', region: 'Washington, USA', ABV: '63.9%', age: '', notes: 'Full Barrel Proof', occasion: '', retired: ''  },
                 { distillery: 'Deschutes x Bend Distillery', bottle: 'Black Butte Whiskey', region: 'Oregon, USA', ABV: '47%', age: '5 Years', notes: '', occasion: '', retired: ''  },
-                { distillery: 'FEW', bottle: 'Chicago Smokeworks', region: 'Arizona, USA', ABV: '46.5%', age: '', notes: 'Cherrywood Smoked Malt', occasion: '', retired: ''  },
+                { distillery: 'FEW', bottle: 'Chicago Smokeworks', region: 'Illinois, USA', ABV: '46.5%', age: '', notes: 'Cherrywood Smoked Malt', occasion: '', retired: ''  },
                 { distillery: 'Iron Smoke', bottle: 'Rattlesnake Rosie&#x27;s Apple Pie', region: 'New York, USA', ABV: '35%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Koval', bottle: 'Oat', region: 'Illinois, USA', ABV: '40%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Lost Lantern', bottle: 'Flame', region: 'Vermont, USA', ABV: '57%', age: '', notes: 'Blend of Sante Fe Spirits and Whiskey Del Bac', occasion: '', retired: ''  },
@@ -96,7 +96,7 @@ const drinksData = {
                 { distillery: 'Nikka', bottle: 'Miyagikyo Single Malt', region: 'Miyagi, Japan', ABV: '45%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Nikka', bottle: 'Yoichi - Peaty &amp; Salty', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Bold peat smoke, briny maritime salinity, toasted oak, subtle sweetness', occasion: 'Aquired in Yokohama 2024', retired: ''  },
                 { distillery: 'Nikka', bottle: 'Yoichi - Sherry &amp; Sweet', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Rich dried fruit, dark chocolate, nutty sweetness, hints of spice', occasion: 'Aquired in Yokohama 2024', retired: ''  },
-                { distillery: 'Nikka', bottle: 'Yoichi - Woody &amp; Vanillic', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: 'Aquired in Yokohama 2024', retired: ''  },
+                { distillery: 'Nikka', bottle: 'Yoichi - Woody &amp; Vanillic', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: '', retired: ''  },
                 { distillery: 'Nikka', bottle: 'Yoichi Single Malt', region: 'Hokkaido, Japan', ABV: '45%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Suntory', bottle: 'Hakushu', region: 'Yamanashi, Japan', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Suntory', bottle: 'Hibiki Japanese Harmony', region: 'Japan', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
@@ -194,8 +194,8 @@ const drinksData = {
     hardcore: {
         all: [
             { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Retirement Gift ‘23', retired: ''  },
-            { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: '', retired: ''  },
-            { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: '', retired: ''  },
+            { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: 'Minos ASR', retired: ''  },
+            { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: 'Christmas Present', retired: ''  },
         ]
     },
 
