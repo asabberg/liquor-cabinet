@@ -29,7 +29,7 @@ const drinksData = {
             americansinglemalt: [
                 { distillery: 'Westland', bottle: 'Cask No. 3799 - Ratification Cask', region: 'Washington, USA', ABV: '55%', age: '8 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 5699 - Tequila Cask', region: 'Washington, USA', ABV: '52.6%', age: '9 Years', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Westland', bottle: 'Cask No. 6234- Madeira Cask', region: 'Washington, USA', ABV: '65.6%', age: '', notes: '', occasion: '', retired: ''  },
+                { distillery: 'Westland', bottle: 'Cask No. 6234 - Madeira Cask', region: 'Washington, USA', ABV: '65.6%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 6333 - Petite Syrah Cask', region: 'Washington, USA', ABV: '61.3%', age: '8 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 6744 - Mount Gay Rum Cask', region: 'Washington, USA', ABV: '53.9%', age: '9 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 7637 - Rachel&#x27;s Handfill', region: 'Washington, USA', ABV: '48.9%', age: '', notes: 'Pajarette Hogshead', occasion: '', retired: ''  },
@@ -46,7 +46,7 @@ const drinksData = {
                 { distillery: 'Westland', bottle: 'Cask Exchange - Fast Penny Spirits', region: 'Washington, USA', ABV: '52.6%', age: '9 Years', notes: '', occasion: '', retired: ''  },           
                 { distillery: 'Westland', bottle: 'Cask Exchange - Greenwood Cider', region: 'Washington, USA', ABV: '50.1%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask Exchange - Holy Mountain Brewing', region: 'Washington, USA', ABV: '50%', age: '6 Years', notes: 'Finished in American Strong Beer Casks that previously held Port', occasion: '', retired: ''  },
-                { distillery: 'Westland', bottle: 'Lost Lantern Single Cask  - Peated ASM', region: 'Washington, USA', ABV: '54.9%', age: '9.99 Years', notes: '', occasion: '', retired: ''  },
+                { distillery: 'Westland', bottle: 'Lost Lantern Single Cask - Peated ASM', region: 'Washington, USA', ABV: '54.9%', age: '9.99 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Flagship', region: 'Washington, USA', ABV: '46%', age: '3.3 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Sherry Wood', region: 'Washington, USA', ABV: '46%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Wine Cask Finish', region: 'Washington, USA', ABV: '46%', age: '5 Years', notes: '', occasion: '', retired: ''  },
