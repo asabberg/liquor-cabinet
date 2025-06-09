@@ -222,9 +222,10 @@ function showSubcategories(category) {
         
         if (subcategories.length === 1) {
             showDrinks(category, subcategories[0]);
+            
         } else subcategories.forEach(subcategory => {
             const button = document.createElement('button');
-            button.classList.add('category-btn'); // <-- Add this line
+            button.classList.add('subcategory-btn'); // <-- Add this line
             if (subcategory === 'restofworld') {
                 button.textContent = 'Rest of World';
             } else{
@@ -257,7 +258,7 @@ function showNestedSubcategories(category, subcategory) {
         } else {
             nestedSubcategories.forEach(nestedSubcategory => {
                 const button = document.createElement('button');
-                button.classList.add('subcategory-btn'); // <-- Add this line
+                button.classList.add('subcategory2-btn'); // <-- Add this line
                 if (nestedSubcategory === 'americansinglemalt') {
                     button.textContent = 'American Single Malt';
                 }
@@ -320,3 +321,38 @@ function showDrinks(category, subcategory, nestedSubcategory = null) {
         drinksList.innerHTML = '<li>No drinks found for this category.</li>';
     }
 }
+
+function setActiveButtonDelegated(containerSelector, buttonSelector) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+    container.addEventListener('click', function(e) {
+        const btn = e.target.closest(buttonSelector);
+        if (!btn) return;
+        // Remove active from all in group
+        container.querySelectorAll(buttonSelector).forEach(b => b.classList.remove('active-btn'));
+        // Add active to clicked
+        btn.classList.add('active-btn');
+    });
+}
+
+function clearAllActiveButtons() {
+    document.querySelectorAll('.category-btn, .subcategory-btn, .subcategory2-btn, #hardcore-btn, #retired-btn')
+        .forEach(btn => btn.classList.remove('active-btn'));
+}
+
+document.getElementById('hardcore-btn').addEventListener('click', function() {
+    clearAllActiveButtons();
+    showSubcategories('hardcore');
+});
+
+document.getElementById('retired-btn').addEventListener('click', function() {
+    clearAllActiveButtons();
+    this.classList.add('active-btn');
+    showSubcategories('retired');
+});
+
+// Call this after DOMContentLoaded or at the end of your script:
+setActiveButtonDelegated('#categories', '.category-btn');
+setActiveButtonDelegated('#subcategories', '.subcategory-btn');
+setActiveButtonDelegated('#subcategories2', '.subcategory2-btn');
+// If you have a third layer, add another call with the appropriate selectors

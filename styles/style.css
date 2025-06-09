@@ -83,12 +83,18 @@ button:hover {
 }
 
 .category-btn {
-    background-color: #bfdcd0;
+    background-color: #fff;
     color: #0e3144;
     border: 2px solid #0e3144;
 }
 
 .subcategory-btn {
+    background-color: #bfdcd0;
+    color: #0e3144;
+    border: 2px solid #0e3144;
+}
+
+.subcategory2-btn {
     background-color: #0e3144;
     color: #fff;
     border: 2px solid #0e3144;
@@ -107,4 +113,10 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.active-btn,
+button.active-btn {
+    background-color: #f6dea8 !important;
+    color: #0e3144 !important;
 }
