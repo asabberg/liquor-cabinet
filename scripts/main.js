@@ -89,7 +89,7 @@ const drinksData = {
                 { distillery: 'Kirkland Signature', bottle: 'Speyside 10 Year Single Malt', region: 'Speyside', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: ''  },
             ]
         },
-        japanese: {
+       /* japanese: {
             all: [
                 { distillery: 'Ichiro&#x27;s Malt', bottle: 'MWR - Mizunara Wood Reserve', region: 'Japan', ABV: '46%', age: '', notes: '', occasion: 'Yokohama Trip Dec &#x27;24', retired: ''  },
                 { distillery: 'Ichiro&#x27;s Malt', bottle: 'Wine Wood Reserve', region: 'Japan', ABV: '46%', age: '', notes: '', occasion: 'Yokohama Trip Dec &#x27;24', retired: ''  },
@@ -104,7 +104,7 @@ const drinksData = {
                 { distillery: 'Suntory', bottle: 'The Yamazaki 12 Year', region: 'Osaka, Japan', ABV: '43%', age: '12 Year', notes: '', occasion: '', retired: ''  },
                                                                //
             ]
-        },
+        },*/
         restofworld: {
             all: [
                 { distillery: 'Jameson', bottle: 'Stout Edition', region: 'Ireland', ABV: '40%', age: '', notes: 'Stout Cask Finish', occasion: '', retired: ''  },
@@ -193,10 +193,13 @@ const drinksData = {
 
     hardcore: {
         all: [
-            { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Retirement Gift ‘23', retired: ''  },
+            { distillery: 'TBD', bottle: 'Future Secret Stash', region: 'TBD', ABV: 'TBD%', Age: '', notes: '', occasion: '', retired: ''  },
+            /*
+            { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Rachel's Retirement Gift ‘23', retired: ''  },
             { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: 'Minos ASR', retired: ''  },
             { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: 'Christmas Present', retired: ''  },
-        ]
+        */
+            ]
     },
 
     beer: {
