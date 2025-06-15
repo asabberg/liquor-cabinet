@@ -7,7 +7,7 @@ const drinksData = {
                 { distillery: 'FEW', bottle: 'Cold Cut', region: 'Illinois, USA', ABV: '46.5%', age: '', notes: 'Cut from barrel strenght with cold brew coffee', occasion: '', retired: ''  },
                 { distillery: 'FEW', bottle: 'Lost Lantern Single Cask No. 3', region: 'Illinois, USA', ABV: '62.3%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'High Wire Distilling Co', bottle: 'Lost Lantern Single Cask - Jimmy Red', region: 'South Carolina', ABV: '58.7%', age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Iron Smoke', bottle: 'Casket Strenght', region: 'New York, USA', ABV: '60%', age: '', notes: '', occasion: 'Iron Anniversary', retired: ''  },
+                { distillery: 'Iron Smoke', bottle: 'Casket Strength', region: 'New York, USA', ABV: '60%', age: '', notes: '', occasion: 'Iron Anniversary', retired: ''  },
                 { distillery: 'Old Boudreau&#x27;s', bottle: 'Old Boudreau&#x27;s Insanely Small Batch 2019 Release', region: 'Washington, USA', ABV: '50%', age: '12 Years', notes: 'Sherry &amp; Angostura Bitters Barrel Finished', occasion: '', retired: ''  },
                 { distillery: 'Old Boudreau&#x27;s', bottle: 'Old Boudreau&#x27;s Insanely Small Batch 2020 Release', region: 'Washington, USA', ABV: '47.5%', age: '12 Years', notes: 'Sherry &amp; Angostura Bitters Barrel Finished', occasion: '', retired: ''  },
                 { distillery: 'Old Fitzgerald', bottle: 'Larceny', region: 'Kentucky, USA', ABV: '46%', age: '', notes: '', occasion: '', retired: ''  },
@@ -89,7 +89,7 @@ const drinksData = {
                 { distillery: 'Kirkland Signature', bottle: 'Speyside 10 Year Single Malt', region: 'Speyside', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: ''  },
             ]
         },
-       /* japanese: {
+        japanese: {
             all: [
                 { distillery: 'Ichiro&#x27;s Malt', bottle: 'MWR - Mizunara Wood Reserve', region: 'Japan', ABV: '46%', age: '', notes: '', occasion: 'Yokohama Trip Dec &#x27;24', retired: ''  },
                 { distillery: 'Ichiro&#x27;s Malt', bottle: 'Wine Wood Reserve', region: 'Japan', ABV: '46%', age: '', notes: '', occasion: 'Yokohama Trip Dec &#x27;24', retired: ''  },
@@ -104,7 +104,7 @@ const drinksData = {
                 { distillery: 'Suntory', bottle: 'The Yamazaki 12 Year', region: 'Osaka, Japan', ABV: '43%', age: '12 Year', notes: '', occasion: '', retired: ''  },
                                                                //
             ]
-        },*/
+        },
         restofworld: {
             all: [
                 { distillery: 'Jameson', bottle: 'Stout Edition', region: 'Ireland', ABV: '40%', age: '', notes: 'Stout Cask Finish', occasion: '', retired: ''  },
@@ -193,12 +193,10 @@ const drinksData = {
 
     hardcore: {
         all: [
-            { distillery: 'TBD', bottle: 'Future Secret Stash', region: 'TBD', ABV: 'TBD%', Age: '', notes: '', occasion: '', retired: ''  },
-            /*
-            { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Rachel's Retirement Gift ‘23', retired: ''  },
+            { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Rachel&#x27;s Retirement Gift ‘23', retired: ''  },
             { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: 'Minos ASR', retired: ''  },
             { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: 'Christmas Present', retired: ''  },
-        */
+        
             ]
     },
 
