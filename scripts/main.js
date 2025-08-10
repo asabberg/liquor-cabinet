@@ -35,9 +35,9 @@ const drinksData = {
                 { distillery: 'Westland', bottle: 'Cask No. 7637 - Rachel&#x27;s Handfill', region: 'Washington, USA', ABV: '48.9%', age: '', notes: 'Pajarette Hogshead', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 8803 - Lucky Envelope Stout Finish Single Cask', region: 'Washington, USA', ABV: '56.3%', age: '5 Years', notes: 'Pilsen Malt', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 10741 - Asa&#x27;s Handfill (Bottle 69)', region: 'Washington, USA', ABV: '63%', age: '', notes: 'Peated Malt &amp; Amarone Cask', occasion: '', retired: ''  },
-                { distillery: 'Westland', bottle: 'Colere 1st Edition', region: 'Washington, USA', ABV: '50%', age: '4 Years', notes: 'Made with Skagit Valley Malting Alba Barley', occasion: 'Director Whiskey', retired: ''  },
-                { distillery: 'Westland', bottle: 'Colere 2nd Edition', region: 'Washington, USA', ABV: '50%', age: '4.9 Years', notes: 'Made with Talisman Barley', occasion: 'Director Whiskey', retired: ''  },
-                { distillery: 'Westland', bottle: 'Colere 3rd Edition', region: 'Washington, USA', ABV: '50%', age: '3.3 Years', notes: 'Made with Pilot Barley', occasion: 'Director Whiskey', retired: ''  },
+                { distillery: 'Westland', bottle: 'Colere 1st Edition', region: 'Washington, USA', ABV: '50%', age: '4 Years', notes: 'Made with Skagit Valley Malting Alba Barley', occasion: 'Promotion to Director - March 2024', retired: ''  },
+                { distillery: 'Westland', bottle: 'Colere 2nd Edition', region: 'Washington, USA', ABV: '50%', age: '4.9 Years', notes: 'Made with Talisman Barley', occasion: 'Promotion to Director - March 2024', retired: ''  },
+                { distillery: 'Westland', bottle: 'Colere 3rd Edition', region: 'Washington, USA', ABV: '50%', age: '3.3 Years', notes: 'Made with Pilot Barley', occasion: 'First big solo outing after Sully was born - August 2023', retired: ''  },
                 { distillery: 'Westland', bottle: 'Colere 4th Edition', region: 'Washington, USA', ABV: '50%', age: '5.9 Years', notes: 'Made with Fritz Barley, also known as NZ-151', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: '7th Annual Peat Week - Escaped', region: 'Washington, USA', ABV: '60.8%', age: '7.4 Years', notes: 'Ex-Rum Cask #6732', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: '8th Annual Peat Week - Grand Finale', region: 'Washington, USA', ABV: '54.5%', age: '7.1 Years', notes: '', occasion: '', retired: ''  },
@@ -77,6 +77,7 @@ const drinksData = {
             all: [
 //
                 { distillery: 'Ardbeg', bottle: 'An Oa', region: 'Islay', ABV: '46.6%', age: '', notes: '', occasion: '', retired: ''  },
+                { distillery: 'Ardbeg', bottle: 'Smokiverse', region: 'Islay', ABV: '48.3%', age: '', notes: 'Uses a high-gravity mash', occasion: 'Became Director of Product Creation - July 2025', retired: ''  },
                 { distillery: 'Ardbeg', bottle: 'Spectacular', region: 'Islay', ABV: '46%', age: '', notes: 'Port Cask', occasion: '', retired: ''  },
                 { distillery: 'Ardbeg', bottle: 'Ten Year', region: 'Islay', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Ardbeg', bottle: 'Uigeadail', region: 'Islay', ABV: '54.2%', age: '', notes: '', occasion: '', retired: ''  },
@@ -109,8 +110,10 @@ const drinksData = {
             all: [
                 { distillery: 'Jameson', bottle: 'Stout Edition', region: 'Ireland', ABV: '40%', age: '', notes: 'Stout Cask Finish', occasion: '', retired: ''  },
                 { distillery: 'Odd Society', bottle: 'Bomber Brewing Community Collaboration', region: 'Vancouver, Canada', ABV: '50%', age: '', notes: 'Double IPA Whiskey', occasion: '', retired: ''  },
-                { distillery: 'Odd Society', bottle: 'Burns Bog', region: 'Vancouver, Canada', ABV: '46%', age: '', notes: 'Canadian Smoked Malt Whiskey', occasion: '', retired: ''  },              ]
-        }
+                { distillery: 'Odd Society', bottle: 'Burns Bog', region: 'Vancouver, Canada', ABV: '46%', age: '', notes: 'Canadian Smoked Malt Whiskey', occasion: '', retired: ''  },              
+            ]
+        
+            }
 
     },
 
@@ -193,8 +196,10 @@ const drinksData = {
 
     hardcore: {
         all: [
-            { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Rachel&#x27;s Retirement Gift ‘23', retired: ''  },
-            { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: 'Minos ASR', retired: ''  },
+            { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Rachel&#x27;s Retirement Gift 2023', retired: ''  },
+            { distillery: 'Akkeshi', bottle: 'Hakuro', region: 'Hokkaido, Japan', ABV: '55%', Age: '', notes: 'Hakuro is the heart of September, the 8th through the 22nd, when dewy summer nights embrace the last of summer’s vibrance', occasion: 'Potty Trained Sully + 10th Wedding Anniversary August 2025', retired: ''  },
+            { distillery: 'Kavalan', bottle: 'Soloist Vinho Barrique Cask Strength', region: 'Taiwan', ABV: '58.6%', age: '', notes: 'Cask W170113031A', occasion: 'Denys Quit - July 2025', retired: ''  },
+            { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: 'Minos ASR - November 2024', retired: ''  },
             { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: 'Christmas Present', retired: ''  },
         
             ]
