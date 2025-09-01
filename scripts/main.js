@@ -86,10 +86,7 @@ const drinksData = {
                 { distillery: 'Port Charlotte', bottle: 'Islay Barley Heavily Peated', region: 'Islay', ABV: '50%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Chivas Regal', bottle: 'Mizunara', region: 'Scotland', ABV: '40%', age: '12 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Monkey Shoulder', bottle: 'Monkey Shoulder Batch 27', region: 'Scotland', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Kirkland Signature', bottle: 'Highland 12 Year Single Malt', region: 'Highland', ABV: '46%', age: '12 Years', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Kirkland Signature', bottle: 'Islay Single Malt', region: 'Islay', ABV: '46%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Kirkland Signature', bottle: 'Lowland Single Malt', region: 'Lowland', ABV: '46%', age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Kirkland Signature', bottle: 'Speyside 10 Year Single Malt', region: 'Speyside', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: ''  },
             ]
         },
         japanese: {
@@ -192,7 +189,11 @@ const drinksData = {
                 { distillery: 'Kavalan', bottle: 'King Car Conductor', region: 'Taiwan', ABV: '46%', age: '', notes: '', occasion: '', retired: 'May-25'  },
                 { distillery: 'Kavalan', bottle: 'Oloroso Sherry Oak', region: 'Taiwan', ABV: '54%', age: '', notes: '', occasion: '', retired: 'May-25'  },
                 { distillery: 'Kavalan', bottle: 'Port Oak', region: 'Taiwan', ABV: '54%', age: '', notes: '', occasion: '', retired: 'May-25'  },
-                    
+                { distillery: 'Kirkland Signature', bottle: 'Highland 12 Year Single Malt', region: 'Highland', ABV: '46%', age: '12 Years', notes: '', occasion: '', retired: 'Aug-25'  },
+                { distillery: 'Kirkland Signature', bottle: 'Islay Single Malt', region: 'Islay', ABV: '46%', age: '', notes: '', occasion: '', retired: 'Aug-25'  },
+                { distillery: 'Kirkland Signature', bottle: 'Speyside 10 Year Single Malt', region: 'Speyside', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: 'Aug-25'  },
+
+                                
             ]
         },
 
