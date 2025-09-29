@@ -50,6 +50,7 @@ const drinksData = {
                 { distillery: 'Westland', bottle: 'Lost Lantern Single Cask - Peated ASM', region: 'Washington, USA', ABV: '54.9%', age: '9.99 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Flagship', region: 'Washington, USA', ABV: '46%', age: '3.3 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Sherry Wood', region: 'Washington, USA', ABV: '46%', age: '', notes: '', occasion: '', retired: ''  },
+                { distillery: 'Westland', bottle: 'Solum 3rd Edition', region: 'Washington, USA', ABV: '50%', age: '4 Years', notes: 'Skagit Valley Malting Peated Malt - Using only Peat and Malt from the PNW', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Wine Cask Finish', region: 'Washington, USA', ABV: '46%', age: '5 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Watchpost', region: 'Washington, USA', ABV: '42.5%', age: '8 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Whiskey Del Bac', bottle: 'Distiller&#x27;s Cut, Fall 2023', region: 'Arizona, USA', ABV: '58%', age: '', notes: 'Mesquite smoked and finished in Sauternes barrels &amp; Tawny Port barrels', occasion: '', retired: ''  },
