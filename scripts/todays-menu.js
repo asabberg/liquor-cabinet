@@ -2,12 +2,12 @@
 
 const todaysMenu = {
     food: [
-        { name: "Charcuterie Board", description: "A selection of meats and cheeses." },
-        { name: "Mini Quiches", description: "Assorted bite-sized quiches." }
+        { name: "Fonude", description: "A selection melted cheese dips." },
+        { name: "Dippins", description: "Bread, etc" }
     ],
     drinks: [
         { distillery: "Westland", bottle: "Colere 1st Edition", region: "Washington, USA", ABV: "50%", notes: "Made with Skagit Valley Malting Alba Barley" },
-        { distillery: "Benedictine", bottle: "Benedictine", region: "France", ABV: "40%", notes: "" }
+        { distillery: 'Ardbeg', bottle: 'Uigeadail', region: 'Islay', ABV: '54.2%', age: '', notes: '', occasion: '', retired: ''  },
     ]
 };
 

@@ -106,13 +106,30 @@ section{
 }
 
 footer {
-    background: #f5c875;
+    background: #e7cb8d;
     color: #ffffff;
     text-align: center;
     padding: 0 0;
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.menu-footer {
+    background: #aa3b0f;
+    color: #fff;
+    text-align: center;
+    padding: 0 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.menu-footer img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .active-btn,
