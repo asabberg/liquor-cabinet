@@ -17,7 +17,7 @@ function showTodaysMenuFood() {
     foodList.innerHTML = '';
     todaysMenu.food.forEach(item => {
         const div = document.createElement('div');
-        div.innerHTML = `<strong>${item.name}</strong><br><em>${item.description}</em>`;
+        div.innerHTML = `<div><strong>${item.name}</strong><br><em>${item.description}</em></div><br>`;
         foodList.appendChild(div);
     });
 }
@@ -28,10 +28,10 @@ function showTodaysMenuDrinks() {
     drinksList.innerHTML = '';
     todaysMenu.drinks.forEach(drink => {
         const div = document.createElement('div');
-        div.innerHTML = `<strong>${drink.bottle}</strong> by ${drink.distillery} <br>
-            <em>Region:</em> ${drink.region} <br>
-            <em>ABV:</em> ${drink.ABV} <br>
-            ${drink.notes ? `<em>Notes:</em> ${drink.notes}` : ''}`;
+        div.innerHTML = `<div><strong>${drink.bottle}</strong> by ${drink.distillery}<br>
+            <em>Region:</em> ${drink.region}<br>
+            <em>ABV:</em> ${drink.ABV}<br>
+            ${drink.notes ? `<em>Notes:</em> ${drink.notes}<br>` : ''}</div><br>`;
         drinksList.appendChild(div);
     });
 }
