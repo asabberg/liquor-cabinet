@@ -97,7 +97,7 @@ const drinksData = {
                 { distillery: 'Nikka', bottle: 'Miyagikyo Single Malt', region: 'Miyagi, Japan', ABV: '45%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Nikka', bottle: 'Yoichi - Peaty &amp; Salty', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Bold peat smoke, briny maritime salinity, toasted oak, subtle sweetness', occasion: 'Aquired in Yokohama 2024', retired: ''  },
                 { distillery: 'Nikka', bottle: 'Yoichi - Sherry &amp; Sweet', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Rich dried fruit, dark chocolate, nutty sweetness, hints of spice', occasion: 'Aquired in Yokohama 2024', retired: ''  },
-                { distillery: 'Nikka', bottle: 'Yoichi - Woody &amp; Vanillic', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: '', retired: ''  },
+                { distillery: 'Nikka', bottle: 'Yoichi - Woody &amp; Vanillic', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: 'Aquired in Yokohama 2024', retired: ''  },
                 { distillery: 'Nikka', bottle: 'Yoichi Single Malt', region: 'Hokkaido, Japan', ABV: '45%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Suntory', bottle: 'Hakushu', region: 'Yamanashi, Japan', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Suntory', bottle: 'Hibiki Japanese Harmony', region: 'Japan', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
