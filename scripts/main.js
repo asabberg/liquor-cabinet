@@ -27,6 +27,9 @@ const drinksData = {
                                                                 //
             ],
             americansinglemalt: [
+                { distillery: 'Copperworks', bottle: 'Single Cask - Color Cask', region: 'Washington, USA', ABV: '50%', age: '4 Years 9 Months', notes: 'Aged in a 200 Year Old Sherry Color Cask', occasion: '', retired: ''  },
+                { distillery: 'Copperworks', bottle: 'Single Cask - Letterpress Amaro', region: 'Washington, USA', ABV: '50%', age: '7 Years 1 Months', notes: '1 Month Finish in Amaro Amorino Riserva Cask', occasion: '', retired: ''  },
+                { distillery: 'Copperworks', bottle: 'Single Cask - Pondera Cabernet', region: 'Washington, USA', ABV: '50%', age: '7 Years 7 Months', notes: '7 Month Finish in Pondera Cabernet Cask', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 3799 - Ratification Cask', region: 'Washington, USA', ABV: '55%', age: '8 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 5699 - Tequila Cask', region: 'Washington, USA', ABV: '52.6%', age: '9 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask No. 6234 - Madeira Cask', region: 'Washington, USA', ABV: '65.6%', age: '', notes: '', occasion: '', retired: ''  },
@@ -47,6 +50,7 @@ const drinksData = {
                 { distillery: 'Westland', bottle: 'Cask Exchange - Fast Penny Spirits', region: 'Washington, USA', ABV: '52.6%', age: '9 Years', notes: '', occasion: '', retired: ''  },           
                 { distillery: 'Westland', bottle: 'Cask Exchange - Greenwood Cider', region: 'Washington, USA', ABV: '50.1%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Cask Exchange - Holy Mountain Brewing', region: 'Washington, USA', ABV: '50%', age: '6 Years', notes: 'Finished in American Strong Beer Casks that previously held Port', occasion: '', retired: ''  },
+                { distillery: 'Westland', bottle: 'Cask Exchange - Sons Of Vancouver', region: 'Washington, USA', ABV: '55.3%', age: '', notes: 'Finished in No 82 Amaretto Casks', occasion: '', retired: ''  },             
                 { distillery: 'Westland', bottle: 'Lost Lantern Single Cask - Peated ASM', region: 'Washington, USA', ABV: '54.9%', age: '9.99 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Flagship', region: 'Washington, USA', ABV: '46%', age: '3.3 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Westland', bottle: 'Garryaana 10th Edition', region: 'Washington, USA', ABV: '50%', age: '10 Years', notes: 'Primary Casks: First & Second Fill Garry Oak ', occasion: '', retired: ''  },
@@ -208,6 +212,7 @@ const drinksData = {
             { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Rachel&#x27;s Retirement Gift 2023', retired: ''  },
             { distillery: 'Akkeshi', bottle: 'Hakuro - 2023 Release', region: 'Hokkaido, Japan', ABV: '55%', Age: '', notes: 'Hakuro is the heart of September, the 8th through the 22nd, when dewy summer nights embrace the last of summer’s vibrance', occasion: 'Potty Trained Sully + 10th Wedding Anniversary August 2025', retired: ''  },
             { distillery: 'Kavalan', bottle: 'Soloist Vinho Barrique Cask Strength', region: 'Taiwan', ABV: '58.6%', age: '', notes: 'Cask W170113031A', occasion: 'Denys Quit - July 2025', retired: ''  },
+            { distillery: 'Kavalan', bottle: 'Soloist Solist ex-Bourbon Cask Strength', region: 'Taiwan', ABV: 'TBD', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Michter&#x27;s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: 'Minos ASR - November 2024', retired: ''  },
             { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: 'Christmas Present', retired: ''  },
         
