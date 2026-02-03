@@ -90,6 +90,7 @@ const drinksData = {
                 { distillery: 'Ardbeg', bottle: 'Spectacular', region: 'Islay', ABV: '46%', age: '', notes: 'Port Cask', occasion: '', retired: ''  },
                 { distillery: 'Ardbeg', bottle: 'Ten Year', region: 'Islay', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Ardbeg', bottle: 'Uigeadail', region: 'Islay', ABV: '54.2%', age: '', notes: '', occasion: '', retired: ''  },
+                { distillery: 'Bruichladdich', bottle: 'The Classic Laddie', region: 'Islay', ABV: '50%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Port Charlotte', bottle: 'Islay Barley Heavily Peated', region: 'Islay', ABV: '50%', age: '', notes: '', occasion: '', retired: ''  },
                 { distillery: 'Glenmorangie ', bottle: 'A Tale of the Forest', region: 'Highlands', ABV: '46%', age: '', notes: 'Barley kilned with woodland botanicals', occasion: '', retired: ''  },
                 { distillery: 'Glenmorangie ', bottle: 'A Tale of Ice Cream', region: 'Highlands', ABV: '46%', age: '', notes: 'Finished in high-vanillin casks', occasion: '', retired: ''  },
@@ -151,6 +152,7 @@ const drinksData = {
     amaro: {
         all: [
             { distillery: 'Benedictine', bottle: 'Benedictine', region: 'France', ABV: '40%', age: '', notes: '', occasion: '', retired: ''  },
+            { distillery: 'Drillaud ', bottle: 'Creme de Mure', region: 'France', ABV: '15%', age: '', notes: '', occasion: '', retired: ''  },         
             { distillery: 'Letterpress Distilling', bottle: 'Amaro Amorino', region: 'Washington, USA', ABV: '32%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Letterpress Distilling', bottle: 'Amaro Amorino Riserva #3', region: 'Washington, USA', ABV: '40%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Fast Penny Spirits', bottle: 'Amaricano', region: 'Washington, USA', ABV: '30%', age: '', notes: '', occasion: '', retired: ''  },
@@ -218,6 +220,19 @@ const drinksData = {
         
             ]
     },
+
+    new: {
+        all: [
+            { distillery: 'Bruichladdich', bottle: 'The Classic Laddie', region: 'Islay', ABV: '50%', age: '', notes: '', occasion: '', retired: ''  },
+            { distillery: 'Copperworks', bottle: 'Single Cask - Color Cask', region: 'Washington, USA', ABV: '50%', age: '4 Years 9 Months', notes: 'Aged in a 200 Year Old Sherry Color Cask', occasion: '', retired: ''  },
+            { distillery: 'Copperworks', bottle: 'Single Cask - Letterpress Amaro', region: 'Washington, USA', ABV: '50%', age: '7 Years 1 Months', notes: '1 Month Finish in Amaro Amorino Riserva Cask', occasion: '', retired: ''  },
+            { distillery: 'Copperworks', bottle: 'Single Cask - Pondera Cabernet', region: 'Washington, USA', ABV: '50%', age: '7 Years 7 Months', notes: '7 Month Finish in Pondera Cabernet Cask', occasion: '', retired: ''  },
+            { distillery: 'Westland', bottle: 'Cask Exchange - Sons Of Vancouver', region: 'Washington, USA', ABV: '55.3%', age: '', notes: 'Finished in No 82 Amaretto Casks', occasion: '', retired: ''  },             
+            { distillery: 'Kavalan', bottle: 'Soloist Solist ex-Bourbon Cask Strength', region: 'Taiwan', ABV: '58.3%', age: '', notes: '', occasion: '', retired: ''  },
+        
+            ]
+    },
+
 
     beer: {
         all: [
