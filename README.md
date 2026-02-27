@@ -11,6 +11,7 @@ new-website
 │   ├── styles
 │   │   └── style.css    # Styles for the website
 │   ├── scripts
+│   │   ├── drinkdata.js # Contains the drinksData array used by the app
 │   │   └── main.js      # JavaScript for interactivity
 ├── package.json         # npm configuration file
 └── README.md            # Project documentation

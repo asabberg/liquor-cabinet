@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whiskey Flight Selector</title>
+    <link rel="stylesheet" href="styles/stave-style.css" />
+</head>
+<body>
+    <div id="preferences">
+        <h1>Stave</h1>
+        <form id="prefForm">
+             <fieldset>
+                <legend>Flight Size</legend>
+                <div id="flightSizeButtons" class="option-list">
+                    <button id="size1" type="button">1</button>
+                    <button id="size2" type="button">2</button>
+                    <button id="size3" type="button">3</button>
+                    <button id="size4" type="button">4</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Style</legend>
+                <div id="styleButtons" class="option-list"></div>
+            </fieldset>
+
+            <details id="advancedDetails">
+                <summary>Advanced filters </summary>
+                <fieldset>
+                    <legend>Cask Finish</legend>
+                    <div id="caskButtons" class="option-list"></div>
+                </fieldset>
+                <fieldset>
+                    <legend>Smokey</legend>
+                    <div id="smokeyButtons" class="option-list">
+                        <button id="smokeyYes" type="button">Yes</button>
+                        <button id="smokeyNo" type="button">No</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>ABV Range</legend>
+                    <div id="abvButtons" class="option-list">
+                        <button type="button" data-range="normal">Normal (&lt;50%)</button>
+                        <button type="button" data-range="hot">Hot (50–55%)</button>
+                        <button type="button" data-range="high">High Octane (&gt;55%)</button>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Distillery</legend>
+                    <div id="distilleryButtons" class="option-list"></div>
+                </fieldset>
+            <fieldset>
+                <legend>Region</legend>
+                <div id="regionButtons" class="option-list"></div>
+            </fieldset>
+            </details>
+
+
+
+            <button type="submit">Start Swiping</button>
+        </form>
+    </div>
+
+    <div id="cards" class="hidden">
+        <div id="cardProgress"></div>
+        <div id="cardContainer"></div>
+        <div id="controls">
+            <!-- pass on left, add on right -->
+            <button id="passBtn">&larr; Pass</button>
+            <button id="flightBtn">Add to Flight &rarr;</button>
+        </div>
+        <p id="flightCount">Selected: 0/4</p>
+        <ul id="flightList"></ul>
+    </div>
+
+    <div id="summary" class="hidden">
+        <h2>Your Flight</h2>
+        <ul id="summaryList"></ul>
+        <button id="resetBtn">Start Over</button>
+    </div>
+
+    <!-- load data definitions first -->
+    <script src="scripts/drinkdata.js"></script>
+
+    <!-- app logic follows; `app.js` will pick up our whiskey list from `drinksData.whiskey` -->
+    <script src="scripts/app.js"></script>
+
+</body>
+</html>

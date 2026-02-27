@@ -9,7 +9,12 @@ function showSubcategories(category) {
     subcategoriesDiv2.innerHTML = ''; // Clear existing subcategory buttons
 
     if (drinksData[category]) {
-        const subcategories = Object.keys(drinksData[category]);
+        let subcategories = Object.keys(drinksData[category]);
+        
+        // Hide unicorns from whiskey category
+        if (category === 'whiskey') {
+            subcategories = subcategories.filter(sub => sub !== 'unicorns');
+        }
         
         if (subcategories.length === 1) {
             showDrinks(category, subcategories[0]);
@@ -63,13 +68,15 @@ function showNestedSubcategories(category, subcategory) {
     }
 }
 
-function showDrinks(category, subcategory, nestedSubcategory = null) {
+function showDrinks(category, subcategory, nestedSubcategory = null, directDrinks = null) {
     const drinksList = document.getElementById('drinks-list');
     drinksList.innerHTML = ''; // Clear the current list
 
     let drinks = [];
 
-    if (nestedSubcategory) {
+    if (directDrinks) {
+        drinks = directDrinks;
+    } else if (nestedSubcategory) {
         drinks = drinksData[category][subcategory][nestedSubcategory] || [];
     } else {
         drinks = drinksData[category][subcategory] || [];
@@ -133,7 +140,13 @@ function clearAllActiveButtons() {
 
 document.getElementById('hardcore-btn').addEventListener('click', function() {
     clearAllActiveButtons();
-    showSubcategories('hardcore');
+    const drinksList = document.getElementById('drinks-list');
+    drinksList.innerHTML = '';
+    const subcategoriesDiv = document.getElementById('subcategories');
+    subcategoriesDiv.innerHTML = '';
+    const subcategoriesDiv2 = document.getElementById('subcategories2');
+    subcategoriesDiv2.innerHTML = '';
+    showDrinks(null, null, null, drinksData.whiskey.unicorns.unicorn);
 });
 
 document.getElementById('retired-btn').addEventListener('click', function() {

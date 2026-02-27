@@ -1,0 +1,363 @@
+body {
+    margin: 0;
+    padding: 1rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #0e3144;
+}
+
+h1, h2, legend {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: #0e3144;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center; /* center category labels */
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 2px solid #0e3144;
+}
+
+button:hover {
+    background-color: #f6dea8;
+    color: #0e3144;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.hidden {
+    display: none;
+}
+
+#preferences {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #aa3b0f;
+}
+
+fieldset {
+    margin-bottom: 1.5rem;
+    border: 2px solid #bfdcd0;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+#prefForm > button[type="submit"] {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 12px 30px;
+    font-size: 1rem;
+    background: #0e3144;
+    color: #ffffff;
+    border: 2px solid #0e3144;
+}
+
+#prefForm > button[type="submit"]:hover {
+    background: #f6dea8;
+    color: #0e3144;
+}
+
+#cards {
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.card {
+    background: #ffffff;
+    /* subtle passport paper texture */
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #aa3b0f;
+    border-top: 2px solid #bfdcd0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.card.enter {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card.exit-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.card.exit-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #aa3b0f;
+}
+
+.card p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #0e3144;
+}
+
+/* passport stamp row */
+.stamp-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25rem;
+}
+.stamp-row img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    margin: 0 4px;
+    border: 1px solid #0e3144;
+    border-radius: 4px;
+    transform: rotate(-5deg);
+}
+.stamp-row img:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+#cardProgress {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+#controls {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#controls button {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background: #0e3144;
+    color: #ffffff;
+}
+
+#controls button:hover {
+    background: #bfdcd0;
+    color: #0e3144;
+}
+
+#flightCount {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #0e3144;
+}
+
+#flightList {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    text-align: center; /* center justify selection list */
+}
+
+#flightList li {
+    background: #f6dea8;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    border-left: 4px solid #aa3b0f;
+    text-align: center; /* make each item centered */
+}
+
+/* summary page styling */
+#summary {
+    text-align: center;
+}
+
+#summaryList {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#summaryList li {
+    background: #f6dea8;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    margin: 0.5rem auto;
+    max-width: 90%;
+    text-align: center;
+
+    font-size: 0.95rem;
+    color: #0e3144;
+}
+
+.option-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center; /* center all buttons */
+    text-align: center; /* fallback for older browsers */
+}
+
+.option-list button {
+    padding: 8px 12px;
+    background: #ffffff;
+    color: #0e3144;
+    border: 2px solid #0e3144;
+    font-size: 0.9rem;
+}
+
+.option-list button:hover {
+    background: #f6dea8;
+    border-color: #0e3144;
+}
+
+.option-list button.selected {
+    background: #bfdcd0;
+    color: #0e3144;
+    border-color: #0e3144;
+    font-weight: 700;
+}
+
+.option-list.nested {
+    margin-left: 1.5rem;
+}
+
+#smokeyButtons button {
+    flex: 1;
+    max-width: 100px;
+}
+
+#advancedDetails summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #0e3144;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    text-align: center; /* center advanced filters heading */
+    transition: background 0.3s ease;
+}
+
+#advancedDetails summary:hover {
+    background: #f6dea8;
+}
+
+#advancedDetails[open] summary::after {
+    content: " ";
+}
+
+#advancedDetails summary::after {
+    content: " ";
+}
+
+#summary {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #aa3b0f;
+    text-align: left;
+}
+
+#summaryList {
+    list-style: none;
+    padding: 0;
+}
+
+#summaryList li {
+    background: #f6dea8;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #aa3b0f;
+}
+
+#summaryList strong {
+    font-size: 1.1rem;
+    color: #aa3b0f;
+}
+
+#resetBtn {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 12px 30px;
+    background: #0e3144;
+    color: #ffffff;
+    border: 2px solid #0e3144;
+    font-weight: 700;
+}
+
+#resetBtn:hover {
+    background: #f6dea8;
+    color: #0e3144;
+}
+
+select[multiple] {
+    width: 100%;
+    min-height: 6rem;
+    background: #ffffff;
+    color: #0e3144;
+    border: 2px solid #bfdcd0;
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+select[multiple] option:checked {
+    background: #bfdcd0;
+    color: #0e3144;
+}
+
+input[type="number"] {
+    background: #ffffff;
+    color: #0e3144;
+    border: 2px solid #bfdcd0;
+    border-radius: 4px;
+    padding: 0.6rem;
+    font-family: inherit;
+}
+
+label {
+    margin-right: 1rem;
+    color: #0e3144;
+    font-weight: 500;
+}
