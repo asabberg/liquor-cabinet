@@ -243,9 +243,10 @@ fieldset {
     font-size: 0.9rem;
 }
 
-.option-list button:hover {
-    background: #f6dea8;
-    border-color: #0e3144;
+/* remove focus outline and avoid hover color sticking on focus */
+.option-list button:focus {
+    outline: none;
+    background: #ffffff;
 }
 
 .option-list button.selected {

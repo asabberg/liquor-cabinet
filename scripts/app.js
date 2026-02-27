@@ -95,6 +95,7 @@ function buildButtonList(containerId, options, selectionSet, onToggle, formatter
                 btn.classList.add('selected');
             }
             if (onToggle) onToggle();
+            btn.blur();
         });
         container.appendChild(btn);
     });
@@ -122,6 +123,7 @@ function buildRegionButtons(regions, stylesByRegion) {
                 btn.classList.add('selected');
                 toggleRegionStyles(r, true);
             }
+            btn.blur();
         });
 
         const styleGroup = document.createElement('div');
@@ -160,6 +162,7 @@ function toggleRegionStyles(region, show) {
                         set.add(val);
                         btn.classList.add('selected');
                     }
+                    btn.blur();
                 });
                 styleGroup.appendChild(btn);
             });
