@@ -77,7 +77,7 @@ const drinksData = {
             other: [
                 { distillery: '45th Parellel', bottle: 'Wisconsin Wheat - Woodman\'s Private Barrel', region: 'Wisconsin, USA', ABV: '60%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Bainbridge Organic Distillers', bottle: 'Battle Point Whiskey', region: 'Washington, USA', ABV: '43%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
-                { distillery: 'Bainbridge Organic Distillers', bottle: 'Battle Point, Two Islands Hokkadio Mizunara Cask', region: 'Washington, USA', ABV: '63.9%', age: '', notes: 'Full Barrel Proof', occasion: '', retired: '', peated: '', cask: '', other: ''  },
+                { distillery: 'Bainbridge Organic Distillers', bottle: 'Battle Point, Two Islands Hokkadio Mizunara Cask', region: 'Washington, USA', ABV: '63.9%', age: '', notes: 'Full Barrel Proof', occasion: '', retired: '', peated: '', cask: 'Mizunara', other: ''  },
                 { distillery: 'Deschutes x Bend Distillery', bottle: 'Black Butte Whiskey', region: 'Oregon, USA', ABV: '47%', age: '5 Years', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'FEW', bottle: 'Chicago Smokeworks', region: 'Illinois, USA', ABV: '46.5%', age: '', notes: 'Cherrywood Smoked Malt', occasion: '', retired: '', peated: 'yes', cask: '', other: ''  },
                 { distillery: 'Iron Smoke', bottle: 'Rattlesnake Rosie\'s Apple Pie', region: 'New York, USA', ABV: '35%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
@@ -131,12 +131,12 @@ const drinksData = {
         },    
         unicorns: {
             unicorn:[    
-                { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Rachel\'s Retirement Gift 2023', retired: ''  },
-                { distillery: 'Akkeshi', bottle: 'Hakuro - 2023 Release', region: 'Hokkaido, Japan', ABV: '55%', Age: '', notes: 'Hakuro is the heart of September, the 8th through the 22nd, when dewy summer nights embrace the last of summer’s vibrance', occasion: 'Potty Trained Sully + 10th Wedding Anniversary August 2025', retired: ''  },
-                { distillery: 'Kavalan', bottle: 'Soloist Vinho Barrique Cask Strength', region: 'Taiwan', ABV: '58.6%', age: '', notes: 'Cask W170113031A', occasion: 'Denys Quit - July 2025', retired: ''  },
-                { distillery: 'Kavalan', bottle: 'Soloist Solist ex-Bourbon Cask Strength', region: 'Taiwan', ABV: '58.3%', age: '', notes: '', occasion: '', retired: ''  },
-                { distillery: 'Michter\'s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: 'Minos ASR - November 2024', retired: ''  },
-                { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: 'Christmas Present', retired: ''  },
+                { distillery: 'Bainbridge Organic Distillers', bottle: 'Yama | Mizunara Cask Single Grain Whiskey', region: 'Bainbridge Island, WA', ABV: '43%', Age: '', notes: 'Aromatic sandalwood, tropical flowers, star anise, joss incense; flavors of nutmeg, clove, pear, marzipan, toasted coconut, yuzu; finishes with fading spice, honey, and oak', occasion: 'Rachel\'s Retirement Gift 2023', retired: '', peated: '', cask: 'Mizunara', other: ''    },
+                { distillery: 'Akkeshi', bottle: 'Hakuro - 2023 Release', region: 'Hokkaido, Japan', ABV: '55%', Age: '', notes: 'Hakuro is the heart of September, the 8th through the 22nd, when dewy summer nights embrace the last of summer’s vibrance', occasion: 'Potty Trained Sully + 10th Wedding Anniversary August 2025', retired: '', peated: 'yes', cask: 'Mizunara', other: ''    },
+                { distillery: 'Kavalan', bottle: 'Soloist Vinho Barrique Cask Strength', region: 'Taiwan', ABV: '58.6%', age: '', notes: 'Cask W170113031A', occasion: 'Denys Quit - July 2025', retired: '', peated: '', cask: 'Wine', other: ''    },
+                { distillery: 'Kavalan', bottle: 'Soloist Solist ex-Bourbon Cask Strength', region: 'Taiwan', ABV: '58.3%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''    },
+                { distillery: 'Michter\'s', bottle: 'Toasted Barrel Bourbon', region: 'Kentucky, USA', ABV: '45.7%', Age: '', notes: '', occasion: 'Minos ASR - November 2024', retired: '', peated: '', cask: 'Toasted', other: ''    },
+                { distillery: 'Suntory', bottle: 'Hibiki 17', region: 'Japan', ABV: '43%', Age: '17 Years', notes: '', occasion: 'Christmas Present', retired: '', peated: '', cask: '', other: ''    },
             ]
        }
 
