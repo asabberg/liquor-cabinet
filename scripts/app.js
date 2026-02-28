@@ -429,7 +429,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     // Set default selection to 4
-    flightSizeButtons[4].classList.add('selected');
+    flightSizeButtons[1].classList.add('selected');
     
     Object.entries(flightSizeButtons).forEach(([size, btn]) => {
         btn.addEventListener('click', () => {
