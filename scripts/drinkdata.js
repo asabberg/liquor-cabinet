@@ -124,7 +124,7 @@ const drinksData = {
         },
         restofworld: {
             world: [
-                { distillery: 'Jameson', bottle: 'Stout Edition', region: 'Ireland', ABV: '40%', age: '', notes: 'Stout Cask Finish', occasion: '', retired: '', peated: '', cask: 'Beerg', other: ''  },
+                { distillery: 'Jameson', bottle: 'Stout Edition', region: 'Ireland', ABV: '40%', age: '', notes: 'Stout Cask Finish', occasion: '', retired: '', peated: '', cask: 'Beer', other: ''  },
                 { distillery: 'Odd Society', bottle: 'Bomber Brewing Community Collaboration', region: 'Vancouver, Canada', ABV: '50%', age: '', notes: 'Double IPA Whiskey', occasion: '', retired: '', peated: '', cask: 'Beer', other: ''  },
                 { distillery: 'Odd Society', bottle: 'Burns Bog', region: 'Vancouver, Canada', ABV: '46%', age: '', notes: 'Canadian Smoked Malt Whiskey', occasion: '', retired: '', peated: 'yes', cask: '', other: ''  },              
             ]
