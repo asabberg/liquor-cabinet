@@ -200,7 +200,7 @@ let cardList = [];
 let currentIndex = 0;
 let flight = [];
 let flightLimit = 4;
-let selectedFlightSize = 4;
+let selectedFlightSize = 1;
 
 function renderCard(item) {
     const container = document.getElementById('cardContainer');
@@ -482,10 +482,10 @@ window.addEventListener('DOMContentLoaded', () => {
                         if (abv >= 50) return false;
                         break;
                     case 'hot':
-                        if (abv < 50 || abv > 55) return false;
+                        if (abv < 50 || abv > 60) return false;
                         break;
                     case 'high':
-                        if (abv <= 55) return false;
+                        if (abv <= 60) return false;
                         break;
                 }
             }
