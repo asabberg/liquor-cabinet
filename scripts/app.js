@@ -9,44 +9,79 @@ function parseAbv(abvStr) {
 }
 
 // flatten nested whiskey object into a list with category keys
+// stamps are derived dynamically from the same properties the filters use
 function flattenWhiskeys(data) {
     const list = [];
     for (const type in data) {
         const sub = data[type];
         if (Array.isArray(sub)) {
             sub.forEach((item) => {
-                // ensure stamp information is normalized
-                const stamps = [];
-                ['stamp1','stamp2','stamp3','stamp4'].forEach(k => {
-                    if (item[k]) stamps.push(item[k]);
-                });
-                if (item.stamps && Array.isArray(item.stamps)) {
-                    // prefer explicit stamps array if provided
-                    stamps.length = 0;
-                    stamps.push(...item.stamps.slice(0,4));
-                }
-                list.push({ ...item, stamps, category: type });
+                const category = type;
+                const stamps = deriveStamps(item, category);
+                list.push({ ...item, stamps, category });
             });
         } else if (typeof sub === 'object') {
             for (const subType in sub) {
                 const arr = sub[subType];
                 if (Array.isArray(arr)) {
                     arr.forEach((item) => {
-                        const stamps = [];
-                        ['stamp1','stamp2','stamp3','stamp4'].forEach(k => {
-                            if (item[k]) stamps.push(item[k]);
-                        });
-                        if (item.stamps && Array.isArray(item.stamps)) {
-                            stamps.length = 0;
-                            stamps.push(...item.stamps.slice(0,4));
-                        }
-                        list.push({ ...item, stamps, category: type + '.' + subType });
+                        const category = type + '.' + subType;
+                        const stamps = deriveStamps(item, category);
+                        list.push({ ...item, stamps, category });
                     });
                 }
             }
         }
     }
     return list;
+}
+
+// derive stamp images from the whiskey's properties – the same
+// properties the filter buttons operate on.  This keeps stamps
+// in sync with the filters without manual maintenance in the data.
+function deriveStamps(item, category) {
+    const stamps = [];
+    // style: american single malt
+    const style = category ? category.split('.').pop() : '';
+    if (style === 'americansinglemalt') {
+        stamps.push('asm.png');
+    }
+    // smokey / peated
+    if (item.peated && item.peated.trim() !== '') {
+        stamps.push('smokey.png');
+    }
+    // unicorn
+    if (style === 'unicorn') {
+        stamps.push('unicorn.png');
+    }
+  /*  // high octane (ABV > 60%)
+    const abv = parseAbv(item.ABV);
+    if (!isNaN(abv) && abv > 60) {
+        stamps.push('highoctane.svg');
+    }
+    // cask finish
+    if (item.cask && item.cask.trim() !== '') {
+        stamps.push('caskfinish.svg');
+    }
+    // keyword stamps from the "other" field
+    if (item.other && item.other.trim() !== '') {
+        const otherLower = item.other.toLowerCase();
+        const otherKeywordStamps = {
+            'trip': 'trip.svg',
+            'superstar': 'superstar.svg'
+        };
+        for (const [keyword, stampFile] of Object.entries(otherKeywordStamps)) {
+            if (otherLower.includes(keyword)) {
+                stamps.push(stampFile);
+            }
+        }
+    }*/
+    // randomize stamp order
+    for (let i = stamps.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [stamps[i], stamps[j]] = [stamps[j], stamps[i]];
+    }
+    return stamps.slice(0, 4);
 }
 
 // Fisher-Yates shuffle
@@ -209,7 +244,17 @@ function renderCard(item) {
     container.innerHTML = '';
     if (!item) {
         progressEl.textContent = '';
-        container.innerHTML = '<p>No more bottles to show.</p>';
+        if (flight.length === 0) {
+            const msg = document.createElement('p');
+            msg.textContent = 'No more bottles to show.';
+            container.appendChild(msg);
+            const btn = document.createElement('button');
+            btn.textContent = 'Start Over';
+            btn.addEventListener('click', () => resetSession());
+            container.appendChild(btn);
+        } else {
+            container.innerHTML = '<p>No more bottles to show.</p>';
+        }
         return;
     }
     
@@ -283,6 +328,7 @@ function showSummary() {
 
 function resetSession() {
     document.getElementById('summary').classList.add('hidden');
+    document.getElementById('cards').classList.add('hidden');
     document.getElementById('preferences').classList.remove('hidden');
 }
 

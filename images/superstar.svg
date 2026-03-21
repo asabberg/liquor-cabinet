@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <circle cx="36" cy="36" r="32" fill="none" stroke="#d4a017" stroke-width="3" stroke-dasharray="6 3"/>
+  <text x="36" y="28" text-anchor="middle" font-family="serif" font-size="22" font-weight="bold" fill="#d4a017">⭐</text>
+  <text x="36" y="50" text-anchor="middle" font-family="serif" font-size="7" font-weight="bold" fill="#d4a017">SUPERSTAR</text>
+</svg>

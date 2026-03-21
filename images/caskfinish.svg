@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <circle cx="36" cy="36" r="32" fill="none" stroke="#0e3144" stroke-width="3" stroke-dasharray="6 3"/>
+  <text x="36" y="28" text-anchor="middle" font-family="serif" font-size="22" font-weight="bold" fill="#0e3144">🪵</text>
+  <text x="36" y="48" text-anchor="middle" font-family="serif" font-size="8" font-weight="bold" fill="#0e3144">CASK</text>
+  <text x="36" y="58" text-anchor="middle" font-family="serif" font-size="8" font-weight="bold" fill="#0e3144">FINISH</text>
+</svg>
