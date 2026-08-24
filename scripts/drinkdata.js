@@ -24,6 +24,7 @@ const drinksData = {
             rye: [
                 { distillery: 'FEW', bottle: 'Immortal Rye', region: 'Illinios, USA', ABV: '46.5%', age: '', notes: 'Uses Eight Immortals Tea', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Michter\'s', bottle: 'Straight Rye', region: 'Kentucky, USA', ABV: '42.4%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
+                { distillery: 'Short Path Distillery', bottle: 'Concord Straight Rye Whiskey', region: 'Massachusetts, USA', ABV: '45%', age: '2 Years', notes: 'Single farm origin (Morrill Farm, NH); 80% Danko rye & 20% barley', occasion: '', retired: '', peated: 'no', cask: 'New Charred Oak', other: '' },
                 { distillery: 'WhistlePig', bottle: '12 Old World Rye', region: 'Vermont, USA', ABV: '43%', age: '12 Years', notes: 'Rich fruit and spice notes, including rye spice, apricots, plums, raisins, dates, honey, dark chocolate, winter fruit, caramel, and vanilla', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'WhistlePig', bottle: 'Small Batch Rye', region: 'Vermont, USA', ABV: '50%', age: '10 Years', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Wildwood Spirits Co', bottle: 'Rendition', region: 'Washington, USA', ABV: '45%', age: '5 Years', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
@@ -34,6 +35,11 @@ const drinksData = {
                 { distillery: 'Copperworks', bottle: 'Single Cask - Color Cask', region: 'Washington, USA', ABV: '50%', age: '4 Years 9 Months', notes: 'Aged in a 200 Year Old Sherry Color Cask', occasion: '', retired: '', peated: '', cask: 'Dessert Wine', other: ''  },
                 { distillery: 'Copperworks', bottle: 'Single Cask - Letterpress Amaro', region: 'Washington, USA', ABV: '50%', age: '7 Years 1 Months', notes: '1 Month Finish in Amaro Amorino Riserva Cask', occasion: '', retired: '', peated: '', cask: 'Amaro', other: ''   },
                 { distillery: 'Copperworks', bottle: 'Single Cask - Pondera Cabernet', region: 'Washington, USA', ABV: '50%', age: '7 Years 7 Months', notes: '7 Month Finish in Pondera Cabernet Cask', occasion: '', retired: '', peated: '', cask: 'Wine', other: ''   },
+                { distillery: 'Triple Eight', bottle: 'Lost Lantern Single Cask - Triple Eight Peated Single Malt', region: 'Massachusetts, USA', ABV: '57.95%', age: '6.5 Years', notes: 'Single Cask #17; Scottish Highland peat-smoked barley', occasion: '', retired: '', peated: 'yes', cask: 'Ex-Bourbon', other: '' },
+                { distillery: 'Short Path Distillery', bottle: 'New England Single Malt Whiskey', region: 'Massachusetts, USA', ABV: '45%', age: '', notes: 'Distilled from 100% Northeast malted barley in direct-fire copper pot stills', occasion: '', retired: '', peated: 'no', cask: 'Oak', other: '' },
+                { distillery: 'St. George Spirits', bottle: 'Baller', region: 'California, USA', ABV: '47%', age: '', notes: 'Umeshu Finished', occasion: '', retired: '', peated: '', cask: 'Umeshu', other: ''   },
+                { distillery: 'Virginia Distillery Co.', bottle: 'The Brewer\'s Coalition Goose Island Bourbon County Brand Stout Cask Finished', region: 'Virginia, USA', ABV: '50%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: 'Beer', other: ''   },
+                { distillery: 'Virginia Distillery Co.', bottle: 'The Brewer\'s Coalition Hardywood Gingerbread Stout Cask Finished', region: 'Virginia, USA', ABV: '50%', age: '', notes: 'One of Whiskey Advocates 2024 Most Interesting Whiskeys', occasion: '', retired: '', peated: '', cask: 'Beer', other: ''   },
                 { distillery: 'Westland', bottle: 'Cask No. 221', region: 'Washington, USA', ABV: '54%', age: '2 Years', notes: 'Five Malt, New American Oak', occasion: '2026 Vintage Cask Market', retired: '', peated: '', cask: '', other: ''   },
                 { distillery: 'Westland', bottle: 'Cask No. 2781', region: 'Washington, USA', ABV: '60.3%', age: '2 Years', notes: 'Washington Select Malt, Oloroso Hogshead', occasion: '2026 Vintage Cask Market', retired: '', peated: '', cask: 'Dessert Wine', other: ''   },
                 { distillery: 'Westland', bottle: 'Cask No. 3799 - Ratification Cask', region: 'Washington, USA', ABV: '55%', age: '8 Years', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''   },
@@ -76,9 +82,6 @@ const drinksData = {
                 { distillery: 'Whiskey Del Bac', bottle: 'Distiller\'s Cut, Fall 2023', region: 'Arizona, USA', ABV: '58%', age: '', notes: 'Mesquite smoked and finished in Sauternes barrels &amp; Tawny Port barrels', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: ''   },
                 { distillery: 'Whiskey Del Bac', bottle: 'Dorado', region: 'Arizona, USA', ABV: '46%', age: '', notes: 'Mesquite smoked', occasion: '', retired: '', peated: 'yes', cask: '', other: ''   },
                 { distillery: 'Westward Whiskey', bottle: 'Lost Lantern Single Cask  - ASM Finished in Stout Casks', region: 'Oregon, USA', ABV: '68.5%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: 'Beer', other: ''   },
-                { distillery: 'St. George Spirits', bottle: 'Baller', region: 'California, USA', ABV: '47%', age: '', notes: 'Umeshu Finished', occasion: '', retired: '', peated: '', cask: 'Umeshu', other: ''   },
-                { distillery: 'Virginia Distillery Co.', bottle: 'The Brewer\'s Coalition Goose Island Bourbon County Brand Stout Cask Finished', region: 'Virginia, USA', ABV: '50%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: 'Beer', other: ''   },
-                { distillery: 'Virginia Distillery Co.', bottle: 'The Brewer\'s Coalition Hardywood Gingerbread Stout Cask Finished', region: 'Virginia, USA', ABV: '50%', age: '', notes: 'One of Whiskey Advocates 2024 Most Interesting Whiskeys', occasion: '', retired: '', peated: '', cask: 'Beer', other: ''   },
                                
                 //
             ],
@@ -91,6 +94,7 @@ const drinksData = {
                 { distillery: 'Iron Smoke', bottle: 'Rattlesnake Rosie\'s Apple Pie', region: 'New York, USA', ABV: '35%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Koval', bottle: 'Oat', region: 'Illinois, USA', ABV: '40%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Lost Lantern', bottle: 'Flame', region: 'Vermont, USA', ABV: '57%', age: '', notes: 'Blend of Sante Fe Spirits and Whiskey Del Bac', occasion: '', retired: '', peated: 'yes', cask: '', other: ''   },
+                { distillery: 'Lost Lantern', bottle: 'United States of Bourbon Cask Strength', region: 'USA', ABV: '61.45%', age: '2 Years', notes: 'Blend of straight bourbons from all 50 states (aged 2–10 years)', occasion: '', retired: '', peated: 'no', cask: 'New Charred Oak', other: '' },
                 { distillery: 'Michter\'s', bottle: 'American No. 1', region: 'Kentucky, USA', ABV: '41.7%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Michter\'s', bottle: 'Sour Mash', region: 'Kentucky, USA', ABV: '43%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                                 //
@@ -100,6 +104,7 @@ const drinksData = {
             scotch: [
 //
                 { distillery: 'Ardbeg', bottle: 'An Oa', region: 'Islay', ABV: '46.6%', age: '', notes: '', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: ''   },
+                 { distillery: 'Ardbeg', bottle: 'Dolce (Cue the Smoke)', region: 'Islay', ABV: '47.8%', age: '', notes: 'Ardbeg Day 2026 Limited Edition', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '' },
                 { distillery: 'Ardbeg', bottle: 'Smokiverse', region: 'Islay', ABV: '48.3%', age: '', notes: 'Uses a high-gravity mash', occasion: 'Became Director of Product Creation - July 2025', retired: '', peated: 'yes', cask: '', other: '' },
                 { distillery: 'Ardbeg', bottle: 'Spectacular', region: 'Islay', ABV: '46%', age: '', notes: 'Port Cask', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: ''  },
                 { distillery: 'Ardbeg', bottle: 'Ten Year', region: 'Islay', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: '', peated: 'yes', cask: '', other: ''   },
@@ -111,7 +116,10 @@ const drinksData = {
                 { distillery: 'Glenmorangie ', bottle: 'A Tale of Spices', region: 'Highlands', ABV: '46%', age: '', notes: 'A blend finished in Moroccan Red Wine, New Charred Oak, Shaved and Toasted Red Wine and PX Sherry Casks', occasion: '', retired: '', peated: '', cask: 'Wine', other: ''  },
                 { distillery: 'Chivas Regal', bottle: 'Mizunara', region: 'Scotland', ABV: '40%', age: '12 Years', notes: '', occasion: '', retired: '', peated: '', cask: 'Mizunara', other: ''  },
                 { distillery: 'Monkey Shoulder', bottle: 'Monkey Shoulder Batch 27', region: 'Scotland', ABV: '43%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
+                { distillery: 'Nc\'nean', bottle: 'Organic Cask Strength', region: 'Highlands', ABV: '59%', age: '', notes: '100% organic Scottish barley', occasion: '', retired: '', peated: 'no', cask: 'STR Red Wine & Ex-Bourbon', other: '' },
                 { distillery: 'Kirkland Signature', bottle: 'Lowland Single Malt', region: 'Lowland', ABV: '46%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
+                { distillery: 'Talisker', bottle: 'Distiller\'s Edition', region: 'Isle of Skye', ABV: '45.8%', age: '', notes: 'Double matured in Amoroso Sherry casks', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '' },
+                { distillery: 'Talisker', bottle: 'Ten Year', region: 'Isle of Skye', ABV: '45.8%', age: '10 Years', notes: '', occasion: '', retired: '', peated: 'yes', cask: 'American Oak', other: '' },
             ]
         },
         japanese: {
@@ -168,6 +176,9 @@ const drinksData = {
             { distillery: 'Raincity Distillery', bottle: 'Iron Buddah Gin', region: 'Squamish, Canada', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Raincity Distillery', bottle: 'Last Garden Gin', region: 'Squamish, Canada', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Rainier', bottle: 'Mountain Fresh Gin', region: 'Washington, USA', ABV: '40%', age: '', notes: 'It&#x27;s the water!', occasion: '', retired: ''  },
+            { distillery: 'San Juan Island Distillery', bottle: 'Spy Hop Gin - Navy Strength', region: 'Washington, USA', ABV: '57%', age: '', notes: 'Apple-based (Harvest Select); foraged island botanicals including blackberries and madrone bark', occasion: '', retired: '', peated: 'no', cask: '', other: '' },
+            { distillery: 'Short Path Distillery', bottle: 'Old Tom Gin', region: 'Massachusetts, USA', ABV: '43%', age: '', notes: 'Rested in whiskey barrels; lightly sweetened with pine, citrus, and vanilla notes', occasion: '', retired: '', peated: 'no', cask: 'Whiskey Barrels', other: '' },
+            { distillery: 'Short Path Distillery', bottle: 'Cyprus Gin', region: 'Massachusetts, USA', ABV: '43%', age: '', notes: 'Distilled with Mediterranean juniper and fresh rosemary', occasion: '', retired: '', peated: 'no', cask: '', other: '' },
             { distillery: 'Uncle Val&#x27;s', bottle: 'Botanical Gin', region: 'California, USA', ABV: '45%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Windspiel', bottle: 'Premium Dry Gin', region: 'Eifel, Germany', ABV: '47%', age: '', notes: '', occasion: '', retired: ''  },
                                                     
@@ -188,6 +199,7 @@ const drinksData = {
             { distillery: 'Campari', bottle: 'Campari', region: 'Italy', ABV: '24%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Chartreuse', bottle: 'Green Chartreuse', region: 'France', ABV: '55%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Maraska', bottle: 'Maraschino Cherry Liqueur', region: 'Croatia', ABV: '32%', age: '', notes: '', occasion: '', retired: ''  },
+            { distillery: 'Short Path Distillery', bottle: 'Fernet Liqueur', region: 'Massachusetts, USA', ABV: '40%', age: '', notes: 'Herbaceous amaro with clove, cardamom, fennel, peppermint, and aloe vera', occasion: '', retired: '', peated: 'no', cask: '', other: '' },
             { distillery: 'St. George Spirits', bottle: 'Absinthe Verte', region: 'California, USA', ABV: '60%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Townshend&#x27;s', bottle: 'Smoke Tea Liqueur', region: 'Oregon, USA', ABV: '35%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Townshend&#x27;s', bottle: 'Sweet Tea Liqueur', region: 'Oregon, USA', ABV: '35%', age: '', notes: '', occasion: '', retired: ''  },
@@ -247,14 +259,17 @@ const drinksData = {
 
     new: {
         all: [
-            { distillery: 'Westland', bottle: 'Peat Week 2026 - Mossfire Mason', region: 'Washington, USA', ABV: '50%', age: '6 Years', notes: 'Heavily Peated - Bairds Peated Malt from Scotland', occasion: '', retired: '', peated: '', cask: '', other: ''  },
-            { distillery: 'Westland', bottle: 'Peat Week 2026 - Augustus MacHuff', region: 'Washington, USA', ABV: '50%', age: '8 Years', notes: 'Lightly Peated - WA Skagit Malting, With WA Peat', occasion: '', retired: '', peated: '', cask: '', other: ''  },           
-            { distillery: 'Bruichladdich', bottle: 'The Classic Laddie', region: 'Islay', ABV: '50%', age: '', notes: '', occasion: '', retired: ''  },
-            { distillery: 'Copperworks', bottle: 'Single Cask - Color Cask', region: 'Washington, USA', ABV: '50%', age: '4 Years 9 Months', notes: 'Aged in a 200 Year Old Sherry Color Cask', occasion: '', retired: ''  },
-            { distillery: 'Copperworks', bottle: 'Single Cask - Letterpress Amaro', region: 'Washington, USA', ABV: '50%', age: '7 Years 1 Months', notes: '1 Month Finish in Amaro Amorino Riserva Cask', occasion: '', retired: ''  },
-            { distillery: 'Copperworks', bottle: 'Single Cask - Pondera Cabernet', region: 'Washington, USA', ABV: '50%', age: '7 Years 7 Months', notes: '7 Month Finish in Pondera Cabernet Cask', occasion: '', retired: ''  },
-            { distillery: 'Westland', bottle: 'Cask Exchange - Sons Of Vancouver', region: 'Washington, USA', ABV: '55.3%', age: '', notes: 'Finished in No 82 Amaretto Casks', occasion: '', retired: ''  },             
-            { distillery: 'Kavalan', bottle: 'Soloist Solist ex-Bourbon Cask Strength', region: 'Taiwan', ABV: '58.3%', age: '', notes: '', occasion: '', retired: ''  },
+                { distillery: 'Ardbeg', bottle: 'Dolce (Cue the Smoke)', region: 'Islay', ABV: '47.8%', age: '', notes: 'Ardbeg Day 2026 Limited Edition', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '' },
+                { distillery: 'Nc\'nean', bottle: 'Organic Cask Strength', region: 'Highlands', ABV: '59%', age: '', notes: '100% organic Scottish barley', occasion: '', retired: '', peated: 'no', cask: 'STR Red Wine & Ex-Bourbon', other: '' },
+                { distillery: 'Talisker', bottle: 'Distiller\'s Edition', region: 'Isle of Skye', ABV: '45.8%', age: '', notes: 'Double matured in Amoroso Sherry casks', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '' },
+                { distillery: 'Talisker', bottle: 'Ten Year', region: 'Isle of Skye', ABV: '45.8%', age: '10 Years', notes: '', occasion: '', retired: '', peated: 'yes', cask: 'American Oak', other: '' },
+                { distillery: 'Triple Eight', bottle: 'Lost Lantern Single Cask - Triple Eight Peated Single Malt', region: 'Massachusetts, USA', ABV: '57.95%', age: '6.5 Years', notes: 'Single Cask #17; Scottish Highland peat-smoked barley', occasion: '', retired: '', peated: 'yes', cask: 'Ex-Bourbon', other: '' },
+                { distillery: 'Lost Lantern', bottle: 'United States of Bourbon Cask Strength', region: 'USA', ABV: '61.45%', age: '2 Years', notes: 'Blend of straight bourbons from all 50 states (aged 2–10 years)', occasion: '', retired: '', peated: 'no', cask: 'New Charred Oak', other: '' },
+                { distillery: 'Short Path Distillery', bottle: 'Concord Straight Rye Whiskey', region: 'Massachusetts, USA', ABV: '45%', age: '2 Years', notes: 'Single farm origin (Morrill Farm, NH); 80% Danko rye & 20% barley', occasion: '', retired: '', peated: 'no', cask: 'New Charred Oak', other: '' },
+                { distillery: 'Short Path Distillery', bottle: 'New England Single Malt Whiskey', region: 'Massachusetts, USA', ABV: '45%', age: '', notes: 'Distilled from 100% Northeast malted barley in direct-fire copper pot stills', occasion: '', retired: '', peated: 'no', cask: 'Oak', other: '' },
+                { distillery: 'Short Path Distillery', bottle: 'Old Tom Gin', region: 'Massachusetts, USA', ABV: '43%', age: '', notes: 'Rested in whiskey barrels; lightly sweetened with pine, citrus, and vanilla notes', occasion: '', retired: '', peated: 'no', cask: 'Whiskey Barrels', other: '' },
+                { distillery: 'Short Path Distillery', bottle: 'Cyprus Gin', region: 'Massachusetts, USA', ABV: '43%', age: '', notes: 'Distilled with Mediterranean juniper and fresh rosemary', occasion: '', retired: '', peated: 'no', cask: '', other: '' },
+                { distillery: 'Short Path Distillery', bottle: 'Fernet Liqueur', region: 'Massachusetts, USA', ABV: '40%', age: '', notes: 'Herbaceous amaro with clove, cardamom, fennel, peppermint, and aloe vera', occasion: '', retired: '', peated: 'no', cask: '', other: '' },
         
             ]
     },
