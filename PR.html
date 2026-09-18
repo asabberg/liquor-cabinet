@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Liquor Cabinet — Alt Site</title>
+    <!-- Google Fonts: Rye (Display Headers), Playfair Display (Subheaders/Accents), Work Sans (Body/UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Rye&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vintage-cask-classic.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Liquor Cabinet</h1>
+<!---     <a href="todays-menu.html">
+            <button class="category-btn" style="margin-top: 10px;">Go to Today's Menu</button>
+        </a>
+        
+--->
+    </header>
+            <h2>Categories</h2>
+            <div id="categories">
+                <button class="category-btn" onclick="showSubcategories('whiskey')">Whiskey</button>
+                <button class="category-btn" onclick="showSubcategories('gin')">Gin</button>
+                <button class="category-btn" onclick="showSubcategories('others')">Others</button>
+                <button class="category-btn" onclick="showSubcategories('amaro')">Amaro et al.</button>
+                <button class="category-btn" onclick="showSubcategories('new')">Recent Aquistions</button>
+               <!-- <button class="category-btn" onclick="showSubcategories('beer')">Beer</button> -->
+            </div>
+        </section>
+        <section>
+            <div id="subcategories">
+                <!-- Subcategory buttons will be dynamically added here -->
+            </div>
+        </section>
+        <section>
+            <div id="subcategories2">
+                <!-- Subcategory buttons will be dynamically added here -->
+            </div>
+        </section>
+        <section>
+            <h3 id="tipples-heading">Tipples</h3>
+            <ul id="drinks-list">
+                <!-- Drinks will be displayed here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="hardcore-area">
+            <button id="hardcore-btn" style="border: none; background: none; cursor: pointer; padding: 0;">
+                <img src="PR.png" alt="Pinocchio's Reserve" width="448" height="auto" style="max-width: 92vw; height: auto; display: block; margin: 0 auto;" onerror="this.onerror=null; this.src='PR 2nd Option.jpg';">
+            </button>
+        </div>
+        <button id="retired-btn">Retired Friends</button>
+        <a href="../stave.html">
+            <button class="category-btn">Stave</button>
+        </a>
+    </footer>
+    <script src="../scripts/drinkdata.js"></script>
+    <script src="../scripts/liqourcabinet.js"></script>
+    <script>
+        const tipplesTitle = document.getElementById('tipples-heading');
+        const hardcoreBtn = document.getElementById('hardcore-btn');
+
+        if (hardcoreBtn && tipplesTitle) {
+            hardcoreBtn.addEventListener('click', function() {
+                tipplesTitle.textContent = "Pinocchio's Reserve";
+            });
+        }
+
+        // Reset back to "Tipples" when standard categories are clicked
+        document.getElementById('categories')?.addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON' && tipplesTitle) {
+                tipplesTitle.textContent = "Tipples";
+            }
+        });
+
+        document.getElementById('retired-btn')?.addEventListener('click', function() {
+            if (tipplesTitle) {
+                tipplesTitle.textContent = "Retired Friends";
+            }
+        });
+    </script>
+</body>
+</html>
+
