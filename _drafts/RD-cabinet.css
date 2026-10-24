@@ -28,7 +28,7 @@ body {
     margin: 0;
     font-family: var(--font-sans);
     background-color: var(--bg-base);
-    background-image: url('../RD/Wallpaper.jpg');
+    background-image: url('../RD/Wallpaper.jpg'), url('RD/Wallpaper.jpg');
     background-repeat: repeat;
     background-position: top center;
     background-size: auto 100vh;
