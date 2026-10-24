@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Liquor Cabinet — Rachel's Downstairs Edition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="RD-cabinet.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Liquor Cabinet</h1>
+<!---     <a href="todays-menu.html">
+            <button class="category-btn" style="margin-top: 10px;">Go to Today's Menu</button>
+        </a>
+        
+--->
+    </header>
+    <main>
+        <section>
+            <h2>Categories</h2>
+            <div id="categories">
+                <button class="category-btn" onclick="showSubcategories('whiskey')">Whiskey</button>
+                <button class="category-btn" onclick="showSubcategories('gin')">Gin</button>
+                <button class="category-btn" onclick="showSubcategories('others')">Others</button>
+                <button class="category-btn" onclick="showSubcategories('amaro')">Amaro et al.</button>
+                <button class="category-btn" onclick="showSubcategories('new')">Recent Aquistions</button>
+               <!-- <button class="category-btn" onclick="showSubcategories('beer')">Beer</button> -->
+            </div>
+        </section>
+        <section>
+            <div id="subcategories">
+                <!-- Subcategory buttons will be dynamically added here -->
+            </div>
+        </section>
+        <section>
+            <div id="subcategories2">
+                <!-- Subcategory buttons will be dynamically added here -->
+            </div>
+        </section>
+        <section>
+            <h3 id="tipples-heading">Tipples</h3>
+            <ul id="drinks-list">
+                <!-- Drinks will be displayed here -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <button id="hardcore-btn" style="border: none; background: none;">
+                <img src="../whiskeyman.png" alt="WooHoo!" width="300" height="300">
+            </button>
+        </div>
+        <button id="retired-btn">Retired Friends</button>
+        <a href="../stave.html">
+            <button class="category-btn">Stave</button>
+        </a>
+    </footer>
+    <script src="../scripts/drinkdata.js"></script>
+    <script src="../scripts/liqourcabinet.js"></script>
+</body>
+</html>
+
