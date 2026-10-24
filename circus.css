@@ -1,0 +1,318 @@
+/* ==========================================================================
+   PINOCCHIO'S RESERVE — VINTAGE CIRCUS / DARK CARNIVAL EDITION
+   Designed around Circus.jpg: Oxblood Crimson, Aged Smoky Parchment,
+   Tarnished Filigree Gold, and Soot Black with Victorian Circus Typography.
+   ========================================================================== */
+
+:root {
+    --bg-base: #140d0b;                       /* Charred Soot / Obsidian */
+    --bg-surface: rgba(22, 12, 10, 0.90);     /* Translucent Dark Showman Panel */
+    --bg-surface-solid: #1e100d;              /* Solid Dark Mahogany/Soot */
+    --crimson-deep: #4a0e0e;                  /* Deep Oxblood Shadow */
+    --crimson-primary: #7a1616;               /* Circus Tent Crimson Stripe */
+    --crimson-bright: #9e1f1f;                /* Lit Crimson Highlight */
+    --gold-primary: #dfb55b;                  /* Filigree Brass / Circus Gold */
+    --gold-border: #b88b38;                   /* Tarnished Antique Gold Border */
+    --text-primary: #ece0c8;                  /* Aged Smoky Parchment */
+    --text-secondary: #cbb692;                /* Weathered Bone / Tan */
+
+    --font-display: 'Cinzel Decorative', Georgia, serif;
+    --font-serif: 'IM Fell English SC', 'Playfair Display', Georgia, serif;
+    --font-sans: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    background-image: url('Circus.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--text-primary);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(180deg, rgba(38, 10, 10, 0.95) 0%, rgba(20, 11, 9, 0.92) 100%);
+    color: var(--gold-primary);
+    padding: 24px 16px;
+    text-align: center;
+    border-top: 4px double var(--gold-border);
+    border-bottom: 4px double var(--gold-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.85);
+}
+
+h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    font-weight: 700;
+    color: var(--gold-primary);
+    letter-spacing: 2px;
+    text-shadow: 0 3px 0 var(--crimson-deep), 0 6px 14px rgba(0, 0, 0, 0.9);
+}
+
+main {
+    max-width: 960px;
+    margin: 28px auto;
+    padding: 24px 20px 32px;
+    background: var(--bg-surface);
+    border: 4px double var(--gold-border);
+    border-radius: 4px;
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.85), inset 0 0 30px rgba(122, 22, 22, 0.2);
+}
+
+h2 {
+    margin-bottom: 12px;
+    margin-top: 8px;
+    font-size: 30px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--gold-primary);
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 0 var(--crimson-deep), 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+h3 {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 30px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--gold-primary);
+    letter-spacing: 1.2px;
+    text-shadow: 0 2px 0 var(--crimson-deep), 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    max-width: 850px;
+    margin: 16px auto;
+}
+
+ul li {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(184, 139, 56, 0.28);
+}
+
+ul li:last-of-type {
+    border-bottom: none;
+}
+
+ul li:not(:first-of-type) {
+    margin-top: 0.5em;
+}
+
+ul li:not(:last-of-type) {
+    margin-bottom: 0.5em;
+}
+
+ul li strong {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--gold-primary);
+    letter-spacing: 0.4px;
+}
+
+ul li em {
+    font-family: var(--font-sans);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+nav {
+    margin: 20px;
+}
+
+nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+nav a:hover {
+    background: var(--crimson-primary);
+    color: var(--gold-primary);
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+button {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 7px 14px;
+    margin: 5px 4px;
+    border: 2px solid var(--gold-border);
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: var(--bg-surface-solid);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--crimson-primary);
+    color: var(--gold-primary);
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 12px rgba(223, 181, 91, 0.4);
+}
+
+.category-btn {
+    background: linear-gradient(180deg, #5c1111 0%, #380a0a 100%);
+    color: var(--text-primary);
+    border: 2px solid var(--gold-border);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 16px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.category-btn:hover {
+    background: linear-gradient(180deg, var(--crimson-bright) 0%, var(--crimson-primary) 100%);
+    color: var(--gold-primary);
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 12px rgba(223, 181, 91, 0.5);
+}
+
+.subcategory-btn {
+    background-color: #281511;
+    color: var(--text-primary);
+    border: 1.5px solid var(--gold-border);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    padding: 6px 13px;
+}
+
+.subcategory-btn:hover {
+    background-color: var(--crimson-primary);
+    color: var(--gold-primary);
+    border-color: var(--gold-primary);
+}
+
+.subcategory2-btn {
+    background-color: #3d1212;
+    color: var(--text-secondary);
+    border: 1.5px solid #966f2a;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    padding: 6px 13px;
+}
+
+.subcategory2-btn:hover {
+    background-color: var(--crimson-bright);
+    color: var(--gold-primary);
+    border-color: var(--gold-primary);
+}
+
+section {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+footer {
+    background: linear-gradient(180deg, rgba(22, 12, 10, 0.90) 0%, rgba(38, 10, 10, 0.95) 100%);
+    color: var(--text-primary);
+    text-align: center;
+    padding: 0 0 28px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 4px double var(--gold-border);
+    border-bottom: 4px double var(--gold-border);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.85);
+}
+
+/* Dedicated area for transparent PR.png */
+.hardcore-area {
+    background: transparent;
+    padding: 24px 10px 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hardcore-area button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: none;
+    transform: none !important;
+    transition: none !important;
+}
+
+.hardcore-area button:hover {
+    background: transparent;
+    border: none;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.hardcore-area img {
+    background: transparent;
+    display: block;
+    margin: 0 auto;
+    width: 448px;
+    max-width: 92vw;
+    height: auto;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.85));
+    transform: none !important;
+    transition: none !important;
+}
+
+.hardcore-area img:hover {
+    transform: none !important;
+}
+
+.menu-footer {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    text-align: center;
+    padding: 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 4px double var(--gold-border);
+}
+
+.menu-footer img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.active-btn,
+button.active-btn {
+    background: var(--gold-primary) !important;
+    color: #1e0b09 !important;
+    border-color: #f7df9c !important;
+    box-shadow: 0 0 14px rgba(223, 181, 91, 0.7) !important;
+    font-weight: 700 !important;
+}
+
