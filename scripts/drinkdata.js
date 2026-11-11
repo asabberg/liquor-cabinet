@@ -77,7 +77,7 @@ const drinksData = {
                 { distillery: 'Westland', bottle: 'Lost Lantern Single Cask - Peated ASM', region: 'Washington, USA', ABV: '54.9%', age: '9.99 Years', notes: '', occasion: '', retired: '', peated: 'yes', cask: '', other: ''   },
                 { distillery: 'Westland', bottle: 'Flagship', region: 'Washington, USA', ABV: '46%', age: '3.3 Years', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''   },
                 { distillery: 'Westland', bottle: 'Garryaana 10th Edition', region: 'Washington, USA', ABV: '50%', age: '10 Years', notes: 'Primary Casks: First & Second Fill Garry Oak ', occasion: '', retired: '', peated: '', cask: '', other: ''   },
-                { distillery: 'Westland', bottle: 'Sherry Wood', region: 'Washington, USA', ABV: '46%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: 'Dessert Wine', other: ''   },
+                { distillery: 'Westland', bottle: 'Garryana 11th Edition', region: 'Washington, USA', ABV: '56.8%', age: '10 Years', notes: 'Cask strength; first Garryana finished in beer casks; Five Malt & WA Pale Malt; Belgian brewer\'s yeast', occasion: '', retired: '', peated: 'no', cask: 'Garry Oak & Beer Cask', other: '' },llery: 'Westland', bottle: 'Sherry Wood', region: 'Washington, USA', ABV: '46%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: 'Dessert Wine', other: ''   },
                 { distillery: 'Westland', bottle: 'Sport Dram 2018 - Green Grip', region: 'Washington, USA', ABV: '46%', age: '', notes: '', occasion: '2026 Vintage Cask Market', retired: '', peated: 'yes', cask: '', other: ''   },
                 { distillery: 'Westland', bottle: 'Solum 3rd Edition', region: 'Washington, USA', ABV: '50%', age: '4 Years', notes: 'Skagit Valley Malting Peated Malt - Using only Peat and Malt from the PNW', occasion: '', retired: '', peated: 'yes', cask: '', other: ''   },
                 { distillery: 'Westland', bottle: 'Wine Cask Finish', region: 'Washington, USA', ABV: '46%', age: '5 Years', notes: '', occasion: '', retired: '', peated: '', cask: 'Wine', other: ''   },
@@ -265,7 +265,7 @@ const drinksData = {
     },
 
     new: {
-        all: [
+        all: [            { distillery: 'Westland', bottle: 'Garryana 11th Edition', region: 'Washington, USA', ABV: '56.8%', age: '10 Years', notes: 'Cask strength; first Garryana finished in beer casks; Five Malt & WA Pale Malt; Belgian brewer\'s yeast', occasion: '', retired: '', peated: 'no', cask: 'Garry Oak & Beer Cask', other: '' },
                 { distillery: 'Kavalan', bottle: 'Peatist Oloroso Sherry Cask Single Cask Strength', region: 'Yilan, Taiwan', ABV: '57.1%', age: '', notes: 'IWC 2026 Whisky of the Year (96.97 pts); peated malt matured in Spanish Oloroso sherry casks', occasion: '', retired: '', peated: 'yes', cask: 'Oloroso Sherry', other: '' },
                 { distillery: 'Omar', bottle: 'Cask Strength - Osmanthus Liqueur Barrel', region: 'Nantou, Taiwan', ABV: '53.9%', age: '', notes: 'Nantou Distillery; finished in casks seasoned with house-made Taiwanese osmanthus flower liqueur', occasion: '', retired: '', peated: 'no', cask: 'Liqueur Cask', other: '' },
                 { distillery: 'Westland', bottle: 'Cask Exchange - Fort George Brewing Imperial Stout', region: 'Washington, USA', ABV: '49.7%', age: '5.1 Years', notes: 'Cask No. 11846; Scottish Peated Malt and finished in Fort George "Matryoshka" Imperial Stout cask (Jan 2023)', occasion: '', retired: '', peated: 'yes', cask: 'Beer Cask', other: '' },
