@@ -237,6 +237,8 @@ const drinksData = {
     },
     retired: {
             all: [
+                { distillery: 'Kirkland Signature', bottle: 'Lowland Single Malt', region: 'Lowland', ABV: '46%', age: '', notes: '', occasion: '', retired: 'Nov-26', peated: '', cask: '', other: '' },
+                { distillery: 'Monkey Shoulder', bottle: 'Monkey Shoulder Batch 27', region: 'Scotland', ABV: '43%', age: '', notes: '', occasion: '', retired: 'Nov-26', peated: '', cask: '', other: '' },
                 { distillery: 'Kavalan', bottle: 'Classic Single Malt', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: 'Jul-24'  },
                 { distillery: 'Kavalan', bottle: 'Concertmaster - Sherry Cask', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: 'Jul-24'  },
                 { distillery: 'Kavalan', bottle: 'Concertmaster - Port Cask', region: 'Taiwan', ABV: '40%', age: '', notes: '', occasion: '', retired: 'May-25'  },
@@ -245,9 +247,7 @@ const drinksData = {
                 { distillery: 'Kavalan', bottle: 'Port Oak', region: 'Taiwan', ABV: '54%', age: '', notes: '', occasion: '', retired: 'May-25'  },
                 { distillery: 'Kirkland Signature', bottle: 'Highland 12 Year Single Malt', region: 'Highland', ABV: '46%', age: '12 Years', notes: '', occasion: '', retired: 'Aug-25'  },
                 { distillery: 'Kirkland Signature', bottle: 'Islay Single Malt', region: 'Islay', ABV: '46%', age: '', notes: '', occasion: '', retired: 'Aug-25'  },
-                { distillery: 'Kirkland Signature', bottle: 'Lowland Single Malt', region: 'Lowland', ABV: '46%', age: '', notes: '', occasion: '', retired: 'Nov-26', peated: '', cask: '', other: '' },
                 { distillery: 'Kirkland Signature', bottle: 'Speyside 10 Year Single Malt', region: 'Speyside', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: 'Aug-25'  },
-                { distillery: 'Monkey Shoulder', bottle: 'Monkey Shoulder Batch 27', region: 'Scotland', ABV: '43%', age: '', notes: '', occasion: '', retired: 'Nov-26', peated: '', cask: '', other: '' },
 
                                 
             ]
