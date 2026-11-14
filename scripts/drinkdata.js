@@ -120,9 +120,7 @@ const drinksData = {
                 { distillery: 'Glenmorangie ', bottle: 'A Tale of Ice Cream', region: 'Highlands', ABV: '46%', age: '', notes: 'Finished in high-vanillin casks', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Glenmorangie ', bottle: 'A Tale of Spices', region: 'Highlands', ABV: '46%', age: '', notes: 'A blend finished in Moroccan Red Wine, New Charred Oak, Shaved and Toasted Red Wine and PX Sherry Casks', occasion: '', retired: '', peated: '', cask: 'Wine', other: ''  },
                 { distillery: 'Chivas Regal', bottle: 'Mizunara', region: 'Scotland', ABV: '40%', age: '12 Years', notes: '', occasion: '', retired: '', peated: '', cask: 'Mizunara', other: ''  },
-                { distillery: 'Monkey Shoulder', bottle: 'Monkey Shoulder Batch 27', region: 'Scotland', ABV: '43%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Nc\'nean', bottle: 'Organic Cask Strength', region: 'Highlands', ABV: '59%', age: '', notes: '100% organic Scottish barley', occasion: '', retired: '', peated: '', cask: 'Wine', other: '' },
-                { distillery: 'Kirkland Signature', bottle: 'Lowland Single Malt', region: 'Lowland', ABV: '46%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: ''  },
                 { distillery: 'Talisker', bottle: 'Distiller\'s Edition', region: 'Isle of Skye', ABV: '45.8%', age: '', notes: 'Double matured in Amoroso Sherry casks', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '' },
                 { distillery: 'Talisker', bottle: 'Ten Year', region: 'Isle of Skye', ABV: '45.8%', age: '10 Years', notes: '', occasion: '', retired: '', peated: 'yes', cask: '', other: '' },
             ]
@@ -247,7 +245,9 @@ const drinksData = {
                 { distillery: 'Kavalan', bottle: 'Port Oak', region: 'Taiwan', ABV: '54%', age: '', notes: '', occasion: '', retired: 'May-25'  },
                 { distillery: 'Kirkland Signature', bottle: 'Highland 12 Year Single Malt', region: 'Highland', ABV: '46%', age: '12 Years', notes: '', occasion: '', retired: 'Aug-25'  },
                 { distillery: 'Kirkland Signature', bottle: 'Islay Single Malt', region: 'Islay', ABV: '46%', age: '', notes: '', occasion: '', retired: 'Aug-25'  },
+                { distillery: 'Kirkland Signature', bottle: 'Lowland Single Malt', region: 'Lowland', ABV: '46%', age: '', notes: '', occasion: '', retired: 'Nov-26', peated: '', cask: '', other: '' },
                 { distillery: 'Kirkland Signature', bottle: 'Speyside 10 Year Single Malt', region: 'Speyside', ABV: '46%', age: '10 Years', notes: '', occasion: '', retired: 'Aug-25'  },
+                { distillery: 'Monkey Shoulder', bottle: 'Monkey Shoulder Batch 27', region: 'Scotland', ABV: '43%', age: '', notes: '', occasion: '', retired: 'Nov-26', peated: '', cask: '', other: '' },
 
                                 
             ]
