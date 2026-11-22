@@ -174,7 +174,6 @@ const drinksData = {
             { distillery: 'Empress 1908', bottle: 'Oaken Gin', region: 'Victoria, Canada', ABV: '42.5%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'FEW', bottle: 'Breakfast Gin', region: 'Illinois, USA', ABV: '42%', age: '', notes: 'Distilled with Earl Grey Tea', occasion: '', retired: ''  },
             { distillery: 'Highside Distiling', bottle: 'Gin', region: 'Washington, USA', ABV: '44%', age: '', notes: 'Uses distilled apples as its base', occasion: '', retired: ''  },
-            { distillery: 'Jin Jiji', bottle: 'India Dry Gin', region: 'India', ABV: '43%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Orcas Island Distillery', bottle: 'Ferry Dock Genever', region: 'Washington, USA', ABV: '40%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Plymouth', bottle: 'Navy Strenght', region: 'Plymouth, UK', ABV: '57%', age: '', notes: '', occasion: '', retired: ''  },
             { distillery: 'Rabbit Hole', bottle: 'Bespoke Gin', region: 'Kentucky, USA', ABV: '44.5%', age: '', notes: '', occasion: 'Yosi&#x27;s Bachelor Party', retired: ''  },
@@ -236,6 +235,7 @@ const drinksData = {
     },
     retired: {
             all: [
+                { distillery: 'Jin Jiji', bottle: 'India Dry Gin', region: 'India', ABV: '43%', age: '', notes: '', occasion: '', retired: 'Nov-26' },
                 { distillery: 'Arbutus Distillery', bottle: 'Blue Gin', region: 'Vancouver, Canada', ABV: '40%', age: '', notes: '', occasion: '', retired: 'Nov-26' },
                 { distillery: 'Kirkland Signature', bottle: 'Lowland Single Malt', region: 'Lowland', ABV: '46%', age: '', notes: '', occasion: '', retired: 'Nov-26', peated: '', cask: '', other: '' },
                 { distillery: 'Monkey Shoulder', bottle: 'Monkey Shoulder Batch 27', region: 'Scotland', ABV: '43%', age: '', notes: '', occasion: '', retired: 'Nov-26', peated: '', cask: '', other: '' },
