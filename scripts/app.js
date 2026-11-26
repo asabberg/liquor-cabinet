@@ -1,15 +1,10 @@
-// app.js - UI logic for whiskey flight selector
-
-// the whiskey data is now provided by `drinksData.whiskey` from drinkdata.js
-// we lazily fall back to the old global `whiskey` object if present for backwards compatibility
+// app.js - UI logic for Stave whiskey selector with 3D swipeable carousel
 
 function parseAbv(abvStr) {
     if (typeof abvStr !== 'string') return NaN;
     return parseFloat(abvStr.replace(/[^0-9\.]/g, '')) || NaN;
 }
 
-// flatten nested whiskey object into a list with category keys
-// stamps are derived dynamically from the same properties the filters use
 function flattenWhiskeys(data) {
     const list = [];
     for (const type in data) {
@@ -36,55 +31,21 @@ function flattenWhiskeys(data) {
     return list;
 }
 
-// derive stamp images from the whiskey's properties – the same
-// properties the filter buttons operate on.  This keeps stamps
-// in sync with the filters without manual maintenance in the data.
 function deriveStamps(item, category) {
     const stamps = [];
-    // style: american single malt
     const style = category ? category.split('.').pop() : '';
     if (style === 'americansinglemalt') {
         stamps.push('asm.png');
     }
-    // smokey / peated
-    if (item.peated && item.peated.trim() !== '') {
+    if (item.peated && item.peated.trim().toLowerCase() === 'yes') {
         stamps.push('smokey.png');
     }
-    // unicorn
     if (style === 'unicorn') {
         stamps.push('unicorn.png');
-    }
-  /*  // high octane (ABV > 60%)
-    const abv = parseAbv(item.ABV);
-    if (!isNaN(abv) && abv > 60) {
-        stamps.push('highoctane.svg');
-    }
-    // cask finish
-    if (item.cask && item.cask.trim() !== '') {
-        stamps.push('caskfinish.svg');
-    }
-    // keyword stamps from the "other" field
-    if (item.other && item.other.trim() !== '') {
-        const otherLower = item.other.toLowerCase();
-        const otherKeywordStamps = {
-            'trip': 'trip.svg',
-            'superstar': 'superstar.svg'
-        };
-        for (const [keyword, stampFile] of Object.entries(otherKeywordStamps)) {
-            if (otherLower.includes(keyword)) {
-                stamps.push(stampFile);
-            }
-        }
-    }*/
-    // randomize stamp order
-    for (let i = stamps.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [stamps[i], stamps[j]] = [stamps[j], stamps[i]];
     }
     return stamps.slice(0, 4);
 }
 
-// Fisher-Yates shuffle
 function shuffleArray(arr) {
     const result = [...arr];
     for (let i = result.length - 1; i > 0; i--) {
@@ -94,24 +55,17 @@ function shuffleArray(arr) {
     return result;
 }
 
-// helper that formats style strings for display (capitalizes words, adds spaces)
 function formatStyleLabel(s) {
     if (typeof s !== 'string' || !s.length) return s;
-    // special case for american single malt
     if (s.toLowerCase() === 'americansinglemalt') {
         return 'American Single Malt';
     }
-    // insert space between lowercase-uppercase boundaries (if any)
     let human = s.replace(/([a-z])([A-Z])/g, '$1 $2');
-    // split on non-word characters just in case
     human = human.replace(/[_\-]/g, ' ');
-    // capitalize first letter of each word
     human = human.replace(/\b\w/g, c => c.toUpperCase());
     return human;
 }
 
-// utility to create a list of toggling buttons
-// now accepts optional formatter function for display labels
 function buildButtonList(containerId, options, selectionSet, onToggle, formatter) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
@@ -119,7 +73,10 @@ function buildButtonList(containerId, options, selectionSet, onToggle, formatter
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.textContent = formatter ? formatter(opt) : opt;
-        btn.dataset.value = opt; // store original value
+        btn.dataset.value = opt;
+        if (selectionSet.has(opt)) {
+            btn.classList.add('selected');
+        }
         btn.addEventListener('click', () => {
             const val = btn.dataset.value;
             if (selectionSet.has(val)) {
@@ -136,264 +93,217 @@ function buildButtonList(containerId, options, selectionSet, onToggle, formatter
     });
 }
 
-// specialized builders for region + nested style buttons
-function buildRegionButtons(regions, stylesByRegion) {
-    const container = document.getElementById('regionButtons');
-    container.innerHTML = '';
-    regions.forEach(r => {
-        const regionItem = document.createElement('div');
-        regionItem.className = 'region-item';
-        regionItem.setAttribute('data-region', r);
-
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.textContent = r;
-        btn.addEventListener('click', () => {
-            if (selectedRegions.has(r)) {
-                selectedRegions.delete(r);
-                btn.classList.remove('selected');
-                toggleRegionStyles(r, false);
-            } else {
-                selectedRegions.add(r);
-                btn.classList.add('selected');
-                toggleRegionStyles(r, true);
-            }
-            btn.blur();
-        });
-
-        const styleGroup = document.createElement('div');
-        styleGroup.className = 'style-group option-list nested';
-        styleGroup.style.display = 'none';
-
-        regionItem.appendChild(btn);
-        regionItem.appendChild(styleGroup);
-        container.appendChild(regionItem);
-    });
-}
-
-// maintain selected styles per region
-const selectedStylesByRegion = {};
-function toggleRegionStyles(region, show) {
-    const item = document.querySelector(`.region-item[data-region="${region}"]`);
-    const styleGroup = item && item.querySelector('.style-group');
-    if (!styleGroup) return;
-    if (show) {
-        styleGroup.style.display = 'flex';
-        if (!styleGroup.hasChildNodes()) {
-            const opts = Array.from(stylesByRegion[region] || []).sort();
-            selectedStylesByRegion[region] = new Set();
-            opts.forEach(s => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.textContent = formatStyleLabel(s);
-                btn.dataset.value = s;
-                btn.addEventListener('click', () => {
-                    const set = selectedStylesByRegion[region];
-                    const val = btn.dataset.value;
-                    if (set.has(val)) {
-                        set.delete(val);
-                        btn.classList.remove('selected');
-                    } else {
-                        set.add(val);
-                        btn.classList.add('selected');
-                    }
-                    btn.blur();
-                });
-                styleGroup.appendChild(btn);
-            });
-        }
-    } else {
-        styleGroup.style.display = 'none';
-        if (selectedStylesByRegion[region]) {
-            selectedStylesByRegion[region].clear();
-        }
-    }
-}
-
-// global state for button selections
+// Filter selection state
 let selectedRegions = new Set();
 let selectedStyles = new Set();
 let selectedDistilleries = new Set();
 let selectedCasks = new Set();
 let smokeyFilter = null; // null, true, or false
-let selectedAbvRange = null; // possible values: 'normal','hot','high'
+let selectedAbvRange = null; // null, 'normal', 'hot', 'high'
 
-function collectPreferences() {
-    const form = document.getElementById('prefForm');
-    const formData = new FormData(form);
-    // use the button-selection sets
-    const regions = Array.from(selectedRegions);
-    const styles = Array.from(selectedStyles);
-    const distilleries = Array.from(selectedDistilleries);
-    const casks = Array.from(selectedCasks);
-    const smokey = smokeyFilter;
-    const abvRange = selectedAbvRange;
-    return { regions, styles, distilleries, casks, smokey, abvRange };
+// Carousel state
+const carousel = {
+    items: [],
+    activeIndex: 0,
+    cardNodes: [],
+    isDragging: false,
+    dragStartX: 0,
+    dragStartY: 0,
+    dragDeltaX: 0,
+    dragLockedHorizontal: false,
+    wheelCooldown: false,
+    MAX_DOTS: 18
+};
+
+function circularOffset(index, center, total) {
+    let diff = index - center;
+    const half = total / 2;
+    if (diff > half) diff -= total;
+    if (diff < -half) diff += total;
+    return diff;
 }
 
-let cardList = [];
-let currentIndex = 0;
-let flight = [];
-let flightLimit = 4;
-let selectedFlightSize = 1;
+function renderCarouselPositions(dragPx) {
+    const total = carousel.items.length;
+    if (total === 0) return;
 
-function renderCard(item) {
-    const container = document.getElementById('cardContainer');
-    const progressEl = document.getElementById('cardProgress');
-    
-    container.innerHTML = '';
-    if (!item) {
-        progressEl.textContent = '';
-        if (flight.length === 0) {
-            const msg = document.createElement('p');
-            msg.textContent = 'No more bottles to show.';
-            container.appendChild(msg);
-            const btn = document.createElement('button');
-            btn.textContent = 'Start Over';
-            btn.addEventListener('click', () => resetSession());
-            container.appendChild(btn);
-        } else {
-            container.innerHTML = '<p>No more bottles to show.</p>';
+    const isMobile = window.innerWidth <= 640;
+    const stepX = isMobile ? 180 : 250;
+    const dragFraction = dragPx / stepX;
+
+    carousel.cardNodes.forEach((card, idx) => {
+        const rawOffset = circularOffset(idx, carousel.activeIndex, total);
+        const offset = rawOffset + dragFraction;
+        const absOffset = Math.abs(offset);
+
+        card.classList.toggle('is-active', rawOffset === 0);
+        card.classList.toggle('is-side', rawOffset !== 0 && absOffset <= 2.4);
+
+        if (absOffset > 2.6) {
+            card.style.opacity = '0';
+            card.style.pointerEvents = 'none';
+            card.style.zIndex = '0';
+            const sign = offset < 0 ? -1 : 1;
+            card.style.transform = `translate3d(${sign * stepX * 2.4}px, 0, -340px) rotateY(${-sign * 42}deg) scale(0.62)`;
+            return;
         }
+
+        const translateX = offset * stepX;
+        const translateZ = -Math.min(absOffset, 2.5) * 125;
+        const rotateY = Math.max(-40, Math.min(40, -offset * 22));
+        const scale = Math.max(0.68, 1 - absOffset * 0.14);
+        const opacity = Math.max(0, 1 - absOffset * 0.36);
+
+        card.style.transform = `translate3d(${translateX}px, 0, ${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`;
+        card.style.opacity = opacity.toFixed(3);
+        card.style.zIndex = String(Math.round(20 - absOffset * 5));
+        card.style.pointerEvents = absOffset <= 2.2 ? 'auto' : 'none';
+    });
+
+    const counterEl = document.getElementById('carouselCounter');
+    if (counterEl) {
+        counterEl.textContent = `${carousel.activeIndex + 1} of ${total}`;
+    }
+
+    const dotsEl = document.getElementById('carouselDots');
+    const scrubberEl = document.getElementById('carouselScrubber');
+    if (total <= carousel.MAX_DOTS) {
+        dotsEl.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('is-active', i === carousel.activeIndex);
+        });
+    } else {
+        scrubberEl.value = carousel.activeIndex;
+    }
+}
+
+function stepCarousel(delta) {
+    const total = carousel.items.length;
+    if (total <= 1) return;
+    carousel.activeIndex = (carousel.activeIndex + delta + total) % total;
+    renderCarouselPositions(0);
+}
+
+function goToCarouselIndex(targetIdx) {
+    const total = carousel.items.length;
+    if (total === 0) return;
+    carousel.activeIndex = ((targetIdx % total) + total) % total;
+    renderCarouselPositions(0);
+}
+
+function loadCarousel(items) {
+    const stageEl = document.getElementById('carouselStage');
+    const counterEl = document.getElementById('carouselCounter');
+    const prevBtn = document.getElementById('carouselPrevBtn');
+    const nextBtn = document.getElementById('carouselNextBtn');
+    const dotsEl = document.getElementById('carouselDots');
+    const scrubberEl = document.getElementById('carouselScrubber');
+    const shuffleBtn = document.getElementById('shuffleBtn');
+
+    carousel.items = items || [];
+    carousel.activeIndex = 0;
+    carousel.cardNodes = [];
+    stageEl.innerHTML = '';
+
+    const total = carousel.items.length;
+    if (total === 0) {
+        counterEl.textContent = '0 matches';
+        stageEl.innerHTML = '<div class="card-empty">No bottles match your current filters. Try loosening a filter!</div>';
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+        dotsEl.classList.add('hidden');
+        scrubberEl.classList.add('hidden');
+        if (shuffleBtn) shuffleBtn.classList.add('hidden');
         return;
     }
-    
-    // show progress
-    progressEl.textContent = `${currentIndex + 1} of ${cardList.length}`;
-    
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-        <h2>${item.bottle}</h2>
-        <p><strong>${item.distillery}</strong></p>
-        <p>${item.region} &middot; ABV ${item.ABV}</p>
-        <p>${item.notes || ''}</p>
-    `;
-    container.appendChild(card);
 
-    // if there are stamps, render them as passport-style images
-    if (item.stamps && item.stamps.length) {
-        const row = document.createElement('div');
-        row.className = 'stamp-row';
-        item.stamps.slice(0,4).forEach(name => {
-            if (!name) return;
-            const img = document.createElement('img');
-            img.src = `images/${name}`; // relative path, user can supply full path if desired
-            img.alt = name;
-            row.appendChild(img);
-        });
-        card.appendChild(row);
-    }
+    if (shuffleBtn) shuffleBtn.classList.toggle('hidden', total <= 1);
 
-    // trigger enter animation
-    requestAnimationFrame(() => {
-        card.classList.add('enter');
-    });
-}
+    carousel.items.forEach((item, idx) => {
+        const card = document.createElement('article');
+        card.className = 'carousel-card';
 
-function updateFlightCount() {
-    document.getElementById('flightCount').textContent = `Selected: ${flight.length}/${flightLimit}`;
-    renderFlightList();
-    if (flight.length === flightLimit) {
-        showSummary();
-    }
-}
+        const ageVal = item.age || item.Age || '';
+        const badges = [];
+        if (item.ABV) badges.push(`<span class="card-badge">ABV ${item.ABV}</span>`);
+        if (ageVal && ageVal !== 'NAS') badges.push(`<span class="card-badge">${ageVal}</span>`);
+        if (item.cask) badges.push(`<span class="card-badge badge-cask">${item.cask} Cask</span>`);
+        if (item.peated && item.peated.trim().toLowerCase() === 'yes') {
+            badges.push(`<span class="card-badge badge-smokey">Peated</span>`);
+        }
 
-function renderFlightList() {
-    const listEl = document.getElementById('flightList');
-    listEl.innerHTML = '';
-    flight.forEach((item) => {
-        const li = document.createElement('li');
-        li.textContent = `${item.bottle} – ${item.distillery}`;
-        listEl.appendChild(li);
-    });
-}
+        let bodyHtml = '';
+        if (item.notes) bodyHtml += `<p class="card-notes">&ldquo;${item.notes}&rdquo;</p>`;
+        if (item.occasion) bodyHtml += `<p class="card-meta-line"><strong>Occasion:</strong> ${item.occasion}</p>`;
 
-function showSummary() {
-    document.getElementById('cards').classList.add('hidden');
-    const summary = document.getElementById('summary');
-    summary.classList.remove('hidden');
-    const list = document.getElementById('summaryList');
-    list.innerHTML = '';
-    flight.forEach((item) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <strong>${item.bottle} – ${item.distillery}</strong><br/>
-            ${item.region} &middot; ABV ${item.ABV}<br/>
-            ${item.notes || ''}
+        let stampsHtml = '';
+        if (item.stamps && item.stamps.length) {
+            const imgs = item.stamps
+                .filter(Boolean)
+                .map(name => `<img src="images/${name}" alt="${name}">`)
+                .join('');
+            stampsHtml = `<div class="stamp-row">${imgs}</div>`;
+        }
+
+        card.innerHTML = `
+            <div class="card-top">
+                <div class="card-distillery">${item.distillery || ''}</div>
+                <h4 class="card-bottle">${item.bottle || ''}</h4>
+                <div class="card-divider"></div>
+                <div class="card-region">${item.region || ''}</div>
+                <div class="card-badges">${badges.join('')}</div>
+            </div>
+            <div class="card-body">
+                ${bodyHtml}
+                ${stampsHtml}
+            </div>
         `;
-        list.appendChild(li);
-    });
-}
 
-function resetSession() {
-    document.getElementById('summary').classList.add('hidden');
-    document.getElementById('cards').classList.add('hidden');
-    document.getElementById('preferences').classList.remove('hidden');
-}
-
-function renderFlightList() {
-    const listEl = document.getElementById('flightList');
-    listEl.innerHTML = '';
-    flight.forEach((item) => {
-        const li = document.createElement('li');
-        li.textContent = `${item.bottle} – ${item.distillery}`;
-        listEl.appendChild(li);
-    });
-}
-
-function nextCard(added, direction) {
-    const container = document.getElementById('cardContainer');
-    const card = container.querySelector('.card');
-
-    const proceed = () => {
-        if (added) {
-            updateFlightCount();
-        }
-        currentIndex += 1;
-        if (currentIndex < cardList.length) {
-            renderCard(cardList[currentIndex]);
-        } else {
-            renderCard(null);
-            // If no more bottles and user has at least one bottle, show summary
-            if (flight.length > 0) {
-                setTimeout(() => {
-                    showSummary();
-                }, 500);
+        card.addEventListener('click', () => {
+            if (Math.abs(carousel.dragDeltaX) > 8) return;
+            if (idx !== carousel.activeIndex) {
+                goToCarouselIndex(idx);
             }
+        });
+
+        stageEl.appendChild(card);
+        carousel.cardNodes.push(card);
+    });
+
+    const hasMultiple = total > 1;
+    prevBtn.disabled = !hasMultiple;
+    nextBtn.disabled = !hasMultiple;
+
+    dotsEl.innerHTML = '';
+    if (total <= 1) {
+        dotsEl.classList.add('hidden');
+        scrubberEl.classList.add('hidden');
+    } else if (total <= carousel.MAX_DOTS) {
+        dotsEl.classList.remove('hidden');
+        scrubberEl.classList.add('hidden');
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'carousel-dot';
+            dot.setAttribute('aria-label', `Go to bottle ${i + 1}`);
+            dot.addEventListener('click', () => goToCarouselIndex(i));
+            dotsEl.appendChild(dot);
         }
-    };
-
-    if (card) {
-        // animate offscreen then proceed
-        card.classList.add(direction === 'right' ? 'exit-right' : 'exit-left');
-        card.addEventListener('transitionend', () => {
-            proceed();
-        }, { once: true });
     } else {
-        proceed();
+        dotsEl.classList.add('hidden');
+        scrubberEl.classList.remove('hidden');
+        scrubberEl.min = 0;
+        scrubberEl.max = total - 1;
+        scrubberEl.value = 0;
     }
+
+    renderCarouselPositions(0);
 }
 
-function startSwiping(filtered) {
-    flightLimit = selectedFlightSize;
-    cardList = filtered;
-    currentIndex = 0;
-    flight = [];
-    document.getElementById('preferences').classList.add('hidden');
-    document.getElementById('cards').classList.remove('hidden');
-    updateFlightCount();
-    renderCard(cardList[currentIndex]);
-}
-
-// entry point once DOM is ready
 window.addEventListener('DOMContentLoaded', () => {
-    // choose data source: prefer drinksData.whiskey, but keep legacy `whiskey` var if still present
     let sourceData;
     if (typeof drinksData !== 'undefined' && drinksData.whiskey) {
         sourceData = drinksData.whiskey;
     } else if (typeof whiskey !== 'undefined') {
-        console.warn('Using global `whiskey` variable; consider migrating to drinksData.js');
         sourceData = whiskey;
     } else {
         console.error('No whiskey data available!');
@@ -401,16 +311,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     const allWhiskeys = flattenWhiskeys(sourceData);
 
-    // derive options for each preference type
     const regions = [...new Set(allWhiskeys.map(w => w.region))].filter(Boolean).sort();
     const distilleries = [...new Set(allWhiskeys.map(w => w.distillery))].filter(Boolean).sort();
-    const styles = [...new Set(allWhiskeys.map(w => {
-        return w.category ? w.category.split('.').pop() : '';
-    }))].filter(Boolean).sort();
+    const styles = [...new Set(allWhiskeys.map(w => w.category ? w.category.split('.').pop() : ''))].filter(Boolean).sort();
     const casks = [...new Set(allWhiskeys.map(w => w.cask))].filter(Boolean).sort();
 
-
-    // mapping region -> available styles
     const stylesByRegion = {};
     allWhiskeys.forEach(w => {
         const r = w.region;
@@ -421,109 +326,23 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
-    function refreshStyleButtons() {
-        let availableStyles;
-        if (selectedRegions.size === 0) {
-            availableStyles = styles;
-        } else {
-            availableStyles = new Set();
-            selectedRegions.forEach(r => {
-                (stylesByRegion[r] || []).forEach(s => availableStyles.add(s));
-            });
-            availableStyles = Array.from(availableStyles).sort();
-        }
-        buildButtonList('styleButtons', availableStyles, selectedStyles, null, formatStyleLabel);
-    }
-
-    // build initial lists
-    buildButtonList('regionButtons', regions, selectedRegions, refreshStyleButtons);
-    refreshStyleButtons();
-
-    // populate advanced button lists (no formatter needed)
-    buildButtonList('distilleryButtons', distilleries, selectedDistilleries);
-    buildButtonList('caskButtons', casks, selectedCasks);
-
-    // setup smokey toggle buttons
-    document.getElementById('smokeyYes').addEventListener('click', () => {
-        if (smokeyFilter === true) {
-            smokeyFilter = null;
-            document.getElementById('smokeyYes').classList.remove('selected');
-        } else {
-            smokeyFilter = true;
-            document.getElementById('smokeyYes').classList.add('selected');
-            document.getElementById('smokeyNo').classList.remove('selected');
-        }
-    });
-    document.getElementById('smokeyNo').addEventListener('click', () => {
-        if (smokeyFilter === false) {
-            smokeyFilter = null;
-            document.getElementById('smokeyNo').classList.remove('selected');
-        } else {
-            smokeyFilter = false;
-            document.getElementById('smokeyNo').classList.add('selected');
-            document.getElementById('smokeyYes').classList.remove('selected');
-        }
-    });
-
-    // setup flight size buttons
-    const flightSizeButtons = {
-        1: document.getElementById('size1'),
-        2: document.getElementById('size2'),
-        3: document.getElementById('size3'),
-        4: document.getElementById('size4')
-    };
-    
-    // Set default selection to 4
-    flightSizeButtons[1].classList.add('selected');
-    
-    Object.entries(flightSizeButtons).forEach(([size, btn]) => {
-        btn.addEventListener('click', () => {
-            // Deselect all
-            Object.values(flightSizeButtons).forEach(b => b.classList.remove('selected'));
-            // Select clicked
-            btn.classList.add('selected');
-            selectedFlightSize = parseInt(size);
-        });
-    });
-
-    // setup ABV range buttons
-    const abvBtns = document.querySelectorAll('#abvButtons button');
-    abvBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const range = btn.dataset.range;
-            if (selectedAbvRange === range) {
-                // toggle off
-                selectedAbvRange = null;
-                btn.classList.remove('selected');
-            } else {
-                selectedAbvRange = range;
-                abvBtns.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-            }
-        });
-    });
-
-    const form = document.getElementById('prefForm');
-    form.addEventListener('submit', (ev) => {
-        ev.preventDefault();
-        const prefs = collectPreferences();
-        const filtered = allWhiskeys.filter((w) => {
-            if (prefs.regions.length && !prefs.regions.includes(w.region)) return false;
-            if (prefs.styles.length) {
+    function getFilteredWhiskeys() {
+        return allWhiskeys.filter((w) => {
+            if (selectedRegions.size && !selectedRegions.has(w.region)) return false;
+            if (selectedStyles.size) {
                 const style = w.category ? w.category.split('.').pop() : '';
-                if (!prefs.styles.includes(style)) return false;
+                if (!selectedStyles.has(style)) return false;
             }
-            if (prefs.distilleries.length && !prefs.distilleries.includes(w.distillery)) return false;
-            if (prefs.casks.length && !prefs.casks.includes(w.cask)) return false;
-            if (prefs.smokey !== null) {
-                const hasPeated = w.peated && w.peated.trim() !== '';
-                if (prefs.smokey && !hasPeated) return false;
-                if (!prefs.smokey && hasPeated) return false;
+            if (selectedDistilleries.size && !selectedDistilleries.has(w.distillery)) return false;
+            if (selectedCasks.size && !selectedCasks.has(w.cask)) return false;
+            if (smokeyFilter !== null) {
+                const hasPeated = w.peated && w.peated.trim().toLowerCase() === 'yes';
+                if (smokeyFilter && !hasPeated) return false;
+                if (!smokeyFilter && hasPeated) return false;
             }
             const abv = parseAbv(w.ABV);
-            if (!isNaN(abv) && prefs.abvRange) {
-                switch (prefs.abvRange) {
+            if (!isNaN(abv) && selectedAbvRange) {
+                switch (selectedAbvRange) {
                     case 'normal':
                         if (abv >= 50) return false;
                         break;
@@ -537,63 +356,225 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             return true;
         });
-        const shuffled = shuffleArray(filtered);
-        startSwiping(shuffled);
-    });
+    }
 
-    document.getElementById('passBtn').addEventListener('click', () => {
-        // pass should animate left
-        nextCard(false, 'left');
-    });
-    document.getElementById('flightBtn').addEventListener('click', () => {
-        if (flight.length < flightLimit) {
-            flight.push(cardList[currentIndex]);
-            // adding animates right
-            nextCard(true, 'right');
+    function updateMatchButtonLabel() {
+        const count = getFilteredWhiskeys().length;
+        const btn = document.getElementById('showMatchesBtn');
+        if (btn) {
+            btn.textContent = `Show Matches (${count})`;
         }
-    });
+    }
 
-    document.getElementById('resetBtn').addEventListener('click', () => {
-        resetSession();
-    });
-
-    // allow keyboard navigation: right arrow to pass, left arrow to add
-    document.addEventListener('keydown', (e) => {
-        if (document.getElementById('cards').classList.contains('hidden')) return;
-        if (e.code === 'ArrowRight') {
-            nextCard(false, 'right');
-        } else if (e.code === 'ArrowLeft') {
-            if (flight.length < flightLimit) {
-                flight.push(cardList[currentIndex]);
-                nextCard(true, 'left');
-            }
+    function refreshStyleButtons() {
+        let availableStyles;
+        if (selectedRegions.size === 0) {
+            availableStyles = styles;
+        } else {
+            const set = new Set();
+            selectedRegions.forEach(r => {
+                (stylesByRegion[r] || []).forEach(s => set.add(s));
+            });
+            availableStyles = Array.from(set).sort();
         }
+        buildButtonList('styleButtons', availableStyles, selectedStyles, updateMatchButtonLabel, formatStyleLabel);
+        updateMatchButtonLabel();
+    }
+
+    buildButtonList('regionButtons', regions, selectedRegions, refreshStyleButtons);
+    refreshStyleButtons();
+    buildButtonList('distilleryButtons', distilleries, selectedDistilleries, updateMatchButtonLabel);
+    buildButtonList('caskButtons', casks, selectedCasks, updateMatchButtonLabel);
+
+    // Smokey toggle buttons
+    const smokeyYesBtn = document.getElementById('smokeyYes');
+    const smokeyNoBtn = document.getElementById('smokeyNo');
+    smokeyYesBtn.addEventListener('click', () => {
+        if (smokeyFilter === true) {
+            smokeyFilter = null;
+            smokeyYesBtn.classList.remove('selected');
+        } else {
+            smokeyFilter = true;
+            smokeyYesBtn.classList.add('selected');
+            smokeyNoBtn.classList.remove('selected');
+        }
+        updateMatchButtonLabel();
+    });
+    smokeyNoBtn.addEventListener('click', () => {
+        if (smokeyFilter === false) {
+            smokeyFilter = null;
+            smokeyNoBtn.classList.remove('selected');
+        } else {
+            smokeyFilter = false;
+            smokeyNoBtn.classList.add('selected');
+            smokeyYesBtn.classList.remove('selected');
+        }
+        updateMatchButtonLabel();
     });
 
-    // touch swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const cardsDiv = document.getElementById('cards');
-    cardsDiv.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, false);
-    cardsDiv.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // swiped left -> pass
-                nextCard(false, 'left');
+    // ABV range buttons
+    const abvBtns = document.querySelectorAll('#abvButtons button');
+    abvBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const range = btn.dataset.range;
+            if (selectedAbvRange === range) {
+                selectedAbvRange = null;
+                btn.classList.remove('selected');
             } else {
-                // swiped right -> add to flight
-                if (flight.length < flightLimit) {
-                    flight.push(cardList[currentIndex]);
-                    nextCard(true, 'right');
-                }
+                selectedAbvRange = range;
+                abvBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+            }
+            updateMatchButtonLabel();
+        });
+    });
+
+    // Clear filters
+    document.getElementById('clearFiltersBtn').addEventListener('click', () => {
+        selectedRegions.clear();
+        selectedStyles.clear();
+        selectedDistilleries.clear();
+        selectedCasks.clear();
+        smokeyFilter = null;
+        selectedAbvRange = null;
+        document.querySelectorAll('#preferences button.selected').forEach(b => b.classList.remove('selected'));
+        refreshStyleButtons();
+        updateMatchButtonLabel();
+    });
+
+    // Form submit -> show carousel of all matching options
+    const preferencesEl = document.getElementById('preferences');
+    const carouselSectionEl = document.getElementById('carouselSection');
+
+    document.getElementById('prefForm').addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        const filtered = getFilteredWhiskeys();
+        preferencesEl.classList.add('hidden');
+        carouselSectionEl.classList.remove('hidden');
+        loadCarousel(filtered);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('backToFiltersBtn').addEventListener('click', () => {
+        carouselSectionEl.classList.add('hidden');
+        preferencesEl.classList.remove('hidden');
+    });
+
+    document.getElementById('shuffleBtn').addEventListener('click', () => {
+        if (carousel.items.length > 1) {
+            loadCarousel(shuffleArray(carousel.items));
+        }
+    });
+
+    // Carousel controls
+    document.getElementById('carouselPrevBtn').addEventListener('click', () => stepCarousel(-1));
+    document.getElementById('carouselNextBtn').addEventListener('click', () => stepCarousel(1));
+    document.getElementById('carouselScrubber').addEventListener('input', (e) => {
+        goToCarouselIndex(parseInt(e.target.value, 10));
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (carouselSectionEl.classList.contains('hidden')) return;
+        if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            stepCarousel(-1);
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            stepCarousel(1);
+        }
+    });
+
+    // Drag / touch swipe support
+    const stageEl = document.getElementById('carouselStage');
+
+    function onPointerDown(clientX, clientY) {
+        if (carousel.items.length <= 1) return;
+        carousel.isDragging = true;
+        carousel.dragStartX = clientX;
+        carousel.dragStartY = clientY;
+        carousel.dragDeltaX = 0;
+        carousel.dragLockedHorizontal = false;
+        stageEl.classList.add('is-dragging');
+    }
+
+    function onPointerMove(clientX, clientY, preventDefaultFn) {
+        if (!carousel.isDragging) return;
+        const dx = clientX - carousel.dragStartX;
+        const dy = clientY - carousel.dragStartY;
+
+        if (!carousel.dragLockedHorizontal) {
+            if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) {
+                carousel.dragLockedHorizontal = true;
+            } else if (Math.abs(dy) > 12) {
+                carousel.isDragging = false;
+                stageEl.classList.remove('is-dragging');
+                renderCarouselPositions(0);
+                return;
             }
         }
-    }, false);
 
+        if (carousel.dragLockedHorizontal) {
+            if (preventDefaultFn) preventDefaultFn();
+            carousel.dragDeltaX = dx;
+            renderCarouselPositions(carousel.dragDeltaX);
+        }
+    }
 
+    function onPointerUp() {
+        if (!carousel.isDragging) return;
+        carousel.isDragging = false;
+        stageEl.classList.remove('is-dragging');
+
+        const threshold = 48;
+        if (carousel.dragDeltaX <= -threshold) {
+            stepCarousel(1);
+        } else if (carousel.dragDeltaX >= threshold) {
+            stepCarousel(-1);
+        } else {
+            renderCarouselPositions(0);
+        }
+
+        setTimeout(() => {
+            carousel.dragDeltaX = 0;
+        }, 0);
+    }
+
+    stageEl.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        onPointerDown(e.clientX, e.clientY);
+    });
+    window.addEventListener('mousemove', (e) => onPointerMove(e.clientX, e.clientY));
+    window.addEventListener('mouseup', onPointerUp);
+
+    stageEl.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        onPointerDown(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+
+    stageEl.addEventListener('touchmove', (e) => {
+        if (e.touches.length !== 1) return;
+        onPointerMove(e.touches[0].clientX, e.touches[0].clientY, () => e.preventDefault());
+    }, { passive: false });
+
+    stageEl.addEventListener('touchend', onPointerUp);
+    stageEl.addEventListener('touchcancel', onPointerUp);
+
+    stageEl.addEventListener('wheel', (e) => {
+        const horiz = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0);
+        if (Math.abs(horiz) < 18) return;
+        e.preventDefault();
+        if (carousel.wheelCooldown) return;
+        carousel.wheelCooldown = true;
+        stepCarousel(horiz > 0 ? 1 : -1);
+        setTimeout(() => { carousel.wheelCooldown = false; }, 260);
+    }, { passive: false });
+
+    window.addEventListener('resize', () => {
+        if (!carouselSectionEl.classList.contains('hidden')) {
+            renderCarouselPositions(0);
+        }
+    });
+
+    updateMatchButtonLabel();
 });

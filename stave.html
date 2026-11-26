@@ -3,88 +3,104 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Whiskey Flight Selector</title>
+    <title>Whiskey Selector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/stave-style.css" />
 </head>
 <body>
-    <div id="preferences">
-        <h1>Stave</h1>
-        <form id="prefForm">
-             <fieldset>
-                <legend>Flight Size</legend>
-                <div id="flightSizeButtons" class="option-list">
-                    <button id="size1" type="button">1</button>
-                    <button id="size2" type="button">2</button>
-                    <button id="size3" type="button">3</button>
-                    <button id="size4" type="button">4</button>
-                </div>
-            </fieldset>
-            <fieldset>
-                <legend>Style</legend>
-                <div id="styleButtons" class="option-list"></div>
-            </fieldset>
-
-            <details id="advancedDetails">
-                <summary>Advanced filters </summary>
-                <fieldset>
-                    <legend>Cask Finish</legend>
-                    <div id="caskButtons" class="option-list"></div>
-                </fieldset>
-                <fieldset>
-                    <legend>Smokey</legend>
-                    <div id="smokeyButtons" class="option-list">
-                        <button id="smokeyYes" type="button">Yes</button>
-                        <button id="smokeyNo" type="button">No</button>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>ABV Range</legend>
-                    <div id="abvButtons" class="option-list">
-                        <button type="button" data-range="normal">Normal (&lt;50%)</button>
-                        <button type="button" data-range="hot">Hot (50–60%)</button>
-                        <button type="button" data-range="high">High Octane (&gt;60%)</button>
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Distillery</legend>
-                    <div id="distilleryButtons" class="option-list"></div>
-                </fieldset>
-            <fieldset>
-                <legend>Region</legend>
-                <div id="regionButtons" class="option-list"></div>
-            </fieldset>
-            </details>
-
-
-
-            <button type="submit">Start Swiping</button>
-        </form>
-    </div>
-
-    <div id="cards" class="hidden">
-        <div id="cardProgress"></div>
-        <div id="cardContainer"></div>
-        <div id="controls">
-            <!-- pass on left, add on right -->
-            <button id="passBtn">&larr; Pass</button>
-            <button id="flightBtn">Add to Flight &rarr;</button>
+    <header>
+        <h1>Welcome to RDS</h1>
+        <p class="subtitle">Filter &amp; Browse</p>
+        <div class="header-nav">
+            <a href="index.html">
+                <button type="button" class="nav-btn">&larr; Back to Cabinet</button>
+            </a>
         </div>
-        <p id="flightCount">Selected: 0/4</p>
-        <ul id="flightList"></ul>
-    </div>
+    </header>
 
-    <div id="summary" class="hidden">
-        <h2>Your Flight</h2>
-        <ul id="summaryList"></ul>
-        <button id="resetBtn">Start Over</button>
-    </div>
+    <main>
+        <section id="preferences">
+            <form id="prefForm">
+                <fieldset>
+                    <legend>Style</legend>
+                    <div id="styleButtons" class="option-list"></div>
+                </fieldset>
+
+                <details id="advancedDetails">
+                    <summary>Advanced Filters</summary>
+                    <fieldset>
+                        <legend>Cask Finish</legend>
+                        <div id="caskButtons" class="option-list"></div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Smokey</legend>
+                        <div id="smokeyButtons" class="option-list">
+                            <button id="smokeyYes" type="button">Yes</button>
+                            <button id="smokeyNo" type="button">No</button>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>ABV Range</legend>
+                        <div id="abvButtons" class="option-list">
+                            <button type="button" data-range="normal">Normal (&lt;50%)</button>
+                            <button type="button" data-range="hot">Hot (50–60%)</button>
+                            <button type="button" data-range="high">High Octane (&gt;60%)</button>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Distillery</legend>
+                        <div id="distilleryButtons" class="option-list"></div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Region</legend>
+                        <div id="regionButtons" class="option-list"></div>
+                    </fieldset>
+                </details>
+
+                <div class="form-actions">
+                    <button type="submit" id="showMatchesBtn">Show Matches</button>
+                    <button type="button" id="clearFiltersBtn" class="secondary-btn">Clear Filters</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="carouselSection" class="hidden" aria-label="Matching Bottles Carousel">
+            <div class="carousel-header">
+                <h2 id="resultsHeading">Matching Bottles</h2>
+                <span id="carouselCounter" class="carousel-counter"></span>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button id="carouselPrevBtn" class="carousel-arrow carousel-arrow-prev" type="button" aria-label="Previous bottle">
+                    &#10094;
+                </button>
+                <div id="carouselStage" class="carousel-stage" tabindex="0" aria-live="polite">
+                    <!-- 3D rotating drink cards injected here -->
+                </div>
+                <button id="carouselNextBtn" class="carousel-arrow carousel-arrow-next" type="button" aria-label="Next bottle">
+                    &#10095;
+                </button>
+            </div>
+
+            <div class="carousel-controls">
+                <div id="carouselDots" class="carousel-dots"></div>
+                <input id="carouselScrubber" class="carousel-scrubber hidden" type="range" min="0" max="0" value="0" aria-label="Jump to bottle">
+            </div>
+
+            <p class="swipe-hint">Swipe, drag, click a side card, or use &#8592; &#8594; arrow keys</p>
+
+            <div class="results-actions">
+                <button type="button" id="backToFiltersBtn">Adjust Filters</button>
+                <button type="button" id="shuffleBtn" class="secondary-btn">Shuffle Order</button>
+            </div>
+        </section>
+    </main>
 
     <!-- load data definitions first -->
     <script src="scripts/drinkdata.js"></script>
-
-    <!-- app logic follows; `app.js` will pick up our whiskey list from `drinksData.whiskey` -->
+    <!-- app logic follows; `app.js` picks up whiskey list from `drinksData.whiskey` -->
     <script src="scripts/app.js"></script>
-
 </body>
 </html>

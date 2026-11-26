@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Menu at RDS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
+    <title>RDS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/RD-cabinet.css">
 </head>
 <body>
     <header>
@@ -17,6 +18,8 @@
         
 --->
     </header>
+    <main>
+        <section>
             <h2>Categories</h2>
             <div id="categories">
                 <button class="category-btn" onclick="showSubcategories('whiskey')">Whiskey</button>
@@ -38,21 +41,40 @@
             </div>
         </section>
         <section>
-            <h3>Tipples</h3>
+            <h3 id="tipples-heading">Tipples</h3>
             <ul id="drinks-list">
                 <!-- Drinks will be displayed here -->
             </ul>
+            <div id="drinks-carousel" class="carousel-view is-hidden" aria-label="Recent Acquisitions Carousel">
+                <span id="carousel-counter" class="carousel-counter"></span>
+                <div class="carousel-wrapper">
+                    <button id="carousel-prev-btn" class="carousel-arrow carousel-arrow-prev" type="button" aria-label="Previous bottle">
+                        &#10094;
+                    </button>
+                    <div id="carousel-stage" class="carousel-stage" tabindex="0" aria-live="polite">
+                        <!-- 3D rotating drink cards injected here -->
+                    </div>
+                    <button id="carousel-next-btn" class="carousel-arrow carousel-arrow-next" type="button" aria-label="Next bottle">
+                        &#10095;
+                    </button>
+                </div>
+                <div class="carousel-controls">
+                    <div id="carousel-dots" class="carousel-dots"></div>
+                    <input id="carousel-scrubber" class="carousel-scrubber is-hidden" type="range" min="0" max="0" value="0" aria-label="Jump to bottle">
+                </div>
+                <p class="swipe-hint">Swipe, drag, click a side card, or use &#8592; &#8594; arrow keys</p>
+            </div>
         </section>
     </main>
     <footer>
         <div>
             <button id="hardcore-btn" style="border: none; background: none;">
-                <img src="whiskeyman.png" alt="WooHoo!" width="300" height="300">
+                <img src="RD/RD whiskeyman.png" alt="WooHoo!" width="300" height="300" onerror="this.onerror=null; this.src='whiskeyman.png';">
             </button>
         </div>
-        <button id="retired-btn">Retired Friends</button>
+      <!--  <button id="retired-btn">Retired Friends</button> --->
         <a href="stave.html">
-            <button class="category-btn">Stave</button>
+            <button class="category-btn">Help Me Pick</button>
         </a>
     </footer>
     <script src="scripts/drinkdata.js"></script>
