@@ -144,22 +144,28 @@ function clearAllActiveButtons() {
         .forEach(btn => btn.classList.remove('active-btn'));
 }
 
-document.getElementById('hardcore-btn').addEventListener('click', function() {
-    clearAllActiveButtons();
-    const drinksList = document.getElementById('drinks-list');
-    drinksList.innerHTML = '';
-    const subcategoriesDiv = document.getElementById('subcategories');
-    subcategoriesDiv.innerHTML = '';
-    const subcategoriesDiv2 = document.getElementById('subcategories2');
-    subcategoriesDiv2.innerHTML = '';
-    showDrinks(null, null, null, drinksData.whiskey.unicorns.unicorn);
-});
+const hardcoreBtnEl = document.getElementById('hardcore-btn');
+if (hardcoreBtnEl) {
+    hardcoreBtnEl.addEventListener('click', function() {
+        clearAllActiveButtons();
+        const drinksList = document.getElementById('drinks-list');
+        drinksList.innerHTML = '';
+        const subcategoriesDiv = document.getElementById('subcategories');
+        subcategoriesDiv.innerHTML = '';
+        const subcategoriesDiv2 = document.getElementById('subcategories2');
+        subcategoriesDiv2.innerHTML = '';
+        showDrinks(null, null, null, drinksData.whiskey.unicorns.unicorn);
+    });
+}
 
-document.getElementById('retired-btn').addEventListener('click', function() {
-    clearAllActiveButtons();
-    this.classList.add('active-btn');
-    showSubcategories('retired');
-});
+const retiredBtnEl = document.getElementById('retired-btn');
+if (retiredBtnEl) {
+    retiredBtnEl.addEventListener('click', function() {
+        clearAllActiveButtons();
+        this.classList.add('active-btn');
+        showSubcategories('retired');
+    });
+}
 
 // Call this after DOMContentLoaded or at the end of your script:
 setActiveButtonDelegated('#categories', '.category-btn');
@@ -492,3 +498,151 @@ function showCarousel(drinks) {
 
     renderCarouselPositions(0);
 }
+
+// ==========================================================================
+// Board Game Menu Toggle & Filtering
+// ==========================================================================
+(function initBoardGameMenu() {
+    const toggleBtn = document.getElementById('menu-toggle-btn');
+    const liquorView = document.getElementById('liquor-view');
+    const bgView = document.getElementById('boardgames-view');
+    const bgCategoriesEl = document.getElementById('bg-categories');
+    const bgPlayersEl = document.getElementById('bg-players');
+    const bgListEl = document.getElementById('bg-list');
+    const bgHeadingEl = document.getElementById('bg-heading');
+
+    if (!toggleBtn || !liquorView || !bgView || !bgListEl) return;
+
+    let selectedBgCategory = 'all';
+    let selectedBgPlayers = 'any';
+
+    function matchesCategory(game, cat) {
+        if (cat === 'all') return true;
+        const t = (game.type || '').toLowerCase();
+        switch (cat) {
+            case 'cooperative':
+                return t.includes('cooperative');
+            case 'strategy':
+                return (
+                    t.includes('strategy') ||
+                    t.includes('worker placement') ||
+                    t.includes('engine building') ||
+                    t.includes('economic') ||
+                    t.includes('area control') ||
+                    t.includes('route building') ||
+                    t.includes('card drafting') ||
+                    t.includes('deck building') ||
+                    t.includes('tactical')
+                );
+            case 'party':
+                return (
+                    t.includes('party') ||
+                    t.includes('family') ||
+                    t.includes('word game') ||
+                    t.includes('roll-and-write') ||
+                    t.includes('betting')
+                );
+            case 'deduction':
+                return (
+                    t.includes('deduction') ||
+                    t.includes('mystery') ||
+                    t.includes('puzzle') ||
+                    t.includes('bluffing')
+                );
+            case 'campaign':
+                return (
+                    t.includes('legacy') ||
+                    t.includes('campaign') ||
+                    t.includes('expansion')
+                );
+            default:
+                return true;
+        }
+    }
+
+    function matchesPlayers(game, playerFilter) {
+        if (playerFilter === 'any') return true;
+        const min = game.minPlayers || 1;
+        const max = game.maxPlayers || min;
+        switch (playerFilter) {
+            case '1':
+                return min <= 1 && max >= 1;
+            case '2':
+                return min <= 2 && max >= 2;
+            case '3-4':
+                return min <= 4 && max >= 3;
+            case '5+':
+                return max >= 5;
+            default:
+                return true;
+        }
+    }
+
+    function renderBoardGames() {
+        const games = (typeof boardGamesData !== 'undefined' && Array.isArray(boardGamesData))
+            ? boardGamesData
+            : [];
+        const filtered = games.filter(
+            (g) => matchesCategory(g, selectedBgCategory) && matchesPlayers(g, selectedBgPlayers)
+        );
+
+        bgListEl.innerHTML = '';
+        if (bgHeadingEl) {
+            bgHeadingEl.textContent = `Board Games (${filtered.length})`;
+        }
+
+        if (filtered.length === 0) {
+            bgListEl.innerHTML = '<li>No board games match those filters.</li>';
+            return;
+        }
+
+        filtered.forEach((game) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <strong>${game.title}</strong><br>
+                <span class="bg-meta"><em>Players:</em> ${game.players}</span>
+                <span class="bg-meta"><em>Type:</em> ${game.type}</span>
+                <p class="bg-desc">${game.description}</p>
+            `;
+            bgListEl.appendChild(li);
+        });
+    }
+
+    if (bgCategoriesEl) {
+        bgCategoriesEl.addEventListener('click', (e) => {
+            const btn = e.target.closest('button[data-bg-category]');
+            if (!btn) return;
+            bgCategoriesEl.querySelectorAll('button').forEach((b) => b.classList.remove('active-btn'));
+            btn.classList.add('active-btn');
+            selectedBgCategory = btn.dataset.bgCategory;
+            renderBoardGames();
+        });
+    }
+
+    if (bgPlayersEl) {
+        bgPlayersEl.addEventListener('click', (e) => {
+            const btn = e.target.closest('button[data-bg-players]');
+            if (!btn) return;
+            bgPlayersEl.querySelectorAll('button').forEach((b) => b.classList.remove('active-btn'));
+            btn.classList.add('active-btn');
+            selectedBgPlayers = btn.dataset.bgPlayers;
+            renderBoardGames();
+        });
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        const showingGames = !bgView.classList.contains('is-hidden');
+        if (showingGames) {
+            bgView.classList.add('is-hidden');
+            liquorView.classList.remove('is-hidden');
+            toggleBtn.textContent = 'Board Games';
+            toggleBtn.setAttribute('aria-pressed', 'false');
+        } else {
+            liquorView.classList.add('is-hidden');
+            bgView.classList.remove('is-hidden');
+            toggleBtn.textContent = 'Liquor Cabinet';
+            toggleBtn.setAttribute('aria-pressed', 'true');
+            renderBoardGames();
+        }
+    });
+})();
