@@ -171,6 +171,10 @@
             icons.push({ file: 'vacation.png', label: 'Travel' });
         }
 
+        if ((drink.peculiar || '').trim().toLowerCase() === 'yes') {
+            icons.push({ file: 'peculiar_potable.png', label: 'Peculiar Potable' });
+        }
+
         if (title && /unicorn/i.test(title)) {
             icons.push({ file: 'unicorn.png', label: 'Unicorn' });
         }

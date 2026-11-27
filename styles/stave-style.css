@@ -199,7 +199,10 @@ fieldset {
     font-weight: 700 !important;
 }
 
-#smokeyButtons button {
+#smokeyButtons button,
+#travelButtons button,
+#peculiarButtons button,
+#uniqueGrainButtons button {
     min-width: 96px;
 }
 

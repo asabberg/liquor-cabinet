@@ -69,6 +69,10 @@ function deriveStamps(item, category) {
         badges.push({ file: 'vacation.png', label: 'Travel' });
     }
 
+    if ((item.peculiar || '').trim().toLowerCase() === 'yes') {
+        badges.push({ file: 'peculiar_potable.png', label: 'Peculiar Potable' });
+    }
+
     if (style === 'unicorn') {
         badges.push({ file: 'unicorn.png', label: 'Unicorn' });
     }
@@ -129,6 +133,9 @@ let selectedStyles = new Set();
 let selectedDistilleries = new Set();
 let selectedCasks = new Set();
 let smokeyFilter = null; // null, true, or false
+let travelFilter = null; // null, true, or false
+let peculiarFilter = null; // null, true, or false
+let uniqueGrainFilter = null; // null, true, or false
 let selectedAbvRange = null; // null, 'normal', 'hot', 'high'
 
 // Carousel state
@@ -365,6 +372,21 @@ window.addEventListener('DOMContentLoaded', () => {
                 if (smokeyFilter && !hasPeated) return false;
                 if (!smokeyFilter && hasPeated) return false;
             }
+            if (travelFilter !== null) {
+                const hasTravel = (w.travel || w.vacation || '').trim().toLowerCase() === 'yes';
+                if (travelFilter && !hasTravel) return false;
+                if (!travelFilter && hasTravel) return false;
+            }
+            if (peculiarFilter !== null) {
+                const hasPeculiar = (w.peculiar || '').trim().toLowerCase() === 'yes';
+                if (peculiarFilter && !hasPeculiar) return false;
+                if (!peculiarFilter && hasPeculiar) return false;
+            }
+            if (uniqueGrainFilter !== null) {
+                const hasUniqueGrain = (w.uniqueGrain || w['unique grain'] || '').trim().toLowerCase() === 'yes';
+                if (uniqueGrainFilter && !hasUniqueGrain) return false;
+                if (!uniqueGrainFilter && hasUniqueGrain) return false;
+            }
             const abv = parseAbv(w.ABV);
             if (!isNaN(abv) && selectedAbvRange) {
                 switch (selectedAbvRange) {
@@ -437,6 +459,84 @@ window.addEventListener('DOMContentLoaded', () => {
         updateMatchButtonLabel();
     });
 
+    // Travel toggle buttons
+    const travelYesBtn = document.getElementById('travelYes');
+    const travelNoBtn = document.getElementById('travelNo');
+    travelYesBtn.addEventListener('click', () => {
+        if (travelFilter === true) {
+            travelFilter = null;
+            travelYesBtn.classList.remove('selected');
+        } else {
+            travelFilter = true;
+            travelYesBtn.classList.add('selected');
+            travelNoBtn.classList.remove('selected');
+        }
+        updateMatchButtonLabel();
+    });
+    travelNoBtn.addEventListener('click', () => {
+        if (travelFilter === false) {
+            travelFilter = null;
+            travelNoBtn.classList.remove('selected');
+        } else {
+            travelFilter = false;
+            travelNoBtn.classList.add('selected');
+            travelYesBtn.classList.remove('selected');
+        }
+        updateMatchButtonLabel();
+    });
+
+    // Peculiar Potable toggle buttons
+    const peculiarYesBtn = document.getElementById('peculiarYes');
+    const peculiarNoBtn = document.getElementById('peculiarNo');
+    peculiarYesBtn.addEventListener('click', () => {
+        if (peculiarFilter === true) {
+            peculiarFilter = null;
+            peculiarYesBtn.classList.remove('selected');
+        } else {
+            peculiarFilter = true;
+            peculiarYesBtn.classList.add('selected');
+            peculiarNoBtn.classList.remove('selected');
+        }
+        updateMatchButtonLabel();
+    });
+    peculiarNoBtn.addEventListener('click', () => {
+        if (peculiarFilter === false) {
+            peculiarFilter = null;
+            peculiarNoBtn.classList.remove('selected');
+        } else {
+            peculiarFilter = false;
+            peculiarNoBtn.classList.add('selected');
+            peculiarYesBtn.classList.remove('selected');
+        }
+        updateMatchButtonLabel();
+    });
+
+    // Unique Grain toggle buttons
+    const uniqueGrainYesBtn = document.getElementById('uniqueGrainYes');
+    const uniqueGrainNoBtn = document.getElementById('uniqueGrainNo');
+    uniqueGrainYesBtn.addEventListener('click', () => {
+        if (uniqueGrainFilter === true) {
+            uniqueGrainFilter = null;
+            uniqueGrainYesBtn.classList.remove('selected');
+        } else {
+            uniqueGrainFilter = true;
+            uniqueGrainYesBtn.classList.add('selected');
+            uniqueGrainNoBtn.classList.remove('selected');
+        }
+        updateMatchButtonLabel();
+    });
+    uniqueGrainNoBtn.addEventListener('click', () => {
+        if (uniqueGrainFilter === false) {
+            uniqueGrainFilter = null;
+            uniqueGrainNoBtn.classList.remove('selected');
+        } else {
+            uniqueGrainFilter = false;
+            uniqueGrainNoBtn.classList.add('selected');
+            uniqueGrainYesBtn.classList.remove('selected');
+        }
+        updateMatchButtonLabel();
+    });
+
     // ABV range buttons
     const abvBtns = document.querySelectorAll('#abvButtons button');
     abvBtns.forEach(btn => {
@@ -461,6 +561,9 @@ window.addEventListener('DOMContentLoaded', () => {
         selectedDistilleries.clear();
         selectedCasks.clear();
         smokeyFilter = null;
+        travelFilter = null;
+        peculiarFilter = null;
+        uniqueGrainFilter = null;
         selectedAbvRange = null;
         document.querySelectorAll('#preferences button.selected').forEach(b => b.classList.remove('selected'));
         refreshStyleButtons();
