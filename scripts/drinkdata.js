@@ -248,7 +248,6 @@ const drinksData = {
     },
     new: {
         all: [
-            { distillery: 'High Wire Distilling Co', bottle: 'Benton\'s Smoked Jimmy Red Bourbon Whiskey', region: 'South Carolina, USA', ABV: '45%', age: '', notes: '100% heirloom Jimmy Red corn smoked in Benton\'s Tennessee hickory smokehouse before distillation; hickory smoke, maple, graham cracker, cinnamon, tropical fruit, vanilla', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: 'yes', travel: '', peculiar: 'yes' },
             { distillery: 'Compass Box', bottle: 'Hedonism 2025', region: 'Scotland', ABV: '46%', age: '', notes: 'Blended grain Scotch; 25th Anniversary limited release (9,912 bottles); Cameronbridge & Girvan grain with first-fill Marsala barrique finish; caramel, peach, chocolate mousse, vanilla', occasion: '', retired: '', peated: '', cask: 'Dessert Wine', other: '', uniqueGrain: 'yes', travel: '', peculiar: '' },
             { distillery: 'Westland', bottle: 'Garryana 11th Edition', region: 'Washington, USA', ABV: '56.80%', age: '10 Years', notes: 'Cask strength; first Garryana finished in beer casks; Five Malt & WA Pale Malt; Belgian brewer\'s yeast', occasion: '', retired: '', peated: '', cask: 'Exotic', other: '', uniqueGrain: '', travel: '', peculiar: '' },
             { distillery: 'Kavalan', bottle: 'Peatist Oloroso Sherry Cask Single Cask Strength', region: 'Yilan, Taiwan', ABV: '57.10%', age: '', notes: 'IWC 2026 Whisky of the Year (96.97 pts); peated malt matured in Spanish Oloroso sherry casks', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '', uniqueGrain: '', travel: 'yes', peculiar: '' },
@@ -260,6 +259,7 @@ const drinksData = {
             { distillery: 'Ardbeg', bottle: 'Dolce (Cue the Smoke)', region: 'Islay', ABV: '47.80%', age: '', notes: 'Ardbeg Day 2026 Limited Edition', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '', uniqueGrain: '', travel: '', peculiar: '' },
             { distillery: 'Nc\'nean', bottle: 'Organic Cask Strength', region: 'Highlands', ABV: '59%', age: '', notes: '100% organic Scottish barley', occasion: '', retired: '', peated: '', cask: 'Wine', other: '', uniqueGrain: '', travel: '', peculiar: '' },
             { distillery: 'Triple Eight', bottle: 'Lost Lantern Single Cask - Triple Eight Peated Single Malt', region: 'Massachusetts, USA', ABV: '57.95%', age: '6.5 Years', notes: 'Single Cask #17; Scottish Highland peat-smoked barley', occasion: '', retired: '', peated: 'yes', cask: '', other: '', uniqueGrain: '', travel: '', peculiar: '' },
+            { distillery: 'Lost Lantern', bottle: 'United States of Bourbon Cask Strength', region: 'USA', ABV: '61.45%', age: '2 Years', notes: 'Blend of straight bourbons from all 50 states (aged 2–10 years)', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: '', peculiar: 'yes' },
         ],
     },
     beer: {
