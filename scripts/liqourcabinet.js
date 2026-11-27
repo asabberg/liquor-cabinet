@@ -392,6 +392,49 @@ function initCarouselListeners() {
     });
 }
 
+function getDrinkBadgeIcons(drink, category) {
+    const icons = [];
+    const cask = (drink.cask || '').trim().toLowerCase();
+    const caskMap = {
+        'beer': { file: 'beer.png', label: 'Beer Cask' },
+        'dessert wine': { file: 'dessert_wine_cask.png', label: 'Dessert Wine Cask' },
+        'wine': { file: 'wine_cask.png', label: 'Wine Cask' },
+        'mizunara': { file: 'mizunara.png', label: 'Mizunara Cask' },
+        'toasted': { file: 'toasted.png', label: 'Toasted Cask' },
+        'exotic': { file: 'exotic_cask.png', label: 'Exotic Cask' }
+    };
+    if (caskMap[cask]) icons.push(caskMap[cask]);
+
+    if ((drink.peated || '').trim().toLowerCase() === 'yes') {
+        icons.push({ file: 'peat_monster.png', label: 'Peated' });
+    }
+
+    const abv = parseFloat((drink.ABV || '').replace(/[^0-9.]/g, ''));
+    if (!isNaN(abv) && abv > 60) {
+        icons.push({ file: 'high_octane.png', label: 'High Octane (>60% ABV)' });
+    }
+
+    const combinedText = `${drink.bottle || ''} ${drink.notes || ''}`;
+    if (/single\s*cask|cask\s*no\.?/i.test(combinedText)) {
+        icons.push({ file: 'single_cask.png', label: 'Single Cask' });
+    }
+
+    const uniqueGrainVal = (drink.uniqueGrain || drink['unique grain'] || '').trim().toLowerCase();
+    if (uniqueGrainVal === 'yes') {
+        icons.push({ file: 'unique_grain.png', label: 'Unique Grain' });
+    }
+
+    if ((drink.travel || drink.vacation || '').trim().toLowerCase() === 'yes') {
+        icons.push({ file: 'vacation.png', label: 'Travel' });
+    }
+
+    if (category && /unicorn|hardcore/i.test(category)) {
+        icons.push({ file: 'unicorn.png', label: 'Unicorn' });
+    }
+
+    return icons;
+}
+
 function showCarousel(drinks) {
     const carouselEl = document.getElementById('drinks-carousel');
     const drinksList = document.getElementById('drinks-list');
@@ -433,13 +476,13 @@ function showCarousel(drinks) {
         const badges = [];
         if (drink.ABV) badges.push(`<span class="card-badge">ABV ${drink.ABV}</span>`);
         if (ageVal && ageVal !== 'NAS') badges.push(`<span class="card-badge">${ageVal}</span>`);
-        if (drink.cask) badges.push(`<span class="card-badge badge-cask">${drink.cask} Cask</span>`);
-        if (drink.peated && drink.peated.trim().toLowerCase() === 'yes') {
-            badges.push(`<span class="card-badge badge-smokey">Peated</span>`);
-        }
+
+        const iconBadges = getDrinkBadgeIcons(drink);
+        const iconBadgesHtml = iconBadges.length
+            ? `<div class="badge-icon-row">${iconBadges.map(b => `<img src="images/Badges/${b.file}" alt="${b.label}" title="${b.label}">`).join('')}</div>`
+            : '';
 
         let bodyHtml = '';
-        if (drink.notes) bodyHtml += `<p class="card-notes">&ldquo;${drink.notes}&rdquo;</p>`;
         if (drink.occasion) bodyHtml += `<p class="card-meta-line"><strong>Occasion:</strong> ${drink.occasion}</p>`;
         if (drink.retired) bodyHtml += `<p class="card-meta-line"><strong>Retired:</strong> ${drink.retired}</p>`;
 
@@ -453,6 +496,7 @@ function showCarousel(drinks) {
             </div>
             <div class="card-body">
                 ${bodyHtml}
+                ${iconBadgesHtml}
             </div>
         `;
 

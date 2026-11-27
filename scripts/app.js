@@ -32,18 +32,48 @@ function flattenWhiskeys(data) {
 }
 
 function deriveStamps(item, category) {
-    const stamps = [];
+    const badges = [];
     const style = category ? category.split('.').pop() : '';
-    if (style === 'americansinglemalt') {
-        stamps.push('asm.png');
-    }
+
+    const cask = (item.cask || '').trim().toLowerCase();
+    const caskMap = {
+        'beer': { file: 'beer.png', label: 'Beer Cask' },
+        'dessert wine': { file: 'dessert_wine_cask.png', label: 'Dessert Wine Cask' },
+        'wine': { file: 'wine_cask.png', label: 'Wine Cask' },
+        'mizunara': { file: 'mizunara.png', label: 'Mizunara Cask' },
+        'toasted': { file: 'toasted.png', label: 'Toasted Cask' },
+        'exotic': { file: 'exotic_cask.png', label: 'Exotic Cask' }
+    };
+    if (caskMap[cask]) badges.push(caskMap[cask]);
+
     if (item.peated && item.peated.trim().toLowerCase() === 'yes') {
-        stamps.push('smokey.png');
+        badges.push({ file: 'peat_monster.png', label: 'Peated' });
     }
+
+    const abv = parseAbv(item.ABV);
+    if (!isNaN(abv) && abv > 60) {
+        badges.push({ file: 'high_octane.png', label: 'High Octane (>60% ABV)' });
+    }
+
+    const combinedText = `${item.bottle || ''} ${item.notes || ''}`;
+    if (/single\s*cask|cask\s*no\.?/i.test(combinedText)) {
+        badges.push({ file: 'single_cask.png', label: 'Single Cask' });
+    }
+
+    const uniqueGrainVal = (item.uniqueGrain || item['unique grain'] || '').trim().toLowerCase();
+    if (uniqueGrainVal === 'yes') {
+        badges.push({ file: 'unique_grain.png', label: 'Unique Grain' });
+    }
+
+    if ((item.travel || item.vacation || '').trim().toLowerCase() === 'yes') {
+        badges.push({ file: 'vacation.png', label: 'Travel' });
+    }
+
     if (style === 'unicorn') {
-        stamps.push('unicorn.png');
+        badges.push({ file: 'unicorn.png', label: 'Unicorn' });
     }
-    return stamps.slice(0, 4);
+
+    return badges;
 }
 
 function shuffleArray(arr) {
@@ -226,20 +256,15 @@ function loadCarousel(items) {
         const badges = [];
         if (item.ABV) badges.push(`<span class="card-badge">ABV ${item.ABV}</span>`);
         if (ageVal && ageVal !== 'NAS') badges.push(`<span class="card-badge">${ageVal}</span>`);
-        if (item.cask) badges.push(`<span class="card-badge badge-cask">${item.cask} Cask</span>`);
-        if (item.peated && item.peated.trim().toLowerCase() === 'yes') {
-            badges.push(`<span class="card-badge badge-smokey">Peated</span>`);
-        }
 
         let bodyHtml = '';
-        if (item.notes) bodyHtml += `<p class="card-notes">&ldquo;${item.notes}&rdquo;</p>`;
         if (item.occasion) bodyHtml += `<p class="card-meta-line"><strong>Occasion:</strong> ${item.occasion}</p>`;
 
         let stampsHtml = '';
         if (item.stamps && item.stamps.length) {
             const imgs = item.stamps
                 .filter(Boolean)
-                .map(name => `<img src="images/${name}" alt="${name}">`)
+                .map(b => `<img src="images/Badges/${b.file}" alt="${b.label}" title="${b.label}">`)
                 .join('');
             stampsHtml = `<div class="stamp-row">${imgs}</div>`;
         }

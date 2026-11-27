@@ -367,6 +367,27 @@ button.active-btn {
     font-size: 0.72rem;
 }
 
+.badge-icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.badge-icon-row img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.65));
+    transition: transform 0.2s ease;
+}
+
+.badge-icon-row img:hover {
+    transform: scale(1.12);
+}
+
 .card-empty {
     position: absolute;
     inset: 0;
