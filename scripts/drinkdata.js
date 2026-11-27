@@ -1,4 +1,4 @@
-﻿// drinkdata.js - centralized repository for beverage collections used by the site
+// drinkdata.js - centralized repository for beverage collections used by the site
 // currently the whiskey selector only consumes `drinksData.whiskey` but the object
 // also holds gin, amaro, and other categories for future expansion.
 
@@ -9,6 +9,7 @@ const drinksData = {
                 { distillery: 'Bardstown', bottle: 'Goose Island Bourbon County Finished', region: 'Kentucky, USA', ABV: '50%', age: '', notes: 'Barrels were still "wet" when filled with bourbon', occasion: '', retired: '', peated: '', cask: 'Beer', other: '', uniqueGrain: '', travel: '', peculiar: '' },
                 { distillery: 'FEW', bottle: 'Cold Cut', region: 'Illinois, USA', ABV: '46.50%', age: '', notes: 'Cut from barrel strenght with cold brew coffee', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: 'yes', peculiar: 'yes' },
                 { distillery: 'FEW', bottle: 'Lost Lantern Single Cask No. 3', region: 'Illinois, USA', ABV: '62.30%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: '', peculiar: '' },
+                { distillery: 'High Wire Distilling Co', bottle: 'Benton\'s Smoked Jimmy Red Bourbon Whiskey', region: 'South Carolina, USA', ABV: '45%', age: '', notes: '100% heirloom Jimmy Red corn smoked in Benton\'s Tennessee hickory smokehouse before distillation; hickory smoke, maple, graham cracker, cinnamon, tropical fruit, vanilla', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: 'yes', travel: '', peculiar: 'yes' },
                 { distillery: 'High Wire Distilling Co', bottle: 'Lost Lantern Single Cask - Jimmy Red', region: 'South Carolina', ABV: '58.70%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: 'yes', travel: '', peculiar: '' },
                 { distillery: 'Iron Smoke', bottle: 'Casket Strength', region: 'New York, USA', ABV: '60%', age: '', notes: '', occasion: 'Iron Anniversary', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: '', peculiar: '' },
                 { distillery: 'New Holland', bottle: 'Origin Toasted Barrel 2026G - The Weekend Retreat', region: 'Michigan, USA', ABV: '58.80%', age: '5+ Years', notes: 'Char #3 medium toasted barrel finish; mashbill 70% corn, 25% malted barley, 5% rye', occasion: '', retired: '', peated: '', cask: 'Toasted', other: '', uniqueGrain: '', travel: '', peculiar: '' },
@@ -129,7 +130,7 @@ const drinksData = {
                 { distillery: 'Nikka', bottle: 'Yoichi - Woody & Vanillic', region: 'Hokkaido, Japan', ABV: '55%', age: 'NAS', notes: 'Soft vanilla on the nose, woody on the palate, hints of bourbon sweetness, cocoa, and malt', occasion: 'Aquired in Yokohama 2024', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: 'yes', peculiar: '' },
                 { distillery: 'Nikka', bottle: 'Yoichi Single Malt', region: 'Hokkaido, Japan', ABV: '45%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: 'yes', peculiar: '' },
                 { distillery: 'Suntory', bottle: 'Hakushu', region: 'Yamanashi, Japan', ABV: '43%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: 'yes', peculiar: '' },
-                { distillery: 'Suntory', bottle: 'Hibiki Japanese Harmony', region: 'Japan', ABV: '43%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: '', peculiar: '' },
+                { distillery: 'Suntory', bottle: 'Hibiki Japanese Harmony', region: 'Japan', ABV: '43%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: 'yes', peculiar: '' },
                 { distillery: 'Suntory', bottle: 'The Yamazaki', region: 'Osaka, Japan', ABV: '43%', age: '', notes: '', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: 'yes', peculiar: '' },
                 { distillery: 'Suntory', bottle: 'The Yamazaki 12 Year', region: 'Osaka, Japan', ABV: '43%', age: '12 Year', notes: '', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: 'yes', peculiar: '' },
             ],
@@ -247,6 +248,7 @@ const drinksData = {
     },
     new: {
         all: [
+            { distillery: 'High Wire Distilling Co', bottle: 'Benton\'s Smoked Jimmy Red Bourbon Whiskey', region: 'South Carolina, USA', ABV: '45%', age: '', notes: '100% heirloom Jimmy Red corn smoked in Benton\'s Tennessee hickory smokehouse before distillation; hickory smoke, maple, graham cracker, cinnamon, tropical fruit, vanilla', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: 'yes', travel: '', peculiar: 'yes' },
             { distillery: 'Compass Box', bottle: 'Hedonism 2025', region: 'Scotland', ABV: '46%', age: '', notes: 'Blended grain Scotch; 25th Anniversary limited release (9,912 bottles); Cameronbridge & Girvan grain with first-fill Marsala barrique finish; caramel, peach, chocolate mousse, vanilla', occasion: '', retired: '', peated: '', cask: 'Dessert Wine', other: '', uniqueGrain: 'yes', travel: '', peculiar: '' },
             { distillery: 'Westland', bottle: 'Garryana 11th Edition', region: 'Washington, USA', ABV: '56.80%', age: '10 Years', notes: 'Cask strength; first Garryana finished in beer casks; Five Malt & WA Pale Malt; Belgian brewer\'s yeast', occasion: '', retired: '', peated: '', cask: 'Exotic', other: '', uniqueGrain: '', travel: '', peculiar: '' },
             { distillery: 'Kavalan', bottle: 'Peatist Oloroso Sherry Cask Single Cask Strength', region: 'Yilan, Taiwan', ABV: '57.10%', age: '', notes: 'IWC 2026 Whisky of the Year (96.97 pts); peated malt matured in Spanish Oloroso sherry casks', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '', uniqueGrain: '', travel: 'yes', peculiar: '' },
@@ -258,7 +260,6 @@ const drinksData = {
             { distillery: 'Ardbeg', bottle: 'Dolce (Cue the Smoke)', region: 'Islay', ABV: '47.80%', age: '', notes: 'Ardbeg Day 2026 Limited Edition', occasion: '', retired: '', peated: 'yes', cask: 'Dessert Wine', other: '', uniqueGrain: '', travel: '', peculiar: '' },
             { distillery: 'Nc\'nean', bottle: 'Organic Cask Strength', region: 'Highlands', ABV: '59%', age: '', notes: '100% organic Scottish barley', occasion: '', retired: '', peated: '', cask: 'Wine', other: '', uniqueGrain: '', travel: '', peculiar: '' },
             { distillery: 'Triple Eight', bottle: 'Lost Lantern Single Cask - Triple Eight Peated Single Malt', region: 'Massachusetts, USA', ABV: '57.95%', age: '6.5 Years', notes: 'Single Cask #17; Scottish Highland peat-smoked barley', occasion: '', retired: '', peated: 'yes', cask: '', other: '', uniqueGrain: '', travel: '', peculiar: '' },
-            { distillery: 'Lost Lantern', bottle: 'United States of Bourbon Cask Strength', region: 'USA', ABV: '61.45%', age: '2 Years', notes: 'Blend of straight bourbons from all 50 states (aged 2–10 years)', occasion: '', retired: '', peated: '', cask: '', other: '', uniqueGrain: '', travel: '', peculiar: 'yes' },
         ],
     },
     beer: {
