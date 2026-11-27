@@ -347,7 +347,7 @@ fieldset {
                 border-color 0.3s ease,
                 box-shadow 0.3s ease;
     will-change: transform, opacity;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .carousel-stage.is-dragging .carousel-card {
@@ -473,23 +473,34 @@ fieldset {
 
 .stamp-row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .stamp-row img {
-    width: 62px;
-    height: 62px;
+    width: 87px;
+    height: 87px;
+    flex: 0 1 auto;
+    max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.65));
-    transition: transform 0.2s ease;
 }
 
-.stamp-row img:hover {
-    transform: scale(1.12);
+.stamp-row:has(img:nth-child(4)) {
+    gap: 6px;
+}
+
+.stamp-row:has(img:nth-child(4)) img {
+    width: 64px;
+    height: 64px;
+}
+
+.stamp-row:has(img:nth-child(5)) img {
+    width: 52px;
+    height: 52px;
 }
 
 .card-empty {
@@ -609,6 +620,21 @@ fieldset {
         max-height: 375px;
         margin-top: -175px;
         padding: 20px 16px 18px;
+    }
+
+    .stamp-row img {
+        width: 72px;
+        height: 72px;
+    }
+
+    .stamp-row:has(img:nth-child(4)) img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .stamp-row:has(img:nth-child(5)) img {
+        width: 44px;
+        height: 44px;
     }
 
     .carousel-arrow {
